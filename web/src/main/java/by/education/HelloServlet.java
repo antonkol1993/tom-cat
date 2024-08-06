@@ -6,12 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int value = 999999999;
+        List<String> players = BlocksList.players();
+        List<String> ages = BlocksList.ages();
+        List<String> countries = BlocksList.countries();
+
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
         writer.write(
@@ -43,54 +47,19 @@ public class HelloServlet extends HttpServlet {
                                         
                         <table>
                           <tr>
-                            <th>Company</th>
-                            <th>Contact</th>
+                            <th>Player</th>
+                            <th>Age</th>
                             <th>Country</th>
                           </tr>
-                          <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                          </tr>
-                          <tr>
-                            <td>Centro comercial Moctezuma</td>
-                            <td>Francisco Chang</td>
-                            <td>Mexico</td>
-                          </tr>
-                          <tr>
-                            <td>Ernst Handel</td>
-                            <td>Roland Mendel</td>
-                            <td>Austria</td>
-                          </tr>
-                          <tr>
-                            <td>Island Trading</td>
-                            <td>Helen Bennett</td>
-                            <td>UK</td>
-                          </tr>
-                          <tr>
-                            <td>Laughing Bacchus Winecellars</td>
-                            <td>Yoshi Tannamuri</td>
-                            <td>Canada</td>
-                          </tr>
-                          <tr>
-                            <td>Magazzini Alimentari Riuniti</td>
-                            <td>Giovanni Rovelli</td>
-                            <td>Italy</td>
-                          </tr>
-                          <tr>
-                            <td>M Group trade</td>
-                            <td>Antonio</td>
-                            <td>Belarus</td>
-                          </tr>
-                          <tr>
-                            <td>Objectstyle LLC</td>
-                            <td>Andy</td>
-                            <td>Belarus</td>
-                          </tr>
-                        </table>
-                                        
-                        </body>
-                        </html>
-                """);
+                          """
+        );
+        for (int i = 0; i < BlocksList.players().size(); i++) {
+            writer.append("<tr>\n");
+            writer.append("<td>").append(players.get(i)).append("</td>\n");
+            writer.append("<td>").append(ages.get(i)).append("</td>\n");
+            writer.append("<td>").append(countries.get(i)).append("</td>\n");
+            writer.append("</tr>");
+        }
+        writer.append(" </table>\n" + " </body>\n" + " </html>");
     }
 }
