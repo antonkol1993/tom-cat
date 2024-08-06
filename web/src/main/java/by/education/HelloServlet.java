@@ -1,6 +1,7 @@
 package by.education;
 
-import javax.servlet.ServletException;
+import by.education.data.BlocksList;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import java.util.List;
 public class HelloServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         List<String> players = BlocksList.players();
         List<String> ages = BlocksList.ages();
         List<String> countries = BlocksList.countries();
@@ -60,6 +61,10 @@ public class HelloServlet extends HttpServlet {
             writer.append("<td>").append(countries.get(i)).append("</td>\n");
             writer.append("</tr>");
         }
-        writer.append(" </table>\n" + " </body>\n" + " </html>");
+        writer.append("""
+                 </table>
+                 </body>
+                 </html>\
+                """);
     }
 }

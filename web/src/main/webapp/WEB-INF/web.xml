@@ -15,4 +15,14 @@
     <url-pattern>/sayhello</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>GoodbyeServlet</servlet-name>
+    <servlet-class>by.education.GoodbyeServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GoodbyeServlet</servlet-name>
+    <url-pattern>/saygoodbye</url-pattern>
+  </servlet-mapping>
+
 </web-app>
