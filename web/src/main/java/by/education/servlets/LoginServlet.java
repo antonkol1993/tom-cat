@@ -1,4 +1,4 @@
-package by.education;
+package by.education.servlets;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

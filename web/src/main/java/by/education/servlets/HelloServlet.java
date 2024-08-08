@@ -1,4 +1,4 @@
-package by.education;
+package by.education.servlets;
 
 import by.education.data.Service;
 
