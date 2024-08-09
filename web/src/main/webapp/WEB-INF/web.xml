@@ -10,21 +10,5 @@
     <param-value>44</param-value>
   </context-param>
 
-  <servlet>
-    <servlet-name>HelloServlet</servlet-name>
-    <description>Some description</description>
-    <servlet-class>by.education.servlets.HelloServlet</servlet-class>
-
-    <init-param>
-      <param-name>test</param-name>
-      <param-value>2</param-value>
-    </init-param>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>HelloServlet</servlet-name>
-    <url-pattern>/sayhello</url-pattern>
-  </servlet-mapping>
-
 
 </web-app>
