@@ -4,9 +4,11 @@ import java.util.List;
 
 public class Service {
     private static Service instance;
-    PlayerList playerList = new PlayerList();
+
+    List<Player> playerList;
 
     private Service() {
+        playerList = new PlayerList().getPlayerArrayList();
     }
 
     public static Service getInstance() {
@@ -17,7 +19,7 @@ public class Service {
     }
 
     public List<Player> getList() {
-        return playerList.getPlayerArrayList();
+        return playerList;
     }
 
 }

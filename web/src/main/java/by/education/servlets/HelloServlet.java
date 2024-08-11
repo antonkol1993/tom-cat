@@ -3,6 +3,7 @@ package by.education.servlets;
 import by.education.data.Service;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +18,14 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-
+        Cookie cookie = new Cookie("Anton", "Java-developer");
+        cookie.setComment("I love extra homework");
+        cookie.setHttpOnly(true);
+        resp.addCookie(cookie);
         resp.setContentType("text/html");
+
+        resp.addHeader("Set-Cookie", "JSESSIONID=33F6FD3CE3CAAFBDB516FCB1956F5303; Path=/web; HttpOnly");
+
         PrintWriter writer = resp.getWriter();
         writer.write(
                 """
