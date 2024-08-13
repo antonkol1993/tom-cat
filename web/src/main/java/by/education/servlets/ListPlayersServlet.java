@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloServlet", urlPatterns = "/hello")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "ListPlayersServlet", urlPatterns = "/players")
+public class ListPlayersServlet extends HttpServlet {
     private final Service player = Service.getInstance();
     private final int size = player.getList().size();
 
@@ -23,7 +23,6 @@ public class HelloServlet extends HttpServlet {
         cookie.setHttpOnly(true);
         resp.addCookie(cookie);
         resp.setContentType("text/html");
-
         resp.addHeader("Set-Cookie", "JSESSIONID=33F6FD3CE3CAAFBDB516FCB1956F5303; Path=/web; HttpOnly");
 
         PrintWriter writer = resp.getWriter();

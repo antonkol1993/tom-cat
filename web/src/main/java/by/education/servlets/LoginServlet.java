@@ -18,13 +18,14 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String player = request.getParameter("player");
+        String age = request.getParameter("age");
+        String country = request.getParameter("country");
 
-        request.getSession().getAttribute("login");
+
+        request.getSession().getAttribute("add");
         ServletContext servletContext = request.getServletContext();
         String rere = servletContext.getInitParameter("rere");
-
 
         String header = request.getHeader("User-Agent");
 //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
@@ -48,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 <body>
                 <h2>Login Page</h2>
                 """ +
-                "<p>Hello <b>" + login + "</b>. Your pass is <b>" + password + "</b></p>" +
+                "<p>Player is <b>" + player + "</b>. His age is <b>" + age + "</b> Country is <b>" + country + "</b></p>" +
                 //header
                 // cookie
                 """  
