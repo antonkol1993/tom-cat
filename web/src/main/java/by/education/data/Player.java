@@ -2,6 +2,7 @@ package by.education.data;
 
 public class Player {
 
+    private final Integer id = 0;
     private final String name;
     private final Integer age;
     private final String country;

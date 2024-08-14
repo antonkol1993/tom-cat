@@ -1,6 +1,7 @@
 package by.education.servlets;
 
-import by.education.data.Service;
+import by.education.data.Player;
+import by.education.service.PlayerService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -9,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "ListPlayersServlet", urlPatterns = "/players")
 public class ListPlayersServlet extends HttpServlet {
-    private final Service player = Service.getInstance();
-    private final int size = player.getList().size();
+    private final PlayerService playerService = PlayerService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -25,6 +27,7 @@ public class ListPlayersServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.addHeader("Set-Cookie", "JSESSIONID=33F6FD3CE3CAAFBDB516FCB1956F5303; Path=/web; HttpOnly");
 
+//        req.setAttribute("playerList", new ArrayList<Player>());
         PrintWriter writer = resp.getWriter();
         writer.write(
                 """
@@ -62,11 +65,12 @@ public class ListPlayersServlet extends HttpServlet {
                          \s"""
         );
 
-        for (int i = 0; i < size; i++) {
-            String name = player.getList().get(i).getName();
-            Integer age = player.getList().get(i).getAge();
-            String country = player.getList().get(i).getCountry();
-
+        List<Player> playerList = playerService.getList();
+        for (Player player : playerList) {
+            String name = player.getName();
+            Integer age = player.getAge();
+            String country = player.getCountry();
+//            writer.println()
             writer.append("<tr>\n");
             writer.append("<td>").append(name).append("</td>\n");
             writer.append("<td>").append(String.valueOf(age)).append("</td>\n");
