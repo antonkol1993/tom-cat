@@ -1,6 +1,5 @@
 package by.education.servlets;
 
-import by.education.data.Player;
 import by.education.service.PlayerService;
 
 import javax.servlet.ServletException;
@@ -14,8 +13,8 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Iterator;
 
-@WebServlet(name = "GetHeaderServlet", urlPatterns = "/getHeader")
-public class GetHeaderServlet extends HttpServlet {
+@WebServlet(name = "GetHeaderServlet", urlPatterns = "/changePlayers")
+public class ChangePlayersListServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
 
@@ -46,9 +45,9 @@ public class GetHeaderServlet extends HttpServlet {
         String age = req.getParameter("age");
         String country = req.getParameter("country");
 
-        Player player1 = new Player(player, Integer.valueOf(age), country);
-
-        playerService.getList().add(player1);
+//        Player player1 = new Player(player, Integer.valueOf(age), country);
+//
+//        playerService.getList().add(player1);
 //        playerService.addPlayer(player1);
 //        playerService.addPlayer(player, Integer.valueOf(age), country);
         resp.setContentType("text/html");
