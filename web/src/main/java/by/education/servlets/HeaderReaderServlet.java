@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Iterator;
 
-@WebServlet(name = "HeaderReaderServlet", urlPatterns = "/read")
+@WebServlet(name = "HeaderReaderServlet", urlPatterns = "/header")
 public class HeaderReaderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
