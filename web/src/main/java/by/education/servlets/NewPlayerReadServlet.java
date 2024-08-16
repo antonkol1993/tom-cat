@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Iterator;
 
-@WebServlet(name = "GetHeaderServlet", urlPatterns = "/changePlayers")
-public class ChangePlayersListServlet extends HttpServlet {
+@WebServlet(name = "GetHeaderServlet", urlPatterns = "/newPlayerRead")
+public class NewPlayerReadServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
 
@@ -35,7 +35,7 @@ public class ChangePlayersListServlet extends HttpServlet {
         cookie.setComment("I love extra homework");
         cookie.setHttpOnly(true);
         resp.addCookie(cookie);
-        req.getRequestDispatcher("/headers.jsp").forward(req, resp);
+        req.getRequestDispatcher("/enterPlayer.jsp").forward(req, resp);
     }
 
     @Override

@@ -9,7 +9,7 @@
 <h6>I'm okay </h6>
 </body>
 </html>
-<form action="getHeader" method="post">
+<form action="newPlayerRead" method="post">
     Player:<input name="player" type="text"><br/>
     Age:<input name="age" type="number"><br/>
     Country:<input name="country" type="text"><br/>
