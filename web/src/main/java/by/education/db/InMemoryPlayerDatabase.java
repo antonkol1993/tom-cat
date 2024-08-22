@@ -7,15 +7,15 @@ import java.util.List;
 
 public class InMemoryPlayerDatabase implements PlayerDatabase {
 
-    private List<Player> playerList = Arrays.asList(
-            new Player("Rois", 34, "Germany"),
-            new Player("Hleb", 38, "Belarus"),
-            new Player("Mironchyk", 31, "Russia"),
-            new Player("Bensema", 35, "France"),
-            new Player("Lukaku", 33, "Belgium"),
-            new Player("Donnarumma", 24, "Italy"),
-            new Player("Jamal", 17, "Spain"),
-            new Player("Messi", 36, "Argentina")
+    private static List<Player> playerList = Arrays.asList(
+            new Player("Rois", 34, "Germany",1),
+            new Player("Hleb", 38, "Belarus",2),
+            new Player("Mironchyk", 31, "Russia",3),
+            new Player("Bensema", 35, "France",4),
+            new Player("Lukaku", 33, "Belgium",5),
+            new Player("Donnarumma", 24, "Italy",6),
+            new Player("Jamal", 17, "Spain",7),
+            new Player("Messi", 36, "Argentina",8)
     );
 
     @Override
@@ -25,7 +25,7 @@ public class InMemoryPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-
+        playerList.add(player);
     }
 
 }

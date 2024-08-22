@@ -13,6 +13,5 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-
     }
 }
