@@ -25,5 +25,9 @@ public class PlayerService {
     public List<Player> getList() {
         return playerListDatabase.getPlayerList();
     }
+    public List<Player> addPlayer(Player player) {
+        playerListDatabase.addPlayer(player);
+        return playerListDatabase.getPlayerList();
+    }
 
 }
