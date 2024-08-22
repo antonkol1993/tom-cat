@@ -22,6 +22,11 @@
             <li>${day}</li>
         </c:if>
 
+
+        <li>${day}</li>
+        <li>${day}</li>
+        <li>${day}</li>
+        <li>${day}</li>
     </c:forEach>
 </ul>
 

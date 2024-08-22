@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -15,12 +15,9 @@
 <ul>
 
     <%--    <% List<String> days = (List<String>) request.getAttribute("days"); %>--%>
-    <c:forEach items="${days2}" var="day">
-        <c:if test="${day.length() <= 3}">
-            <li>${day}</li>
-        </c:if>
+    <t:forEach items="${days2}" var="day">
 
-    </c:forEach>
+    </t:forEach>
 </ul>
 </body>
 </html>
