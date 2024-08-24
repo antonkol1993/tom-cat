@@ -17,7 +17,7 @@
 <ul>
 
     <%--    <% List<String> days = (List<String>) request.getAttribute("days"); %>--%>
-    <c:forEach items="${days2}" var="day">
+    <c:forEach items="${days}" var="day">
         <c:if test="${day.length() <= 3}">
             <li>${day}</li>
         </c:if>
