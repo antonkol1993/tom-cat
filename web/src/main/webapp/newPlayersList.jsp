@@ -11,37 +11,67 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
 <head>
-    <title>Title</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
-<ul>
 
-    <% int i = 0; %>
+<h2>HTML Table</h2>
 
-    <% List<Player> players = PlayerService.getInstance().getList();%>
-    <% Integer sizePlayersList = PlayerService.getInstance().getList().size();%>
-<%--    <jsp:useBean id="size" />--%>
-<%--    <jsp:setProperty name="size"--%>
-<%--                     property="propName"--%>
-<%--                     value="<%= sizePlayersList %>"/>--%>
-<%--    <jsp:getProperty name="size" property="propName"/>--%>
+<table>
+    <tr>
+        <th>Player</th>
+        <th>age</th>
+        <th>country</th>
+        <th>ID</th>
+        <th>reference</th>
+    </tr>
+<html>
 
-    <t:forEach var="i" begin="0" end="7">
-        <li>
-            <%
-                Player player = players.get(i);
-                String name = player.getName();
-                Integer age = player.getAge();
-                String country = player.getCountry();
-                Integer id = player.getId();
-            %>
-            <%=name+ ","%> <%="," +age%> <%=", " +country%> <%=", " + id%>
+<body>
+<%--<ul>--%>
 
-        </li>
-        <% i ++; %>
-    </t:forEach>
-</ul>
+<%--    <% int i = 0; %>--%>
+
+<%--    <% List<Player> players = PlayerService.getInstance().getList();%>--%>
+<%--    <% Integer sizePlayersList = PlayerService.getInstance().getList().size();%>--%>
+<%--&lt;%&ndash;    <jsp:useBean id="jspPlayers" class="by.education.data.Player" />&ndash;%&gt;--%>
+<%--&lt;%&ndash;    <jsp:setProperty name="jspPlayers" property="age" value="<%= sizePlayersList %>"/>&ndash;%&gt;--%>
+<%--&lt;%&ndash;    <jsp:getProperty name="size" property="propName"/>&ndash;%&gt;--%>
+
+<%--    <h2>name age country id Player</h2>--%>
+<%--    <t:forEach items="${list}" var="player">--%>
+<%--        <li>--%>
+
+<%--            <%--%>
+<%--                Player player = players.get(i);--%>
+<%--                String name = player.getName();--%>
+<%--                Integer age = player.getAge();--%>
+<%--                String country = player.getCountry();--%>
+<%--                Integer id = player.getId();--%>
+<%--            %>--%>
+<%--            <%=name+ ","%> <%="," +age%> <%=", " +country%> <%=", " + id%> <%=", " + player%>--%>
+<%--        </li>--%>
+<%--        <% i ++; %>--%>
+<%--    </t:forEach>--%>
+<%--</ul>--%>
+</table>
+
 </body>
 </html>

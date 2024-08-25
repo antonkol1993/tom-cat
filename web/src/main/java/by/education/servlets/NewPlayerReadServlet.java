@@ -25,24 +25,24 @@ public class NewPlayerReadServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Player> list = playerService.getList();
-        String name;
-        Integer age;
-        String country;
-        Integer id;
-        for (int i = 0; i < list.size(); i++) {
-            name = list.get(i).getName();
-            age = list.get(i).getAge();
-//            country = list.get(i).getCountry();
-//            id = list.get(i).getId();
-            req.setAttribute("list", list);
-            req.setAttribute("name", name);
-            req.setAttribute("age", age);
-//            req.setAttribute("country", country);
-//            req.setAttribute("id", id);
-////            req.setAttribute("numbList",list.size());
-        }
+//        String name;
+//        Integer age;
+//        String country;
+//        Integer id;
+//        int size;
+        req.setAttribute("list", list);
+//        for (int i = 0; i < list.size(); i++) {
+////            name = list.get(i).getName();
+////            age = list.get(i).getAge();
+////            country = list.get(i).getCountry();
+////            id = list.get(i).getId();
+////            req.setAttribute("name", name);
+////            req.setAttribute("age", age);
+////            req.setAttribute("country", country);
+////            req.setAttribute("id", id);
+//////            req.setAttribute("numbList",list.size());
+//        }
 
         req.getRequestDispatcher("newPlayersList.jsp").forward(req, resp);
-        System.out.println(list);
     }
 }
