@@ -27,7 +27,6 @@ public class PlayerService {
     }
     public void addPlayer(Player player) {
         playerListDatabase.addPlayer(player);
-        playerListDatabase.getPlayerList();
     }
 //    public List<Player> deletePlayer (Player player) {
 //        playerListDatabase.rem(player);

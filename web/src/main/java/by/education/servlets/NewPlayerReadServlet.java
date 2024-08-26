@@ -25,24 +25,21 @@ public class NewPlayerReadServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Player> list = playerService.getList();
-//        String name;
-//        Integer age;
-//        String country;
-//        Integer id;
-//        int size;
-        req.setAttribute("list", list);
-//        for (int i = 0; i < list.size(); i++) {
-////            name = list.get(i).getName();
-////            age = list.get(i).getAge();
-////            country = list.get(i).getCountry();
-////            id = list.get(i).getId();
-////            req.setAttribute("name", name);
-////            req.setAttribute("age", age);
-////            req.setAttribute("country", country);
-////            req.setAttribute("id", id);
-//////            req.setAttribute("numbList",list.size());
-//        }
 
+        req.setAttribute("list", list);
+        req.getRequestDispatcher("newPlayersList.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        Integer age = Integer.parseInt(req.getParameter("age"));
+        String country = req.getParameter("country");
+        Integer id = Integer.parseInt(req.getParameter("id"));
+
+        playerService.addPlayer(new Player(name,age,country,id));
+        List<Player> list = playerService.getList();
+        req.setAttribute("list", list);
         req.getRequestDispatcher("newPlayersList.jsp").forward(req, resp);
     }
 }

@@ -21,7 +21,7 @@
             background-color: #dddddd;
         }
     </style>
-    <title>out players to browser</title>
+    <title>Players list</title>
 </head>
 <body>
 
@@ -63,41 +63,14 @@
         </td>
         <td><%=player%>
         </td>
+        <td>
+            <button type="button" name="popup-button">delete</button>
+        </td>
         <% i++; %>
     </tr>
+
     </t:forEach>
 
-
-    <%--<html>--%>
-
-    <%--<body>--%>
-    <%--<ul>--%>
-
-    <%--    <% int i = 0; %>--%>
-
-    <%--    <% List<Player> players = PlayerService.getInstance().getList();%>--%>
-    <%--    <% Integer sizePlayersList = PlayerService.getInstance().getList().size();%>--%>
-    <%--&lt;%&ndash;    <jsp:useBean id="jspPlayers" class="by.education.data.Player" />&ndash;%&gt;--%>
-    <%--&lt;%&ndash;    <jsp:setProperty name="jspPlayers" property="age" value="<%= sizePlayersList %>"/>&ndash;%&gt;--%>
-    <%--&lt;%&ndash;    <jsp:getProperty name="size" property="propName"/>&ndash;%&gt;--%>
-
-    <%--    <h2>name age country id Player</h2>--%>
-    <%--    <t:forEach items="${list}" var="player">--%>
-    <%--        <li>--%>
-
-    <%--            <%--%>
-    <%--                Player player = players.get(i);--%>
-    <%--                String name = player.getName();--%>
-    <%--                Integer age = player.getAge();--%>
-    <%--                String country = player.getCountry();--%>
-    <%--                Integer id = player.getId();--%>
-    <%--            %>--%>
-    <%--            <%=name+ ","%> <%="," +age%> <%=", " +country%> <%=", " + id%> <%=", " + player%>--%>
-    <%--        </li>--%>
-    <%--        <% i ++; %>--%>
-    <%--    </t:forEach>--%>
-    <%--</ul>--%>
-    <%--</table>--%>
-
+    <a href="<t:url value="/enterPlayer.jsp"/>"> add_player</a>
 </body>
 </html>
