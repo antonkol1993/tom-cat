@@ -10,9 +10,12 @@ import java.util.List;
 public class PlayerService {
     private static PlayerService instance;
 
+    private Integer maxId;
+
     PlayerDatabase playerListDatabase = new InMemoryPlayerDatabase();
 
     private PlayerService() {
+        // todo init maxId + 1
     }
 
     public static PlayerService getInstance() {
@@ -22,10 +25,11 @@ public class PlayerService {
         return instance;
     }
 
-    public List<Player> getList() {
+    public List<Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
     }
     public void addPlayer(Player player) {
+        maxId++;
         playerListDatabase.addPlayer(player);
     }
 //    public List<Player> deletePlayer (Player player) {

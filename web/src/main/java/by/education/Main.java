@@ -4,6 +4,7 @@ import by.education.data.Player;
 import by.education.db.InMemoryPlayerDatabase;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -18,6 +19,9 @@ public class Main {
         listPlayers.add(new Player("Kane",36,"BELSDAA",21321));
         listPlayers.add(new Player("Robinho",16,"BELSDAA",21321));
 
+        List<Player> list = List.of(listPlayers.get(0), listPlayers.get(1), listPlayers.get(2), listPlayers.get(3));
+
+        list.set(0, new Player("Kane",36,"BELSDAA",21321));
 
         for (int i = 0; i < listPlayers.size(); i++) {
 

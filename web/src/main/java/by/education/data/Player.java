@@ -2,11 +2,13 @@ package by.education.data;
 
 public class Player {
 
-    private final Integer id;
-    private final String name;
-    private final Integer age;
-    private final String country;
+    private Integer id;
+    private String name;
+    private Integer age;
+    private String country;
 
+    public Player() {
+    }
 
     public Player(String name, Integer age, String country, Integer id) {
         this.name = name;
@@ -29,5 +31,21 @@ public class Player {
 
     public String getCountry() {
         return country;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

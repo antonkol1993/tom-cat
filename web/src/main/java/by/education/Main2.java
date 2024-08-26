@@ -1,7 +1,6 @@
 package by.education;
 
 import by.education.data.Player;
-import by.education.db.InMemoryPlayerDatabase;
 import by.education.service.PlayerService;
 
 public class Main2 {
@@ -25,15 +24,15 @@ public class Main2 {
 //        }
 
         PlayerService playerService = PlayerService.getInstance();
-        playerService.getList();
+        playerService.getPlayerList();
         playerService.addPlayer(new Player("Pique",26,"BELSDAA",21321));
         playerService.addPlayer(new Player("Kane",36,"BELSDAA",21321));
         playerService.addPlayer(new Player("Robinho",16,"BELSDAA",21321));
-        for (int i = 0; i < playerService.getList().size(); i++) {
-            String name = playerService.getList().get(i).getName();
-            Integer age = playerService.getList().get(i).getAge();
-            String country = playerService.getList().get(i).getCountry();
-            Integer id1 = playerService.getList().get(i).getId();
+        for (int i = 0; i < playerService.getPlayerList().size(); i++) {
+            String name = playerService.getPlayerList().get(i).getName();
+            Integer age = playerService.getPlayerList().get(i).getAge();
+            String country = playerService.getPlayerList().get(i).getCountry();
+            Integer id1 = playerService.getPlayerList().get(i).getId();
             System.out.println(name + "," + age + "," + country + "," + id1);
         }
 
