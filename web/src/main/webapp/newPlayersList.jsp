@@ -66,6 +66,9 @@
         <td>
             <button type="button" name="popup-button">delete</button>
         </td>
+        <td>
+            <button type="button" name="popup-button">add</button>
+        </td>
         <% i++; %>
     </tr>
 
