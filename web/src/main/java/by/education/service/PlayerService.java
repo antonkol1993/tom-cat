@@ -25,9 +25,13 @@ public class PlayerService {
     public List<Player> getList() {
         return playerListDatabase.getPlayerList();
     }
-    public List<Player> addPlayer(Player player) {
+    public void addPlayer(Player player) {
         playerListDatabase.addPlayer(player);
-        return playerListDatabase.getPlayerList();
+        playerListDatabase.getPlayerList();
     }
+//    public List<Player> deletePlayer (Player player) {
+//        playerListDatabase.rem(player);
+//        return playerListDatabase.getPlayerList();
+//    }
 
 }
