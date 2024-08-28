@@ -1,27 +1,21 @@
-package by.education.servlets;
+package by.education.servlets.old;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.Iterator;
 
-@WebServlet(name = "CookieReaderServlet", urlPatterns = "/cookie")
-public class CookieReaderServlet extends HttpServlet {
-
+@WebServlet(name = "HeaderReaderServlet", urlPatterns = "/header")
+public class HeaderReaderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie[] cookies = req.getCookies();
-
-
-        String string = Arrays.toString(req.getCookies());
-
-        resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
+        resp.setContentType("text/html");
         writer.write(
 
                 """
@@ -54,12 +48,16 @@ public class CookieReaderServlet extends HttpServlet {
                                              
                          \s"""
         );
-        for (int i = 0; i < cookies.length; i++) {
-            Cookie cookie = cookies[i];
-            String name = cookie.getName();
 
-            System.out.println(i + 1 + "." + name);
-            writer.append(String.valueOf(i + 1)).append(".").append(name).append("<br>");
+        Enumeration<String> headerNames = req.getHeaderNames();
+        int i = 0;
+        for (Iterator<String> list = headerNames.asIterator(); list.hasNext(); i++) {
+            String headerName = list.next();
+            String headerValue = req.getHeader(headerName);
+//            System.out.println(i + "." + headerName + ": " + headerValue + ";");
+
+            writer.append(String.valueOf(i)).append(".").append(headerName)
+                    .append(": ").append(headerValue).append(";<br>");
         }
         writer.append("""
                  </table>

@@ -1,4 +1,4 @@
-package by.education.servlets;
+package by.education.servlets.old;
 
 import by.education.data.Player;
 import by.education.service.PlayerService;

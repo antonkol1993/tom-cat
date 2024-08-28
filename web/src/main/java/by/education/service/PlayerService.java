@@ -6,16 +6,15 @@ import by.education.data.Player;
 import by.education.db.PlayerDatabase;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PlayerService {
     private static PlayerService instance;
 
     private Integer maxId;
-
     PlayerDatabase playerListDatabase = new InMemoryPlayerDatabase();
 
     private PlayerService() {
-        // todo init maxId + 1
     }
 
     public static PlayerService getInstance() {
@@ -28,13 +27,33 @@ public class PlayerService {
     public List<Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
     }
-    public void addPlayer(Player player) {
-        maxId++;
-        playerListDatabase.addPlayer(player);
+
+    public void addPlayer(String name, Integer age, String country) {
+        getID();
+        playerListDatabase.addPlayer(new Player(name, age, country, ++maxId));
     }
-//    public List<Player> deletePlayer (Player player) {
-//        playerListDatabase.rem(player);
-//        return playerListDatabase.getPlayerList();
-//    }
+
+
+    public Integer deletePlayer(Integer id) {
+
+        int i = 0;
+        while (i < getPlayerList().size()) {
+            if (Objects.equals(id, getPlayerList().get(i).getId())) getPlayerList().remove(i);
+            i++;
+
+        }
+        return --i;
+    }
+
+    private void getID() {
+        maxId = getPlayerList().get(0).getId();
+        for (int i = 0; i < getPlayerList().size(); i++) {
+            if (maxId < getPlayerList().get(i).getId()) {
+                maxId = getPlayerList().get(i).getId();
+            }
+        }
+
+    }
+
 
 }

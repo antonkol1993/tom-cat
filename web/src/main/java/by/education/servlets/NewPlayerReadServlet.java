@@ -40,9 +40,8 @@ public class NewPlayerReadServlet extends HttpServlet {
         String name = req.getParameter("name");
         Integer age = Integer.parseInt(req.getParameter("age"));
         String country = req.getParameter("country");
-        Integer id = Integer.parseInt(req.getParameter("id"));
 
-        playerService.addPlayer(new Player(name,age,country,id));
+        playerService.addPlayer(name,age,country);
         doGet(req, resp);
 //        List<Player> list = playerService.getPlayerList();
 //        req.setAttribute("list", list);

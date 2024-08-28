@@ -12,6 +12,11 @@ public class DbPlayerDatabase implements PlayerDatabase {
     }
 
     @Override
-    public void addPlayer(Player player) {
+    public void addPlayer(Player palyer) {
+    }
+
+    @Override
+    public void removePlayer(int id) {
+
     }
 }

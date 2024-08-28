@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryPlayerDatabase implements PlayerDatabase {
-    private List<Player> playerList;
+    private final List<Player> playerList;
 
     public InMemoryPlayerDatabase() {
         playerList = new ArrayList<>();
@@ -30,5 +30,9 @@ public class InMemoryPlayerDatabase implements PlayerDatabase {
         playerList.add(player);
     }
 
+    @Override
+    public void removePlayer(int e) {
+            playerList.remove(e);
+        }
 
 }

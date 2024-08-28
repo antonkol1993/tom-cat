@@ -7,6 +7,7 @@ public class Player {
     private Integer age;
     private String country;
 
+//    private
     public Player() {
     }
 

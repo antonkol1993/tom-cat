@@ -37,66 +37,35 @@
     </tr>
 
 
-    <%--    <% List<Player> players = PlayerService.getInstance().getPlayerList();%>--%>
-
-    <%--    <jsp:setProperty name="jspPlayers" property="age" value="<%= sizePlayersList %>"/>--%>
-    <%--    <jsp:getProperty name="size" property="propName"/>--%>
-
     <t:forEach items="${list}" var="player">
 
+        <tr>
+            <td>${player.name}
+            </td>
+            <td>${player.age}
+            </td>
+            <td>${player.country}
+            </td>
+            <td>${player.id}
+            </td>
+            <td>${player}
+            </td>
+            <td>
 
-<%--            <%
-                    String name = player.getName();
-                    Integer age = player.getAge();
-                    String country = player.getCountry();
-                    Integer id = player.getId();
-                %>--%>
-    <tr>
-        <td>${player.name}<%--<%=name%>--%>
-        </td>
-        <td>${player.age}<%--<%=age%>--%>
-        </td>
-        <td>${player.country}<%--<%=country%>--%>
-        </td>
-        <td>${player.id}<%--<%=id%>--%>
-        </td>
-        <td>${player}<%--<%=player%>--%>
-        </td>
-        <td>
-            <button type="button" name="popup-button">delete</button>
-        </td>
-        <td>
-            <button type="button" name="popup-button">add</button>
-        </td>
-    </tr>
+
+                <form action="../newPlayerRead" method="post">
+                    <button type="button" name="delete" value="${player.id}"
+                    >delete</button>
+
+                </form>
+                        <%--                <form action="../newPlayerRead" method="post"></form>--%>
+            </td>
+                <%--            <td>--%>
+                <%--                <button type="button" name="popup-button">add</button>--%>
+                <%--            </td>--%>
+        </tr>
 
     </t:forEach>
-
-    <jsp:useBean id="somePlayer"  class="by.education.data.Player" scope="request">
-        <jsp:setProperty name="somePlayer" property="name" value="Antonio"/>
-        <jsp:setProperty name="somePlayer" property="age" value="30"/>
-        <jsp:setProperty name="somePlayer" property="country" value="Kolodischi"/>
-    </jsp:useBean>
-
-    <jsp:setProperty name="somePlayer" property="id" value="-11"/>
-    <tr>
-        <td>${somePlayer.name}<%--<%=name%>--%>
-        </td>
-        <td>${somePlayer.age}<%--<%=age%>--%>
-        </td>
-        <td>${somePlayer.country}<%--<%=country%>--%>
-        </td>
-        <td>${somePlayer.id}<%--<%=id%>--%>
-        </td>
-        <td>${somePlayer}<%--<%=player%>--%>
-        </td>
-        <td>
-            <button type="button" name="popup-button">delete</button>
-        </td>
-        <td>
-            <button type="button" name="popup-button">add</button>
-        </td>
-    </tr>
     <a href="<t:url value="/player/enterPlayer.jsp"/>"> add_player</a>
 </table>
 </body>
