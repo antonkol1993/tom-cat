@@ -37,13 +37,13 @@ public class NewPlayerReadServlet extends HttpServlet {
         String contextPath = req.getContextPath(); ///newPlayerRead/{id}
         //  str a = {id} to integer
 //        resp.sendError(400);
-        String name = req.getParameter("name");
-        Integer age = Integer.parseInt(req.getParameter("age"));
-        String country = req.getParameter("country");
-
-
-        playerService.addPlayer(name,age,country);
-        Integer delete = Integer.parseInt(req.getParameter("delete"));
+//        String name = req.getParameter("name");
+//        Integer age = Integer.parseInt(req.getParameter("age"));
+//        String country = req.getParameter("country");
+//
+//
+//        playerService.addPlayer(name,age,country);
+//        Integer delete = Integer.parseInt(req.getParameter("delete"));
         doGet(req, resp);
 //        List<Player> list = playerService.getPlayerList();
 //        req.setAttribute("list", list);
