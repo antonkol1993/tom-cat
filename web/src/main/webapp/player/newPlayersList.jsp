@@ -53,11 +53,12 @@
             <td>
 
 
-                <form action="../newPlayerRead" method="post">
-                    <button type="button" name="delete" value="${player.id}"
-                    >delete</button>
-
+                <form action="newPlayerRead" method="post">
+<%--                        ${player.id}--%>
+                    <input type="hidden"  name="delete" value="${player.id}"  />
+                    <input value="Delete" type="submit">
                 </form>
+
                         <%--                <form action="../newPlayerRead" method="post"></form>--%>
             </td>
                 <%--            <td>--%>
