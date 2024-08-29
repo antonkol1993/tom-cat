@@ -6,7 +6,7 @@
 <body>
 <h1>Enter to add a player </h1>
 
-<form action="../listServlet" method="post">
+<form action="add" method="post">
     Player:<input name="name" type="text"><br/>
     Age:<input name="age" type="number"><br/>
     Country:<input name="country" type="text"><br/>

@@ -26,13 +26,13 @@ public class TakingServlet extends HttpServlet {
         String add = req.getParameter("add");
 
         if (!Objects.equals(delete, null)) {
-            doGet(req, resp);
+            req.getRequestDispatcher("/remove").forward(req, resp);
         }
-        if (Objects.equals(add, "edit")) {
-            doGet(req, resp);
+        if (!Objects.equals(edit, null)) {
+            req.getRequestDispatcher("/player/editPlayer.jsp").forward(req, resp);
         }
-        if (Objects.equals(add, "add")) {
-            doGet(req, resp);
+        if (!Objects.equals(add, null)) {
+            req.getRequestDispatcher("/player/addPlayer.jsp").forward(req, resp);
         }
 
     }

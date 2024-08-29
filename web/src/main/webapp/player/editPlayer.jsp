@@ -6,7 +6,7 @@
 <body>
 <h1>Enter to edit a player </h1>
 
-<form action="../taking" method="post">
+<form action="edit" method="post">
     Player:<input name="name" type="text"><br/>
     Age:<input name="age" type="number"><br/>
     Country:<input name="country" type="text"><br/>
