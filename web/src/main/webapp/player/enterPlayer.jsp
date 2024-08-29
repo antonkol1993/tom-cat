@@ -6,10 +6,11 @@
 <body>
 <h1>Enter a player </h1>
 
-<form action="../newPlayerRead" method="post">
+<form action="../taking" method="post">
     Player:<input name="name" type="text"><br/>
     Age:<input name="age" type="number"><br/>
     Country:<input name="country" type="text"><br/>
+    <input name="add" type="hidden" value="add">
     <input value="add" type="submit">
 </form>
 

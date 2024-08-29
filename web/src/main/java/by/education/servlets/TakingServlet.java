@@ -20,6 +20,9 @@ public class TakingServlet extends HttpServlet {
 
         if (!Objects.equals(delete, null)) {
             req.getRequestDispatcher("/remove").forward(req,resp);
+        } if (Objects.equals(add, "add")){
+            req.getRequestDispatcher("/add").forward(req,resp);
         }
+
     }
 }
