@@ -4,19 +4,19 @@ import by.education.data.Player;
 
 import java.util.List;
 
-public class DbPlayerDatabase implements PlayerDatabase {
+public class DbPlayerDatabase  {//*implements PlayerDatabase*//
 
-    @Override
-    public List<Player> getPlayerList() {
-        return List.of();
-    }
-
-    @Override
-    public void addPlayer(Player palyer) {
-    }
-
-    @Override
-    public void removePlayer(int id) {
-
-    }
+//    @Override
+//    public List<Player> getPlayerList() {
+//        return List.of();
+//    }
+//
+//    @Override
+//    public void addPlayer(Player palyer) {
+//    }
+//
+//    @Override
+//    public void removePlayer(int id) {
+//
+//    }
 }

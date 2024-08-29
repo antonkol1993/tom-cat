@@ -10,4 +10,6 @@ public interface PlayerDatabase {
 
     void addPlayer(Player player);
     void removePlayer(int id);
+    void editPlayer(int i, Player player);
+
 }

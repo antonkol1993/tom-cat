@@ -22,18 +22,8 @@ public class Main {
         playerService.addPlayer("213321321", 23241, "asewqq1");
 //        playerService.addPlayer("DADASDSA", 5555, "##@!#!@!#@");
 
-        playerService.deletePlayer(0);
-        playerService.deletePlayer(1);
-        playerService.deletePlayer(2);
-        playerService.deletePlayer(3);
-        playerService.deletePlayer(4);
-        playerService.deletePlayer(5);
-        playerService.deletePlayer(6);
-        playerService.deletePlayer(7);
-        playerService.deletePlayer(8);
-        playerService.deletePlayer(9);
-        playerService.deletePlayer(10);
-        playerService.addPlayer("213321321", 23241, "asewqq1");
+
+
 
         for (int i = 0; i < playerList.size(); i++) {
 
@@ -45,7 +35,24 @@ public class Main {
             System.out.print(",");
             System.out.print(playerList.get(i).getId());
             System.out.println();
-        }
-    }
 
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        playerService.editPlayer(3,"MESSIDSSD", 33333,"ARGENTINA");
+        for (int i = 0; i < playerList.size(); i++) {
+
+            System.out.print(playerList.get(i).getName());
+            System.out.print(",");
+            System.out.print(playerList.get(i).getAge());
+            System.out.print(",");
+            System.out.print(playerList.get(i).getCountry());
+            System.out.print(",");
+            System.out.print(playerList.get(i).getId());
+            System.out.println();
+
+        }
+
+    }
 }

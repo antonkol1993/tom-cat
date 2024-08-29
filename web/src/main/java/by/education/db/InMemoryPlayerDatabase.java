@@ -35,4 +35,9 @@ public class InMemoryPlayerDatabase implements PlayerDatabase {
             playerList.remove(e);
         }
 
+    @Override
+    public void editPlayer(int i, Player player) {
+        playerList.set(i,player);
+    }
+
 }
