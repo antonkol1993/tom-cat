@@ -8,8 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
 
-@WebServlet (name="TakingServlet", urlPatterns = "/taking")
+@WebServlet(name = "TakingServlet", urlPatterns = "/taking")
 public class TakingServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String delete = req.getParameter("delete");
+        String edit = req.getParameter("edit");
+        String add = req.getParameter("add");
+        req.getRequestDispatcher("/player/editPlayer.jsp");
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -19,9 +26,13 @@ public class TakingServlet extends HttpServlet {
         String add = req.getParameter("add");
 
         if (!Objects.equals(delete, null)) {
-            req.getRequestDispatcher("/remove").forward(req,resp);
-        } if (Objects.equals(add, "add")){
-            req.getRequestDispatcher("/listServlet").forward(req,resp);
+            doGet(req, resp);
+        }
+        if (Objects.equals(add, "edit")) {
+            doGet(req, resp);
+        }
+        if (Objects.equals(add, "add")) {
+            doGet(req, resp);
         }
 
     }

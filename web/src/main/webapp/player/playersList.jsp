@@ -76,7 +76,7 @@
                     <input type="hidden" name="delete" value="${player.id}"/>
                     <input value="Delete" type="submit" class="delete_submit">
                 </form>
-                <form action="${pageContext.request.contextPath}/player/editPlayer.jsp" method="post">
+                <form action="${pageContext.request.contextPath}/taking" method="post">
                     <input type="hidden" name="edit" value="${player.id}"/>
                     <input value="Edit" type="submit" class="edit_submit">
                 </form>
@@ -91,7 +91,7 @@
 
     </t:forEach>
 
-    <form action="${pageContext.request.contextPath}/player/addPlayer.jsp">
+    <form action="${pageContext.request.contextPath}/taking" method="post">
         <input value="Add" type="submit" class="add_submit">
     </form>
 
