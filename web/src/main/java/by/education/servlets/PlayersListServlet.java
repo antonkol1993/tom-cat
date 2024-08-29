@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.String.valueOf;
 
-@WebServlet(name = "GetHeaderServlet", urlPatterns = "/newPlayerRead")
-public class NewPlayerReadServlet extends HttpServlet {
+@WebServlet(name = "listServlet", urlPatterns = "/listServlet")
+public class PlayersListServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
 
@@ -23,8 +24,7 @@ public class NewPlayerReadServlet extends HttpServlet {
         List<Player> list = playerService.getPlayerList();
 
         req.setAttribute("list", list);
-        req.setAttribute("somePlayer", list.get(2));
-        req.getRequestDispatcher("player/newPlayersList.jsp").forward(req, resp);
+        req.getRequestDispatcher("player/playersList.jsp").forward(req, resp);
     }
 
 //    @Override
@@ -34,8 +34,15 @@ public class NewPlayerReadServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String contextPath = req.getContextPath(); ///newPlayerRead/{id}
-        //  str a = {id} to integer
+        doGet(req,resp);
+    }
+
+
+    //  str a = {id} to integer
+
+
+//        if ()
+
 //        resp.sendError(400);
 //        String name = req.getParameter("name");
 //        Integer age = Integer.parseInt(req.getParameter("age"));
@@ -44,11 +51,11 @@ public class NewPlayerReadServlet extends HttpServlet {
 //
 //        playerService.addPlayer(name,age,country);
 //        Integer delete = Integer.parseInt(req.getParameter("delete"));
-        doGet(req, resp);
+//        doGet(req, resp);
 //        List<Player> list = playerService.getPlayerList();
 //        req.setAttribute("list", list);
-//        req.getRequestDispatcher("newPlayersList.jsp").forward(req, resp);
-    }
+//        req.getRequestDispatcher("playersList.jsp").forward(req, resp);
+
 
 
 }

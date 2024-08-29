@@ -53,13 +53,14 @@
             <td>
 
 
-<%--                <form action="newPlayerRead" method="post">--%>
-                <form action="${pageContext.request.contextPath}/newPlayerRead" method="post">
-                    <input type="text"  name="delete" value="${player.id}"  />
+                    <%--                <form action="newPlayerRead" method="post">--%>
+                <form action="${pageContext.request.contextPath}/taking" method="post">
+                    <input type="hidden" name="delete" value="${player.id}"/>
                     <input value="Delete" type="submit">
                 </form>
 
-                        <%--                <form action="../newPlayerRead" method="post"></form>--%>
+
+                    <%--                <form action="../newPlayerRead" method="post"></form>--%>
             </td>
                 <%--            <td>--%>
                 <%--                <button type="button" name="popup-button">add</button>--%>
