@@ -20,6 +20,24 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+        .add_submit {
+            width: 250px;
+            height: 40px;
+            background: burlywood;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        .delete_submit {
+            background: aquamarine;
+            font-weight: bold;
+        }
+
+        .edit_submit {
+            background: darkseagreen;
+            font-weight: bold;
+        }
     </style>
     <title>Players list</title>
 </head>
@@ -56,7 +74,11 @@
                     <%--                <form action="newPlayerRead" method="post">--%>
                 <form action="${pageContext.request.contextPath}/taking" method="post">
                     <input type="hidden" name="delete" value="${player.id}"/>
-                    <input value="Delete" type="submit">
+                    <input value="Delete" type="submit" class="delete_submit">
+                </form>
+                <form action="${pageContext.request.contextPath}/player/editPlayer.jsp" method="post">
+                    <input type="hidden" name="edit" value="${player.id}"/>
+                    <input value="Edit" type="submit" class="edit_submit">
                 </form>
 
 
@@ -68,7 +90,12 @@
         </tr>
 
     </t:forEach>
-    <a href="<t:url value="/player/enterPlayer.jsp"/>"> add_player</a>
+
+    <form action="${pageContext.request.contextPath}/player/addPlayer.jsp">
+        <input value="Add" type="submit" class="add_submit">
+    </form>
+
+    <%--    <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
 </table>
 </body>
 </html>

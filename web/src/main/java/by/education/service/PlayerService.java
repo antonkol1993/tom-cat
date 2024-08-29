@@ -46,6 +46,11 @@ public class PlayerService {
     }
 
     private void getID() {
+    // todo will doing add after deleteAll without exceptions
+        //        if (getPlayerList().get(0) == null) {
+//            maxId = 0;
+//            return;
+//        }
         maxId = getPlayerList().get(0).getId();
         for (int i = 0; i < getPlayerList().size(); i++) {
             if (maxId < getPlayerList().get(i).getId()) {

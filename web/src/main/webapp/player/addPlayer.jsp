@@ -4,9 +4,9 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Enter a player </h1>
+<h1>Enter to add a player </h1>
 
-<form action="../taking" method="post">
+<form action="../add" method="post">
     Player:<input name="name" type="text"><br/>
     Age:<input name="age" type="number"><br/>
     Country:<input name="country" type="text"><br/>
