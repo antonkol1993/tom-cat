@@ -11,14 +11,6 @@ import java.util.Objects;
 @WebServlet(name = "TakingServlet", urlPatterns = "/taking")
 public class TakingServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String delete = req.getParameter("delete");
-        String edit = req.getParameter("edit");
-        String add = req.getParameter("add");
-        req.getRequestDispatcher("/player/editPlayer.jsp");
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String delete = req.getParameter("delete");
