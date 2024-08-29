@@ -77,7 +77,7 @@
                     <input value="Delete" type="submit" class="delete_submit">
                 </form>
                 <form action="${pageContext.request.contextPath}/taking" method="post">
-                    <input type="hidden" name="edit" value="${player.id}"/>
+                    <input type="hidden" name="id" value="${player.id}"/>
                     <input value="Edit" type="submit" class="edit_submit">
                 </form>
 

@@ -14,13 +14,16 @@ public class TakingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String delete = req.getParameter("delete");
-        String edit = req.getParameter("edit");
+        String id = req.getParameter("id");
         String add = req.getParameter("add");
 
         if (!Objects.equals(delete, null)) {
             req.getRequestDispatcher("/remove").forward(req, resp);
         }
-        if (!Objects.equals(edit, null)) {
+        if (!Objects.equals(id, null)) {
+            Integer reqID = Integer.parseInt(req.getParameter("id"));
+            req.setAttribute("id", reqID);
+            System.out.println(req.getParameter("id"));
             req.getRequestDispatcher("/player/editPlayer.jsp").forward(req, resp);
         }
         if (!Objects.equals(add, null)) {
