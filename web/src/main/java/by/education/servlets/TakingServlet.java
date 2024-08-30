@@ -19,16 +19,13 @@ public class TakingServlet extends HttpServlet {
 
         if (!Objects.equals(delete, null)) {
             req.getRequestDispatcher("/remove").forward(req, resp);
-        }
-        if (!Objects.equals(id, null)) {
+        } else if (!Objects.equals(id, null)) {
             Integer reqID = Integer.parseInt(req.getParameter("id"));
             req.setAttribute("id", reqID);
             System.out.println(req.getParameter("id"));
             req.getRequestDispatcher("/player/editPlayer.jsp").forward(req, resp);
-        }
-        if (!Objects.equals(add, null)) {
+        } else if (!Objects.equals(add, null)) {
             req.getRequestDispatcher("/player/addPlayer.jsp").forward(req, resp);
         }
-
     }
 }
