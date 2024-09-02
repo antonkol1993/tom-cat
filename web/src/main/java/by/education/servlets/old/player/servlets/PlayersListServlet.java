@@ -1,4 +1,4 @@
-package by.education.servlets;
+package by.education.servlets.old.player.servlets;
 
 import by.education.data.Player;
 import by.education.service.PlayerService;
@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 import static java.lang.String.valueOf;
 
