@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "PlayersListServlet", urlPatterns = "/newPlayers/*")
+@WebServlet(name = "PlayersListServlet", urlPatterns = "/newPlayers")
 public class NewPlayersListServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
@@ -26,6 +26,8 @@ public class NewPlayersListServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pathInfo = req.getPathInfo();
+        System.out.println(pathInfo);
         doGet(req,resp);
 
     }
