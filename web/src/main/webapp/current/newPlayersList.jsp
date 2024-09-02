@@ -2,7 +2,7 @@
 <%@ page import="by.education.data.Player" %>
 <%@ page import="by.education.service.PlayerService" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<html>
 <head>
     <style>
         table {
@@ -58,7 +58,7 @@
     <t:forEach items="${list}" var="player">
 
         <tr>
-            <td>${player.name}
+            <td><a href="<t:url value="/newPlayers/${player.id}"/>"> ${player.name}</a>
             </td>
             <td>${player.age}
             </td>
@@ -74,17 +74,17 @@
                     <%--                <form action="newPlayerRead" method="post">--%>
 
 
-                            <%--                <form action="../taking" method="post">--%>
-<%--                    <input type="hidden" name="delete" value="${player.id}"/>--%>
-<%--                    <input value="Delete" type="submit" class="delete_submit">--%>
-<%--                </form>--%>
-<%--                <form action="${pageContext.request.contextPath}/taking" method="post">--%>
-<%--                    <input type="hidden" name="id" value="${player.id}"/>--%>
-<%--                    <input value="Edit" type="submit" class="edit_submit">--%>
-<%--                </form>--%>
-<%--                        <form action="${pageContext.request.contextPath}/players/delete/${player.id}" method="post">--%>
-<%--                            <input value="new delete" type="submit" class="edit_submit">--%>
-<%--                        </form>--%>
+                    <%--                <form action="../taking" method="post">--%>
+                    <%--                    <input type="hidden" name="delete" value="${player.id}"/>--%>
+                    <%--                    <input value="Delete" type="submit" class="delete_submit">--%>
+                    <%--                </form>--%>
+                    <%--                <form action="${pageContext.request.contextPath}/taking" method="post">--%>
+                    <%--                    <input type="hidden" name="id" value="${player.id}"/>--%>
+                    <%--                    <input value="Edit" type="submit" class="edit_submit">--%>
+                    <%--                </form>--%>
+                    <%--                        <form action="${pageContext.request.contextPath}/players/delete/${player.id}" method="post">--%>
+                    <%--                            <input value="new delete" type="submit" class="edit_submit">--%>
+                    <%--                        </form>--%>
 
 
                     <%--                <form action="../newPlayerRead" method="post"></form>--%>
@@ -96,12 +96,13 @@
 
     </t:forEach>
 
-<%--    <form action="${pageContext.request.contextPath}/taking" method="post">--%>
-<%--        <input type="hidden" name="add" value="add"/>--%>
-<%--        <input value="Add" type="submit" class="add_submit" >--%>
-<%--    </form>--%>
+    <%--    <form action="${pageContext.request.contextPath}/taking" method="post">--%>
+    <%--        <input type="hidden" name="add" value="add"/>--%>
+    <%--        <input value="Add" type="submit" class="add_submit" >--%>
+    <%--    </form>--%>
 
-    <%--    <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
+    <%--        <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
+
 </table>
 </body>
 </html>

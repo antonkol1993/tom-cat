@@ -18,8 +18,8 @@ public class Main {
 //        List<Player> listPlayers = inMemoryPlayerDatabase.getPlayerList();
 
 
-        playerService.addPlayer("saddsasa", 3232, "saddsasa");
-        playerService.addPlayer("213321321", 23241, "asewqq1");
+        playerService.addPlayer("saddsasa", 3232, "saddsasa","adsadsadsasdads");
+        playerService.addPlayer("213321321", 23241, "asewqq1","adsadsadsasdads");
 //        playerService.addPlayer("DADASDSA", 5555, "##@!#!@!#@");
 
 

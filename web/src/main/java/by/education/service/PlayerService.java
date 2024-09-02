@@ -28,9 +28,9 @@ public class PlayerService {
         return playerListDatabase.getPlayerList();
     }
 
-    public void addPlayer(String name, Integer age, String country) {
+    public void addPlayer(String name, Integer age, String country, String role) {
         getID();
-        playerListDatabase.addPlayer(new Player(name, age, country, ++maxId));
+        playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
     }
 
 

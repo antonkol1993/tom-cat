@@ -18,7 +18,7 @@ public class AddServlet extends HttpServlet {
         String name = req.getParameter("name");
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
-        playerService.addPlayer(name, age, country);
+//        playerService.addPlayer(name, age, country);
         req.getRequestDispatcher("/listServlet").forward(req,resp);
     }
 

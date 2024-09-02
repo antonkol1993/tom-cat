@@ -23,7 +23,7 @@ public class PlayersListServlet extends HttpServlet {
         List<Player> list = playerService.getPlayerList();
 
         req.setAttribute("list", list);
-        req.getRequestDispatcher("player/playersList.jsp").forward(req, resp);
+        req.getRequestDispatcher("player/newPlayersList.jsp").forward(req, resp);
     }
 
 //    @Override
@@ -53,7 +53,7 @@ public class PlayersListServlet extends HttpServlet {
 //        doGet(req, resp);
 //        List<Player> list = playerService.getPlayerList();
 //        req.setAttribute("list", list);
-//        req.getRequestDispatcher("playersList.jsp").forward(req, resp);
+//        req.getRequestDispatcher("newPlayersList.jsp").forward(req, resp);
 
 
 
