@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewPlayerPersonServlet", urlPatterns = "/newPlayers/*")
+@WebServlet(name = "NewPlayerPersonServlet", urlPatterns = "/newPlayer/*")
 public class NewPlayerPersonServlet extends HttpServlet {
     private final PlayerService playerService = PlayerService.getInstance();
 
@@ -19,9 +19,9 @@ public class NewPlayerPersonServlet extends HttpServlet {
 //        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
 //        System.out.println(id);
 //        if (!id.isEmpty()) {
-//        req.getRequestDispatcher("/newPlayers").forward(req, resp);
+        req.getRequestDispatcher("/newPlayers").forward(req, resp);
 //            req.getRequestDispatcher("newExample.jsp").forward(req, resp);
-            req.getRequestDispatcher("current/newPlayersList.jsp").forward(req, resp);
+//            req.getRequestDispatcher("current/newExample.jsp").forward(req, resp);
 //        }
     }
 

@@ -58,7 +58,7 @@
     <t:forEach items="${list}" var="player">
 
         <tr>
-            <td><a href="<t:url value="/newPlayers/${player.id}"/>"> ${player.name}</a>
+            <td><a href="<t:url value="/newPlayer/${player.id}"/>"> ${player.name}</a>
             </td>
             <td>${player.age}
             </td>
@@ -82,9 +82,9 @@
                     <%--                    <input type="hidden" name="id" value="${player.id}"/>--%>
                     <%--                    <input value="Edit" type="submit" class="edit_submit">--%>
                     <%--                </form>--%>
-                                            <form action="${pageContext.request.contextPath}/players/delete/${player.id}" method="post">
-                                                <input value="new delete" type="submit" class="edit_submit">
-                                            </form>
+                <form action="delete/${player.id}" method="post">
+                    <input value="new delete" type="submit" class="edit_submit">
+                </form>
 
 
                     <%--                <form action="../newPlayerRead" method="post"></form>--%>
