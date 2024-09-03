@@ -14,14 +14,6 @@ import java.util.List;
 @WebServlet(name = "NewRemoverServlet", urlPatterns = "/delete/*")
 public class NewRemoverServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
-
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        List<Player> list = playerService.getPlayerList();
-//        req.setAttribute("list", list);
-//        req.getRequestDispatcher("../current/newPlayersList.jsp").forward(req, resp);
-//    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
