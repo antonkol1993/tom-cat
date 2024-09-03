@@ -15,19 +15,19 @@ import java.util.List;
 public class NewRemoverServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Player> list = playerService.getPlayerList();
-        req.setAttribute("list", list);
-        req.getRequestDispatcher("../current/newPlayersList.jsp").forward(req, resp);
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        List<Player> list = playerService.getPlayerList();
+//        req.setAttribute("list", list);
+//        req.getRequestDispatcher("../current/newPlayersList.jsp").forward(req, resp);
+//    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
-        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
-        playerService.deletePlayer(Integer.valueOf(id));
-        doGet(req, resp);
+        Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
+        playerService.deletePlayer(id);
+        req.getRequestDispatcher("/newPlayers").forward(req, resp);
     }
 
 }
