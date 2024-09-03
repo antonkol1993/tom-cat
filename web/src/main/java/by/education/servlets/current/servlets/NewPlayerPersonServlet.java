@@ -15,14 +15,14 @@ public class NewPlayerPersonServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String pathInfo = req.getPathInfo();
-//        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
-//        System.out.println(id);
-//        if (!id.isEmpty()) {
-        req.getRequestDispatcher("/newPlayers").forward(req, resp);
-//            req.getRequestDispatcher("newExample.jsp").forward(req, resp);
+        String pathInfo = req.getPathInfo();
+        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
+        System.out.println(id);
+        if (!id.isEmpty()) {
+//        req.getRequestDispatcher("/newPlayers").forward(req, resp);
+            req.getRequestDispatcher("/current/newExample.jsp").forward(req, resp);
 //            req.getRequestDispatcher("current/newExample.jsp").forward(req, resp);
-//        }
+        }
     }
 
 
