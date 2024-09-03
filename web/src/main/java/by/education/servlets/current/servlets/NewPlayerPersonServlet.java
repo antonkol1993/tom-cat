@@ -16,12 +16,19 @@ public class NewPlayerPersonServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
-        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
+        Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
         System.out.println(id);
-        if (!id.isEmpty()) {
-//        req.getRequestDispatcher("/newPlayers").forward(req, resp);
-            req.getRequestDispatcher("/current/newExample.jsp").forward(req, resp);
-//            req.getRequestDispatcher("current/newExample.jsp").forward(req, resp);
+
+        for (int i = 0; i < playerService.getPlayerList().size(); i++) {
+            if (id.equals(playerService.getPlayerList().get(i).getId())) {
+                req.setAttribute("ref", playerService.getPlayerList().get(i));
+                req.setAttribute("name", playerService.getPlayerList().get(i).getName());
+                req.setAttribute("age", playerService.getPlayerList().get(i).getAge());
+                req.setAttribute("country", playerService.getPlayerList().get(i).getCountry());
+                req.setAttribute("pos", playerService.getPlayerList().get(i).getPosition());
+                req.setAttribute("id", playerService.getPlayerList().get(i).getId());
+                req.getRequestDispatcher("/current/newExample.jsp").forward(req, resp);
+            }
         }
     }
 

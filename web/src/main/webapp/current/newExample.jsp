@@ -43,8 +43,36 @@
 </head>
 <body>
 
-<h2>New Example!!!</h2>
-
-
+<h1 style="color: sienna"><%=request.getAttribute("name")%>
+</h1>
+<table>
+    <tr>
+        <th>Name: <%=request.getAttribute("name")%>
+        </th>
+    </tr>
+    <tr>
+        <th>Age: <%=request.getAttribute("age")%>
+        </th>
+    </tr>
+    <tr>
+        <th>Country: <%=request.getAttribute("country")%>
+        </th>
+    </tr>
+    <tr>
+        <th>ID: <%=request.getAttribute("id")%>
+        </th>
+    </tr>
+    <tr>
+        <th>Position: <%=request.getAttribute("pos")%>
+        </th>
+    </tr>
+    <tr>
+        <th>Reference: <%=request.getAttribute("ref")%>
+        </th>
+    </tr>
+    <tr>
+        <th> <a href="<t:url value="../newPlayers"/>"> Back to list</a> </th>
+    </tr>
+</table>
 </body>
 </html>
