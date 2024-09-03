@@ -18,7 +18,7 @@ public class NewPlayerPersonServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
         System.out.println(id);
-
+        
         for (int i = 0; i < playerService.getPlayerList().size(); i++) {
             if (id.equals(playerService.getPlayerList().get(i).getId())) {
                 req.setAttribute("ref", playerService.getPlayerList().get(i));

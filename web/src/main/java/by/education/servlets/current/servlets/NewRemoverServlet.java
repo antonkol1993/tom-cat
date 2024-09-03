@@ -27,7 +27,7 @@ public class NewRemoverServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
         playerService.deletePlayer(id);
-        req.getRequestDispatcher("/newPlayers").forward(req, resp);
+        resp.sendRedirect("../newPlayers");
     }
 
 }
