@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewAddServlet", urlPatterns = "/newAdd")
+@WebServlet(name = "NewAddServlet", urlPatterns = "/players/add")
 public class NewAddServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
 

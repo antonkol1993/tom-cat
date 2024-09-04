@@ -58,7 +58,7 @@
     <t:forEach items="${list}" var="player">
 
         <tr>
-            <td><a href="<t:url value="/newPlayer/${player.id}"/>"> ${player.name}</a>
+            <td><a href="<t:url value="../new/players/${player.id}"/>"> ${player.name}</a>
             </td>
             <td>${player.age}
             </td>
@@ -84,7 +84,7 @@
 
 
 
-                <form action="delete/${player.id}" method="post">
+                <form action="/web/new/players/delete/${player.id}" method="post">
                     <input value="Delete" type="submit" class="edit_submit">
                 </form>
 

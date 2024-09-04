@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "NewRemoverServlet", urlPatterns = "/delete/*")
+@WebServlet(name = "NewRemoverServlet", urlPatterns = "/new/players/delete/*")
 public class NewRemoverServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
     @Override
@@ -19,7 +19,11 @@ public class NewRemoverServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
         playerService.deletePlayer(id);
-        resp.sendRedirect("../newPlayers");
+//
+//        List<Player> list = playerService.getPlayerList();
+//        req.setAttribute("list", list);
+        req.getRequestDispatcher("/new/players").forward(req,resp);
+
     }
 
 }

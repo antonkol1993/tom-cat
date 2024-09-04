@@ -71,7 +71,7 @@
         </th>
     </tr>
     <tr>
-        <th> <a href="<t:url value="../newPlayers"/>"> Back to list</a> </th>
+        <th> <a href="<t:url value="/new/players"></t:url>"> Back to list</a> </th>
     </tr>
 </table>
 </body>

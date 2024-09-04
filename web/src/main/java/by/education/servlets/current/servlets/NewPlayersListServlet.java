@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "NewPlayersListServlet", urlPatterns = "/newPlayers")
+@WebServlet(name = "NewPlayersListServlet", urlPatterns = "/new/players")
 public class NewPlayersListServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
@@ -21,7 +21,7 @@ public class NewPlayersListServlet extends HttpServlet {
         List<Player> list = playerService.getPlayerList();
 
         req.setAttribute("list", list);
-        req.getRequestDispatcher("current/newPlayersList.jsp").forward(req, resp);
+        req.getRequestDispatcher("/current/newPlayersList.jsp").forward(req, resp);
     }
 
     @Override

@@ -15,21 +15,21 @@ public class NewEditServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String pathInfo = req.getPathInfo();
-//        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
-//        for (int i = 0; i < playerService.getPlayerList().size(); i++) {
-//            if(playerService.getPlayerList().get(i).getId().equals(id)) {
-//                req.setAttribute("type", "Edit");
-//                req.setAttribute("name", playerService.getPlayerList().get(i).getName());
-//                req.setAttribute("age", String.valueOf(playerService.getPlayerList().get(i).getAge()));
-//                req.setAttribute("country", playerService.getPlayerList().get(i).getCountry());
-//                req.setAttribute("role", playerService.getPlayerList().get(i).getPosition());
-//                req.setAttribute("url", "/newEdit");
-//                break;
-//            }
-//        }
+        String pathInfo = req.getPathInfo();
+        String id = pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo;
+        for (int i = 0; i < playerService.getPlayerList().size(); i++) {
+            if(playerService.getPlayerList().get(i).getId().equals(id)) {
+                req.setAttribute("type", "Edit");
+                req.setAttribute("name", playerService.getPlayerList().get(i).getName());
+                req.setAttribute("age", String.valueOf(playerService.getPlayerList().get(i).getAge()));
+                req.setAttribute("country", playerService.getPlayerList().get(i).getCountry());
+                req.setAttribute("role", playerService.getPlayerList().get(i).getPosition());
+                req.setAttribute("url", "/newEdit");
+                break;
+            }
+        }
 
-        req.getRequestDispatcher("current/formPlayers.jsp").forward(req,resp);
+        req.getRequestDispatcher("/current/formPlayers.jsp").forward(req,resp);
     }
 
 //    @Override

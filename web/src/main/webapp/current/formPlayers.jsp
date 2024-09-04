@@ -8,6 +8,7 @@
 
 <h1><%=request.getAttribute("type")%> a player </h1>
 
+
 <form action="${pageContext.request.contextPath}<%=request.getAttribute("url")%>" method="post">
     Player:<input name="name" type="text" value="<%=request.getAttribute("name")%>"><br/>
     Age:<input name="age" type="number" value="<%=request.getAttribute("age")%>"><br/>
