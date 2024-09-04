@@ -78,12 +78,14 @@
                     <%--                    <input type="hidden" name="delete" value="${player.id}"/>--%>
                     <%--                    <input value="Delete" type="submit" class="delete_submit">--%>
                     <%--                </form>--%>
-                    <%--                <form action="${pageContext.request.contextPath}/taking" method="post">--%>
-                    <%--                    <input type="hidden" name="id" value="${player.id}"/>--%>
-                    <%--                    <input value="Edit" type="submit" class="edit_submit">--%>
-                    <%--                </form>--%>
+                <form action="newEdit/${player.id}" method="get">
+                    <input value="Edit" type="submit" class="edit_submit">
+                </form>
+
+
+
                 <form action="delete/${player.id}" method="post">
-                    <input value="new delete" type="submit" class="edit_submit">
+                    <input value="Delete" type="submit" class="edit_submit">
                 </form>
 
 
@@ -97,9 +99,9 @@
     </t:forEach>
 
 
-        <form action="newAdd" method="get">
-            <input value="Add" type="submit" class="add_submit" >
-        </form>
+    <form action="newAdd" method="get">
+        <input value="Add" type="submit" class="add_submit">
+    </form>
 
     <%--        <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
 

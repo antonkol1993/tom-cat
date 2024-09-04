@@ -15,7 +15,12 @@ public class NewAddServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("type", "EDIT");
+        req.setAttribute("type", "Add");
+        req.setAttribute("name", "");
+        req.setAttribute("age", "");
+        req.setAttribute("country", "");
+        req.setAttribute("role", "");
+        req.setAttribute("url", "/newAdd");
         req.getRequestDispatcher("current/formPlayers.jsp").forward(req,resp);
     }
 
