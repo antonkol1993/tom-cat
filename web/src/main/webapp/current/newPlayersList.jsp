@@ -96,10 +96,10 @@
 
     </t:forEach>
 
-    <%--    <form action="${pageContext.request.contextPath}/taking" method="post">--%>
-    <%--        <input type="hidden" name="add" value="add"/>--%>
-    <%--        <input value="Add" type="submit" class="add_submit" >--%>
-    <%--    </form>--%>
+
+        <form action="newAdd" method="get">
+            <input value="Add" type="submit" class="add_submit" >
+        </form>
 
     <%--        <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
 

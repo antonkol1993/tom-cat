@@ -11,6 +11,7 @@
 <jsp:useBean id="currentPlayer" class="by.education.data.Player">
     <jsp:setProperty name="currentPlayer" property="age" value="18"/>
 </jsp:useBean>
+
 <jsp:include page="playerEditForm.jsp" >
     <jsp:param name="action" value="edit" />
     <jsp:param name="age" value="${currentPlayer.age}" />
