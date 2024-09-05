@@ -35,6 +35,13 @@ public class PersonService {
         return false;
     }
 
+    private boolean checkUser (String user) {
+        return true;
+    }
+    private boolean checkPassword (String password) {
+        return true;
+    }
+
 
     }
 
