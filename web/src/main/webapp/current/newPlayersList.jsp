@@ -38,6 +38,10 @@
             background: darkseagreen;
             font-weight: bold;
         }
+        .add_href {
+            font-weight: bold;
+            font-size: large;
+        }
     </style>
     <title>Players list</title>
 </head>
@@ -99,11 +103,8 @@
     </t:forEach>
 
 
-    <form action="newAdd" method="get">
-        <input value="Add" type="submit" class="add_submit">
-    </form>
+   <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/players/add">Add a new player</a>
 
-    <%--        <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
 
 </table>
 </body>

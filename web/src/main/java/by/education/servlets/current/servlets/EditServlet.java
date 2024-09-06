@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "NewEditServlet", urlPatterns = "/newEdit/*")
-public class NewEditServlet extends HttpServlet {
+public class EditServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
 
     @Override

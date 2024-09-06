@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "NewPlayersListServlet", urlPatterns = "/new/players")
-public class NewPlayersListServlet extends HttpServlet {
+public class PlayersListServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
 

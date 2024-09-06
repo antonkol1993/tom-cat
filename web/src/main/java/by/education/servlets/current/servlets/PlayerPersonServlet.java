@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "NewPlayerPersonServlet", urlPatterns = "/new/players/*")
-public class NewPlayerPersonServlet extends HttpServlet {
+public class PlayerPersonServlet extends HttpServlet {
     private final PlayerService playerService = PlayerService.getInstance();
 
     @Override
