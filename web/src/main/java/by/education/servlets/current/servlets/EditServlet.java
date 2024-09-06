@@ -18,14 +18,18 @@ public class EditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
         int id = Integer.parseInt(pathInfo.substring(1));
-        Player player = playerService.getPlayerList().get(id);
-        req.setAttribute("name", player.getName());
-        req.setAttribute("age", player.getAge());
-        req.setAttribute("country", player.getCountry());
-        req.setAttribute("role", player.getPosition());
-        req.setAttribute("input", "Edit");
-        req.setAttribute("url", "/new/players/edit/");
-        req.setAttribute("id", id);
+        for (int i = 0; i < playerService.getPlayerList().size(); i++) {
+            if (playerService.getPlayerList().get(i).getId() == id) {
+                Player player = playerService.getPlayerList().get(i);
+                req.setAttribute("name", player.getName());
+                req.setAttribute("age", player.getAge());
+                req.setAttribute("country", player.getCountry());
+                req.setAttribute("role", player.getPosition());
+                req.setAttribute("input", "Edit");
+                req.setAttribute("url", "/new/players/edit/");
+                req.setAttribute("id", id);
+            }
+        }
         req.getRequestDispatcher("/current/edit.jsp").forward(req, resp);
 
     }
