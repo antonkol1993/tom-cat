@@ -12,5 +12,15 @@
 </head>
 <body>
 
+<h1>Enter to edit player</h1>
+<jsp:include page="formPlayers.jsp">
+    <jsp:param name="input" value=""/>
+    <jsp:param name="name" value=""/>
+    <jsp:param name="age" value=""/>
+    <jsp:param name="country" value=""/>
+    <jsp:param name="role" value=""/>
+    <jsp:param name="id" value=""/>
+</jsp:include>
+
 </body>
 </html>

@@ -19,7 +19,8 @@ public class AddServlet extends HttpServlet {
         req.setAttribute("age", "");
         req.setAttribute("country", "");
         req.setAttribute("role", "");
-        req.setAttribute("input", "");
+        req.setAttribute("input", "Create");
+        req.setAttribute("url", "/players/add");
         req.getRequestDispatcher("/current/add.jsp").forward(req,resp);
     }
 

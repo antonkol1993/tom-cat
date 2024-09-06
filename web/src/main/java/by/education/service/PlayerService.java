@@ -43,7 +43,7 @@ public class PlayerService {
         }
     }
 
-    public void editPlayer(Integer id, String name, Integer age, String country) {
+    public void editPlayer(Integer id, String name, Integer age, String country, String role) {
 
         for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {

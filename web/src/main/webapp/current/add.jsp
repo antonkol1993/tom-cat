@@ -12,13 +12,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<h1>Enter to create player</h1>
 <jsp:include page="formPlayers.jsp">
-    <jsp:param name="input" value="21344123321" />
-    <jsp:param name="name" value="21344123321"/>
-    <jsp:param name="age" value="21344123321"/>
-    <jsp:param name="country" value="21344123321"/>
-    <jsp:param name="role" value="21344123321"/>
+    <jsp:param name="input" value="" />
+    <jsp:param name="name" value=""/>
+    <jsp:param name="age" value=""/>
+    <jsp:param name="country" value=""/>
+    <jsp:param name="role" value=""/>
 </jsp:include>
 
 

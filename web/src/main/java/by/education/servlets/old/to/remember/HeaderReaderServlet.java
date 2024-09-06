@@ -1,4 +1,4 @@
-package by.education.servlets.old;
+package by.education.servlets.old.to.remember;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

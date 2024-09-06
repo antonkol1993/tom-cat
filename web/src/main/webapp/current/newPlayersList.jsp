@@ -38,6 +38,7 @@
             background: darkseagreen;
             font-weight: bold;
         }
+
         .add_href {
             font-weight: bold;
             font-size: large;
@@ -58,7 +59,6 @@
         <th>Reference</th>
     </tr>
 
-
     <t:forEach items="${list}" var="player">
 
         <tr>
@@ -72,38 +72,21 @@
             </td>
             <td>${player}
             </td>
+
             <td>
-
-
-                    <%--                <form action="newPlayerRead" method="post">--%>
-
-
-                    <%--                <form action="../taking" method="post">--%>
-                    <%--                    <input type="hidden" name="delete" value="${player.id}"/>--%>
-                    <%--                    <input value="Delete" type="submit" class="delete_submit">--%>
-                    <%--                </form>--%>
-                <form action="newEdit/${player.id}" method="get">
+                <form action="/web/new/players/edit/${player.id}" method="get">
                     <input value="Edit" type="submit" class="edit_submit">
                 </form>
-
-
 
                 <form action="/web/new/players/delete/${player.id}" method="post">
                     <input value="Delete" type="submit" class="edit_submit">
                 </form>
-
-
-                    <%--                <form action="../newPlayerRead" method="post"></form>--%>
             </td>
-                <%--            <td>--%>
-                <%--                <button type="button" name="popup-button">add</button>--%>
-                <%--            </td>--%>
         </tr>
 
     </t:forEach>
-
-
-   <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/players/add">Add a new player</a>
+    <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/players/add">Add a new
+        player</a>
 
 
 </table>
