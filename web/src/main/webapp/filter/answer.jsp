@@ -11,12 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Enter username and Password</h1>
-<form action="${pageContext.request.contextPath}/validity" method="post">
-    Username: <input name="userName" type="text"> <br>
-    password: <input name="password" type="password"> <br/>
-    <input value="sign" type="submit"> <br/>
-</form>
+<h1><%=request.getAttribute("answer")%></h1>
 
 </body>
 </html>
