@@ -25,25 +25,18 @@ public class PersonService {
         return persons.getPersonList();
     }
 
-    public boolean isValid (String username, String password) {
+    public boolean isValid (String userName, String password) {
         List<Person> personList = persons.getPersonList();
         for (int i = 0; i < persons.getPersonList().size(); i++) {
-            if (personList.get(i).getUserName().equals(username) && personList.get(i).getPassword().equals(password)) {
-                return true;
+            if (userName.equalsIgnoreCase(personList.get(i).getUserName())) {
+                return password.equals(personList.get(i).getPassword());
             }
         }
         return false;
     }
 
-    private boolean checkUser (String user) {
-        return true;
-    }
-    private boolean checkPassword (String password) {
-        return true;
-    }
 
 
     }
-
 
 

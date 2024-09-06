@@ -1,7 +1,9 @@
 package by.education;
 
 import by.education.data.Player;
+import by.education.db.InMemoryPersonDatabase;
 import by.education.db.InMemoryPlayerDatabase;
+import by.education.service.PersonService;
 import by.education.service.PlayerService;
 
 import java.util.ArrayList;
@@ -11,48 +13,22 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        InMemoryPlayerDatabase inMemoryPlayerDatabase = new InMemoryPlayerDatabase();
-        PlayerService playerService = PlayerService.getInstance();
-        List<Player> playerList = playerService.getPlayerList();
-//        inMemoryPlayerDatabase.addPlayer(new Player("saddsa",56,"BELSDAA",21321));
-//        List<Player> listPlayers = inMemoryPlayerDatabase.getPlayerList();
 
 
-        playerService.addPlayer("saddsasa", 3232, "saddsasa","adsadsadsasdads");
-        playerService.addPlayer("213321321", 23241, "asewqq1","adsadsadsasdads");
-//        playerService.addPlayer("DADASDSA", 5555, "##@!#!@!#@");
+        PersonService personService = PersonService.getInstance();
 
+        InMemoryPersonDatabase inMemoryPersonDatabase = new InMemoryPersonDatabase();
 
-
-
-        for (int i = 0; i < playerList.size(); i++) {
-
-            System.out.print(playerList.get(i).getName());
-            System.out.print(",");
-            System.out.print(playerList.get(i).getAge());
-            System.out.print(",");
-            System.out.print(playerList.get(i).getCountry());
-            System.out.print(",");
-            System.out.print(playerList.get(i).getId());
+        for (int i = 0; i < inMemoryPersonDatabase.getPersonList().size(); i++) {
+            System.out.print("username: " + inMemoryPersonDatabase.getPersonList().get(i).getUserName() + ", ");
+            System.out.println("password: " +inMemoryPersonDatabase.getPersonList().get(i).getPassword());
             System.out.println();
-
         }
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        playerService.editPlayer(3,"MESSIDSSD", 33333,"ARGENTINA");
-        for (int i = 0; i < playerList.size(); i++) {
+        System.out.println(personService.isValid("messi", "sadsadsad"));
+        System.out.println(personService.isValid("messii", "KOLESNIKOV"));
+        System.out.println(personService.isValid("messii", "KOLESNIKOv"));
+        System.out.println(personService.isValid("champion", "kOlesnik-0v"));
 
-            System.out.print(playerList.get(i).getName());
-            System.out.print(",");
-            System.out.print(playerList.get(i).getAge());
-            System.out.print(",");
-            System.out.print(playerList.get(i).getCountry());
-            System.out.print(",");
-            System.out.print(playerList.get(i).getId());
-            System.out.println();
-
-        }
 
     }
 }
