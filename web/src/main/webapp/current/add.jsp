@@ -13,14 +13,7 @@
 </head>
 <body>
 <h1>Enter to create player</h1>
-<jsp:include page="formPlayers.jsp">
-    <jsp:param name="input" value="" />
-    <jsp:param name="name" value=""/>
-    <jsp:param name="age" value=""/>
-    <jsp:param name="country" value=""/>
-    <jsp:param name="role" value=""/>
-</jsp:include>
-
+<jsp:include page="formPlayers.jsp"/>
 
 </body>
 </html>

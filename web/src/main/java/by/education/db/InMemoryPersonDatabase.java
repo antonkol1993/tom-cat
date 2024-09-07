@@ -12,6 +12,8 @@ public class InMemoryPersonDatabase  {
         personsList.add(new Person("Anton", "kolesnikov"));
         personsList.add(new Person("Messii", "KOLESNIKOV"));
         personsList.add(new Person("chamPion", "kOlesnik-0v"));
+        personsList.add(new Person("admin", "admin"));
+        personsList.add(new Person("user", "user"));
     }
 
     public  List<Person> getPersonList () {

@@ -1,4 +1,4 @@
-package by.education.servlets.filter;
+package by.education.servlets.current;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet (name = "formServlet", urlPatterns = "/signIn")
+@WebServlet (name = "SignInServlet", urlPatterns = "/signIn")
 public class SignInServlet extends HttpServlet {
 
     @Override

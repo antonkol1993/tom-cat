@@ -50,6 +50,7 @@ public class PlayerService {
                 player.setName(name);
                 player.setAge(age);
                 player.setCountry(country);
+                player.setPosition(role);
             }
         }
     }

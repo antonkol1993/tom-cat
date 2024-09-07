@@ -1,4 +1,4 @@
-package by.education.servlets.filter;
+package by.education.servlets.current;
 
 import by.education.service.PersonService;
 
@@ -18,10 +18,13 @@ public class validityServlet extends HttpServlet {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
         boolean valid = personService.isValid(userName, password);
+        // Person person = personService.get(userName, password)
+        // person.role
 
         if(valid) {
             req.setAttribute("answer", "Succesful");
             req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
+            req.getSession().setAttribute("user", true);
         } else {
             req.setAttribute("answer", "Invalid login or password");
             req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
