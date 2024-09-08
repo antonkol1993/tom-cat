@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Enter username and Password</h1>
-<form action="${pageContext.request.contextPath}/validity" method="post">
+<form action="${pageContext.request.contextPath}/login" method="post">
     Username: <input name="userName" type="text"> <br>
     password: <input name="password" type="password"> <br/>
     <input value="sign in" type="submit"> <br/>
