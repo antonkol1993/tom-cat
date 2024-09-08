@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditServlet", urlPatterns = "/new/players/edit/*")
-public class EditServlet extends HttpServlet {
+@WebServlet(name = "EditPlayerServlet", urlPatterns = "/new/players/edit/*")
+public class EditPlayerServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
 
     @Override

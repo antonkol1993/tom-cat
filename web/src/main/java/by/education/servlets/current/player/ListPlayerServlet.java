@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "NewPlayersListServlet", urlPatterns = "/new/players")
-public class PlayersListServlet extends HttpServlet {
+@WebServlet(name = "ListPlayerServlet", urlPatterns = "/new/players")
+public class ListPlayerServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
 

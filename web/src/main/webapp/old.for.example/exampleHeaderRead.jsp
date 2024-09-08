@@ -19,6 +19,6 @@
 <div style="display: flex;min-height: 100%;">
 
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="exampleFooter.jsp"%>
 </body>
 </html>

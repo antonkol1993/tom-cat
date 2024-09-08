@@ -1,4 +1,4 @@
-package by.education.servlets.current;
+package by.education.servlets.current.login;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

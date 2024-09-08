@@ -1,4 +1,4 @@
-package by.education.servlets.current;
+package by.education.servlets.current.login;
 
 import by.education.service.PersonService;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet (name = "validityServlet", urlPatterns = "/validity")
-public class validityServlet extends HttpServlet {
+@WebServlet (name = "ValidityServlet", urlPatterns = "/validity")
+public class ValidityServlet extends HttpServlet {
 
     PersonService personService = PersonService.getInstance();
     @Override

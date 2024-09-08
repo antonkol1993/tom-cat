@@ -5,7 +5,7 @@ import by.education.data.Person;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryPersonDatabase  {
+public class InMemoryPersonDatabase  implements PersonDatabase{
     private final List<Person> personsList;
     public InMemoryPersonDatabase() {
          personsList = new ArrayList<>();
@@ -16,6 +16,7 @@ public class InMemoryPersonDatabase  {
         personsList.add(new Person("user", "user"));
     }
 
+    @Override
     public  List<Person> getPersonList () {
         return personsList;
     }

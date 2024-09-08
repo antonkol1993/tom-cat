@@ -99,7 +99,7 @@
         <input value="Add" type="submit" class="add_submit" >
     </form>
 
-    <%--    <a href="<t:url value="/player/addPlayer.jsp"/>"> add_player</a>--%>
+    <%--    <a href="<t:url value="/player/oldAddPlayer.jsp"/>"> add_player</a>--%>
 </table>
 </body>
 </html>

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewPlayerPersonServlet", urlPatterns = "/new/players/*")
-public class PlayerPersonServlet extends HttpServlet {
+@WebServlet(name = "PersonPlayerServlet", urlPatterns = "/new/players/*")
+public class PersonPlayerServlet extends HttpServlet {
     private final PlayerService playerService = PlayerService.getInstance();
 
     @Override

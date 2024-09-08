@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewRemoverServlet", urlPatterns = "/new/players/delete/*")
-public class RemoverServlet extends HttpServlet {
+@WebServlet(name = "RemoverPlayerServlet", urlPatterns = "/new/players/delete/*")
+public class RemoverPlayerServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
