@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.education.constants.Constants.USER;
+
 @WebServlet (name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
@@ -22,9 +24,10 @@ public class LoginServlet extends HttpServlet {
         // person.role
 
         if(valid) {
-            req.setAttribute("answer", "Succesful");
-            req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
-            req.getSession().setAttribute("user", true);
+//            req.setAttribute("answer", "Succesful");
+//            req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
+            req.getRequestDispatcher("/new/players").forward(req,resp);
+            req.getSession().setAttribute(USER, true);
         } else {
             req.setAttribute("answer", "Invalid login or password");
             req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);

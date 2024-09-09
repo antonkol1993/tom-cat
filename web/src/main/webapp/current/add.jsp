@@ -13,7 +13,9 @@
 </head>
 <body>
 <h1>Enter to create player</h1>
+<h2><a><jsp:include page="signOutForm.jsp"/> </a> </h2>
 <jsp:include page="formPlayers.jsp"/>
+
 
 </body>
 </html>

@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+import static by.education.constants.Constants.USER;
+
 @WebFilter(filterName = "AuthenticationFilter", urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
 
     private static final List<String> UNAUTHENTICATED_URLS =
-            List.of("/signIn", "/validity");
+            List.of("/signIn", "/login");
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -21,10 +23,12 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = httpServletRequest.getSession();
 
         if (UNAUTHENTICATED_URLS.contains(httpServletRequest.getServletPath()) ||
-                session.getAttribute("user") != null) {
+                session.getAttribute(USER) != null) {
             chain.doFilter(request, response);
+
         } else {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/signIn");
+
         }
 
 
