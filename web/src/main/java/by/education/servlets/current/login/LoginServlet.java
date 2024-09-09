@@ -11,10 +11,11 @@ import java.io.IOException;
 
 import static by.education.constants.Constants.USER;
 
-@WebServlet (name = "LoginServlet", urlPatterns = "/login")
+@WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
     PersonService personService = PersonService.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
@@ -23,19 +24,19 @@ public class LoginServlet extends HttpServlet {
         // Person person = personService.get(userName, password)
         // person.role
 
-        if(valid) {
+        if (valid) {
 //            req.setAttribute("answer", "Succesful");
 //            req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
-            req.getRequestDispatcher("/new/players").forward(req,resp);
             req.getSession().setAttribute(USER, true);
+            resp.sendRedirect(req.getContextPath() + "/new/players");
         } else {
             req.setAttribute("answer", "Invalid login or password");
-            req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
+            req.getRequestDispatcher("/filter/answer.jsp").forward(req, resp);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    doGet(req, resp);
+        doGet(req, resp);
     }
 }

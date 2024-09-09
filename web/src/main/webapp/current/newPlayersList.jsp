@@ -48,7 +48,7 @@
 </head>
 <body>
 
-<h2>HTML Table</h2>
+<jsp:include page="signOutForm.jsp"/>
 
 <table>
     <tr>

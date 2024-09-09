@@ -45,6 +45,9 @@
 
 <h1 style="color: sienna"><%=request.getAttribute("name")%>
 </h1>
+
+<jsp:include page="signOutForm.jsp"/>
+
 <table>
     <tr>
         <th>Name: <%=request.getAttribute("name")%>
@@ -71,7 +74,7 @@
         </th>
     </tr>
     <tr>
-        <th> <a href="<t:url value="/new/players"></t:url>"> Back to list</a> </th>
+        <th><a href="<t:url value="/new/players"></t:url>"> Back to list</a></th>
     </tr>
 </table>
 </body>

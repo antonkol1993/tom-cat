@@ -13,6 +13,9 @@
 <body>
 
 <h1>Enter to edit player</h1>
+
+<jsp:include page="signOutForm.jsp"/>
+
 <jsp:include page="formPlayers.jsp"/>
 
 </body>
