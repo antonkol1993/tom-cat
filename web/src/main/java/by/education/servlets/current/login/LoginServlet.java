@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         Person personByUserName = personService.getPersonByUserName(userName);
 
         if (valid) {
-            req.getSession().setAttribute(USER, personByUserName.getUsersRole());
+            req.getSession().setAttribute(USER, personByUserName.getUserRole());
             resp.sendRedirect(req.getContextPath() + "/new/players");
         } else {
             req.setAttribute("answer", "Invalid login or password");

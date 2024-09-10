@@ -6,16 +6,16 @@ public class Person {
 
     private String userName;
     private String password;
-    private final UsersRole usersRole;
+    private final UsersRole userRole;
 
-    public Person(String userName, String password, UsersRole usersRole) {
+    public Person(String userName, String password, UsersRole userRole) {
         this.userName = userName;
         this.password = password;
-        this.usersRole = usersRole;
+        this.userRole = userRole;
     }
 
-    public UsersRole getUsersRole() {
-        return usersRole;
+    public UsersRole getUserRole() {
+        return userRole;
     }
 
     public String getUserName() {
