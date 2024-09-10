@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<table>
 <jsp:useBean id="personList" scope="request" type="java.util.List"/>
 <t:forEach items="${personList}" var="person">
     <tr>
@@ -21,6 +21,6 @@
         <td>${person.userRole}</td>
     </tr>
 </t:forEach>
-
+</table>
 </body>
 </html>
