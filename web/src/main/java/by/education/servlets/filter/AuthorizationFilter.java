@@ -17,9 +17,6 @@ import static by.education.constants.Constants.USER;
 public class AuthorizationFilter implements Filter {
 
 
-    private static final List<String> UNAUTHENTICATED_URLS =
-            List.of("/persons");
-
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -27,7 +24,6 @@ public class AuthorizationFilter implements Filter {
         HttpSession session = httpServletRequest.getSession();
 
         if (
-                UNAUTHENTICATED_URLS.contains(httpServletRequest.getServletPath()) ||
                         session.getAttribute(USER) == UsersRole.ADMIN) {
             chain.doFilter(request, response);
 
