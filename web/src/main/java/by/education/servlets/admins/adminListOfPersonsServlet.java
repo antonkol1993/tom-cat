@@ -17,8 +17,8 @@ public class adminListOfPersonsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("personList", personList);
-//        req.getRequestDispatcher("/admin/adminPersons.jsp").forward(req, resp);
-        req.getRequestDispatcher("/admin/adminFormOfPersons.jsp").forward(req, resp);
+        req.getRequestDispatcher("/admin/adminPersons.jsp").forward(req, resp);
+//        req.getRequestDispatcher("/admin/adminFormOfPersons.jsp").forward(req, resp);
     }
 
     @Override

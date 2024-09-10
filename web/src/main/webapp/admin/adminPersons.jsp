@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <style>
@@ -52,7 +52,23 @@
     <title>List of users</title>
 </head>
 <body>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Password</th>
+        <th>Role</th>
+    </tr>
+    <jsp:include page="../filter/signOutForm.jsp"/>
+    <jsp:useBean id="personList" scope="request" type="java.util.List"/>
 
+    <t:forEach items="${personList}" var="person">
+        <tr>
+            <td>${person.userName}</td>
+            <td>${person.password}</td>
+            <td>${person.userRole}</td>
+        </tr>
+    </t:forEach>
 
+</table>
 </body>
 </html>

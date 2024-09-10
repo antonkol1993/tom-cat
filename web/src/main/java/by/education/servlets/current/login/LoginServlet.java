@@ -26,7 +26,8 @@ public class LoginServlet extends HttpServlet {
 
         if (valid) {
             req.getSession().setAttribute(USER, personByUserName.getUserRole());
-            resp.sendRedirect(req.getContextPath() + "/new/players");
+//            resp.sendRedirect(req.getContextPath() + "/new/players");
+            resp.sendRedirect(req.getContextPath() + "/admin/persons");
         } else {
             req.setAttribute("answer", "Invalid login or password");
             req.getRequestDispatcher("/filter/answer.jsp").forward(req, resp);
