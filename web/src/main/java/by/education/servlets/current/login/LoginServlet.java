@@ -1,5 +1,6 @@
 package by.education.servlets.current.login;
 
+import by.education.data.Person;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;
@@ -21,13 +22,10 @@ public class LoginServlet extends HttpServlet {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
         boolean valid = personService.isValid(userName, password);
-        // Person person = personService.get(userName, password)
-        // person.role
+        Person personByUserName = personService.getPersonByUserName(userName);
 
         if (valid) {
-//            req.setAttribute("answer", "Succesful");
-//            req.getRequestDispatcher("/filter/answer.jsp").forward(req,resp);
-            req.getSession().setAttribute(USER, true);
+            req.getSession().setAttribute(USER, personByUserName.getUsersRole());
             resp.sendRedirect(req.getContextPath() + "/new/players");
         } else {
             req.setAttribute("answer", "Invalid login or password");
