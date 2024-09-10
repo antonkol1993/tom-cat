@@ -27,7 +27,7 @@ public class PersonPlayerServlet extends HttpServlet {
                 req.setAttribute("country", playerService.getPlayerList().get(i).getCountry());
                 req.setAttribute("pos", playerService.getPlayerList().get(i).getPosition());
                 req.setAttribute("id", playerService.getPlayerList().get(i).getId());
-                req.getRequestDispatcher("/current/personInfo.jsp").forward(req, resp);
+                req.getRequestDispatcher("/players/playersPersonInfo.jsp").forward(req, resp);
             }
         }
     }

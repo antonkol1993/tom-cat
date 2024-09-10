@@ -46,7 +46,7 @@
 <h1 style="color: sienna"><%=request.getAttribute("name")%>
 </h1>
 
-<jsp:include page="signOutForm.jsp"/>
+<jsp:include page="../filter/signOutForm.jsp"/>
 
 <table>
     <tr>

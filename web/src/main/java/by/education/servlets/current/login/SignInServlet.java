@@ -12,7 +12,7 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/filter/formToSignIn.jsp").forward(req, resp);
+        req.getRequestDispatcher("/filter/signInForm.jsp").forward(req, resp);
     }
 
     @Override

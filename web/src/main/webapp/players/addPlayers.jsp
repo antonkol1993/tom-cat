@@ -14,9 +14,9 @@
 <body>
 <h1>Enter to create player</h1>
 
-<jsp:include page="signOutForm.jsp"/>
+<jsp:include page="../filter/signOutForm.jsp"/>
 
-<jsp:include page="formPlayers.jsp"/>
+<jsp:include page="playersForm.jsp"/>
 
 
 </body>

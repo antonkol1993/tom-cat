@@ -30,7 +30,7 @@ public class EditPlayerServlet extends HttpServlet {
                 req.setAttribute("id", id);
             }
         }
-        req.getRequestDispatcher("/current/edit.jsp").forward(req, resp);
+        req.getRequestDispatcher("/players/playersEdit.jsp").forward(req, resp);
 
     }
 

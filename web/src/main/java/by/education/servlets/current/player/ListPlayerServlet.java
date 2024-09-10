@@ -21,7 +21,7 @@ public class ListPlayerServlet extends HttpServlet {
         List<Player> list = playerService.getPlayerList();
 
         req.setAttribute("list", list);
-        req.getRequestDispatcher("/current/newPlayersList.jsp").forward(req, resp);
+        req.getRequestDispatcher("/players/playersList.jsp").forward(req, resp);
     }
 
     @Override
