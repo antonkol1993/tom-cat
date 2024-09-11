@@ -11,20 +11,14 @@
 <head>
     <title>Title</title>
     <style>
-        .signUp {
-            width: 100px;
-            height: 40px;
-            font-size: medium;
+        h1 {
+            font-size: large;
             font-weight: bold;
             background: burlywood;
         }
     </style>
 </head>
 <body>
-<h1>Enter username and password for login</h1>
-<jsp:include page="enterDataPerson.jsp"/>
-<jsp:include page="signUpButton.jsp"/>
-
-
+<h1>Your account has already registered!</h1>
 </body>
 </html>

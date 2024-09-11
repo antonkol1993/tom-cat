@@ -1,5 +1,7 @@
 package by.education.servlets.current.login;
 
+import by.education.constants.Constants;
+import by.education.constants.UsersRole;
 import by.education.service.PersonService;
 import by.education.service.PlayerService;
 
@@ -13,20 +15,24 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     PersonService personService = PersonService.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
+        if (personService.isUniqueUser(userName)) {
+            personService.addPerson(userName, password);
+            req.getSession().setAttribute(Constants.USER, personService.getPersonByUserName(userName));
+            resp.sendRedirect(req.getContextPath() + "/informationally/signUpSuccess.jsp");
 
-        personService.addPerson(userName,password);
-        req.getRequestDispatcher("/new/players").forward(req, resp);
-
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/informationally/failedRegistrationLogin.jsp");
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         doGet(req, resp);
     }
 }

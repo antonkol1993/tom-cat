@@ -14,7 +14,7 @@ import static by.education.constants.Constants.USER;
 public class AuthenticationFilter implements Filter {
 
     private static final List<String> UNAUTHENTICATED_URLS =
-            List.of("/signIn", "/login", "/signUp", "/register");
+            List.of("/signIn","/login", "/signUp", "/register");
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

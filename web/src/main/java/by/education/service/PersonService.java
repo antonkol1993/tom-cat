@@ -50,7 +50,7 @@ public class PersonService {
         getPersonList().add(new Person(userName,password,UsersRole.USER));
         }
     }
-    private boolean isUniqueUser(String userName) {
+    public boolean isUniqueUser(String userName) {
         for (int i = 0; i <getPersonList().size(); i++) {
             if (getPersonList().get(i).getUserName().toLowerCase().equals(userName)) {
                 return false;
