@@ -48,7 +48,7 @@
 </head>
 <body>
 
-<jsp:include page="../filter/signOutForm.jsp"/>
+<jsp:include page="../filter/signOutButton.jsp"/>
 
 <table>
     <tr>

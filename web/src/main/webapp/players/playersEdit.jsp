@@ -14,7 +14,7 @@
 
 <h1>Enter to edit player</h1>
 
-<jsp:include page="../filter/signOutForm.jsp"/>
+<jsp:include page="../filter/signOutButton.jsp"/>
 
 <jsp:include page="playersForm.jsp"/>
 

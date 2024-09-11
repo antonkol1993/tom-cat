@@ -6,17 +6,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
+    <style>
+        .signUp {
+            width: 100px;
+            height: 40px;
+            font-size: medium;
+            font-weight: bold;
+            background: burlywood;
+        }
+    </style>
 </head>
 <body>
-<h1>Enter username and Password</h1>
-<form action="${pageContext.request.contextPath}/login" method="post">
-    Username: <input name="userName" type="text"> <br>
-    password: <input name="password" type="password"> <br/>
-    <input value="sign in" type="submit"> <br/>
-</form>
+<h1>Enter username and Password for login</h1>
+<jsp:include page="enterDataPerson.jsp"/>
+<jsp:include page="signUpButton.jsp"/>
+
 
 </body>
 </html>

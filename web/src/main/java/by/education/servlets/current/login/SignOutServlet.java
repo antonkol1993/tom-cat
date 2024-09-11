@@ -13,6 +13,6 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
-        req.getRequestDispatcher("/signIn").include(req, resp);
+        resp.sendRedirect("/signIn");
     }
 }

@@ -58,7 +58,7 @@
         <th>Password</th>
         <th>Role</th>
     </tr>
-    <jsp:include page="../filter/signOutForm.jsp"/>
+    <jsp:include page="../filter/signOutButton.jsp"/>
     <jsp:useBean id="personList" scope="request" type="java.util.List"/>
 
     <t:forEach items="${personList}" var="person">

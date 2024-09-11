@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: user
-  Date: 04.09.2024
-  Time: 23:08
+  User: User
+  Date: 05.09.2024
+  Time: 15:55
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,13 +11,9 @@
 <head>
     <title>Title</title>
 </head>
+
 <body>
-<h1>Enter to create player</h1>
-
-<jsp:include page="../filter/signOutButton.jsp"/>
-
-<jsp:include page="playersForm.jsp"/>
-
-
+<h1>Enter username and Password for registration</h1>
+<jsp:include page="enterDataPerson.jsp"/>
 </body>
 </html>
