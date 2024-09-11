@@ -22,4 +22,10 @@ public class InMemoryPersonDatabase  implements PersonDatabase{
         return personsList;
     }
 
+    @Override
+    public void addPersonList(Person person) {
+        getPersonList().add(person);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package by.education.service;
 
 
+import by.education.constants.UsersRole;
 import by.education.data.Person;
 import by.education.db.InMemoryPersonDatabase;
 
@@ -43,6 +44,19 @@ public class PersonService {
             }
         }
         return null;
+    }
+    public void addPerson(String userName, String password) {
+        if (isUniqueUser(userName)) {
+        getPersonList().add(new Person(userName,password,UsersRole.USER));
+        }
+    }
+    private boolean isUniqueUser(String userName) {
+        for (int i = 0; i <getPersonList().size(); i++) {
+            if (getPersonList().get(i).getUserName().toLowerCase().equals(userName)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
