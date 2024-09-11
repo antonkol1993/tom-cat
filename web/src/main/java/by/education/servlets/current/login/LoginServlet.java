@@ -1,5 +1,6 @@
 package by.education.servlets.current.login;
 
+import by.education.constants.UsersRole;
 import by.education.data.Person;
 import by.education.service.PersonService;
 
@@ -26,7 +27,11 @@ public class LoginServlet extends HttpServlet {
 
         if (valid) {
             req.getSession().setAttribute(USER, personByUserName.getUserRole());
-            resp.sendRedirect(req.getContextPath() + "/new/players");
+          if (personByUserName.getUserRole() == UsersRole.USER) {
+              resp.sendRedirect(req.getContextPath() + "/new/players");
+          } else if (personByUserName.getUserRole() == UsersRole.ADMIN) {
+              resp.sendRedirect(req.getContextPath() + "/admin/persons");
+          }
 //                resp.sendRedirect(req.getContextPath() + "/new/players");
 //            resp.sendRedirect(req.getContextPath() + "/admin/persons");
         } else {
