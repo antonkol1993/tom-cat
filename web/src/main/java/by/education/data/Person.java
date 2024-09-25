@@ -6,7 +6,7 @@ public class Person {
 
     private String userName;
     private String password;
-    private final UsersRole userRole;
+    private UsersRole userRole;
 
     public Person(String userName, String password, UsersRole userRole) {
         this.userName = userName;

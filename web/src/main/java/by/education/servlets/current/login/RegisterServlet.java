@@ -17,22 +17,15 @@ public class RegisterServlet extends HttpServlet {
     PersonService personService = PersonService.getInstance();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
         if (personService.isUniqueUser(userName)) {
             personService.addPerson(userName, password);
             req.getSession().setAttribute(Constants.USER, personService.getPersonByUserName(userName));
             resp.sendRedirect(req.getContextPath() + "/informationally/signUpSuccess.jsp");
-
         } else {
             resp.sendRedirect(req.getContextPath() + "/informationally/failedRegistrationLogin.jsp");
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
     }
 }

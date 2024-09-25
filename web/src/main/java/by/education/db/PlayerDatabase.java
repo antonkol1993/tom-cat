@@ -8,8 +8,12 @@ public interface PlayerDatabase {
 
     List<Player> getPlayerList();
 
+    Player getPlayerById(Integer id);
+
     void addPlayer(Player player);
+
     void removePlayer(int id);
+
     void editPlayer(int i, Player player);
 
 }

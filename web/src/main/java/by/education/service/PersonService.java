@@ -52,7 +52,7 @@ public class PersonService {
     }
     public boolean isUniqueUser(String userName) {
         for (int i = 0; i <getPersonList().size(); i++) {
-            if (getPersonList().get(i).getUserName().toLowerCase().equals(userName)) {
+            if (getPersonList().get(i).getUserName().equalsIgnoreCase(userName)) {
                 return false;
             }
         }

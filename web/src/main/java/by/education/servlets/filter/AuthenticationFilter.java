@@ -13,8 +13,7 @@ import static by.education.constants.Constants.USER;
 @WebFilter(filterName = "AuthenticationFilter", urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
 
-    private static final List<String> UNAUTHENTICATED_URLS =
-            List.of("/signIn","/login", "/signUp", "/register");
+    private static final List<String> UNAUTHENTICATED_URLS = List.of("/signIn", "/login", "/signUp", "/register");
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -22,16 +21,14 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         HttpSession session = httpServletRequest.getSession();
 
-        if (
-                UNAUTHENTICATED_URLS.contains(httpServletRequest.getServletPath()) ||
-                session.getAttribute(USER) != null) {
+        if (UNAUTHENTICATED_URLS.contains(httpServletRequest.getServletPath()) || session.getAttribute(USER) != null) {
             chain.doFilter(request, response);
 
         } else {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/signIn");
 
+            System.out.println();
+
         }
-
-
     }
 }

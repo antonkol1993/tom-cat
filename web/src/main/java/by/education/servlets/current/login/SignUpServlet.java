@@ -16,10 +16,4 @@ public class SignUpServlet extends HttpServlet {
         req.setAttribute("buttonName", "sign up");
         req.getRequestDispatcher("/filter/signUp.jsp").forward(req,resp);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        doGet(req, resp);
-    }
 }

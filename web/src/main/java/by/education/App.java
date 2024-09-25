@@ -60,7 +60,7 @@ public class App
 
 //            try(PreparedStatement statement = connection
 //                    .prepareStatement("INSERT INTO user(first_name, last_name) VALUES(?,?)")) {
-//                statement.setString(1, "Anton");
+//                statement.setString(1, "Anton OR 1=1");
 //                statement.setString(2, "Koleso");
 //
 //                boolean execute = statement.execute();
