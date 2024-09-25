@@ -28,10 +28,18 @@ public class App
 //            ResultSet schemas = metaData.getSchemas();
 //            System.out.println(schemas);
 
+            Connection connection2 = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/players", "root", "root");
+            DatabaseMetaData metaData = connection2.getMetaData();
+            String userName = metaData.getUserName();
+            String url = metaData.getURL();
+            System.out.println(userName);
+            System.out.println(url);
             try (Statement statement = connection.createStatement()) {
 
                 try ( ResultSet resultSet = statement.executeQuery("SELECT * FROM players;")){
                     while (resultSet.next()) {
+
                         System.out.print(resultSet.getString(2));
                         System.out.println("\t" + resultSet.getString(3));
 //                        System.out.println(resultSet.getString(3));
