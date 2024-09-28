@@ -2,16 +2,15 @@ package by.education.db;
 
 import by.education.data.Player;
 import by.education.service.InitDataFromDB;
+import by.education.service.PersonService;
+import by.education.service.PlayerService;
 
-import java.sql.SQLData;
-import java.sql.SQLException;
-import java.sql.SQLInput;
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class DbPlayerDatabase implements PlayerDatabase {
 
-
+    List<Player> playerList = getPlayerList();
+    PlayerService playerService;
 
     private List<Player> initPlayersFromDB() throws Exception {
         return new InitDataFromDB().initPlayers();
@@ -33,16 +32,20 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-
+        playerList.add(player);
     }
 
     @Override
     public void removePlayer(int id) {
-
+        playerService.deletePlayer(id);
     }
 
     @Override
     public void editPlayer(int i, Player player) {
-
+        String name = player.getName();
+        Integer age = player.getAge();
+        String country = player.getCountry();
+        String position = player.getPosition();
+        playerService.editPlayer(i,name,age,country,position);
     }
 }

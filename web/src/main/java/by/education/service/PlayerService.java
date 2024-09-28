@@ -2,6 +2,7 @@ package by.education.service;
 
 
 import by.education.data.Player;
+import by.education.db.DbPlayerDatabase;
 import by.education.db.InMemoryPlayerDatabase;
 import by.education.db.PlayerDatabase;
 
@@ -12,7 +13,7 @@ public class PlayerService {
     private static PlayerService instance;
 
     private Integer maxId;
-    PlayerDatabase playerListDatabase = new InMemoryPlayerDatabase();
+    PlayerDatabase playerListDatabase = new DbPlayerDatabase();
 
     private PlayerService() {
     }
@@ -43,14 +44,14 @@ public class PlayerService {
         }
     }
 
-    public void editPlayer(Integer id, String name, Integer age, String country, String role) {
+    public void editPlayer(Integer id, String name, Integer age, String country, String position) {
 
         for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
                 player.setName(name);
                 player.setAge(age);
                 player.setCountry(country);
-                player.setPosition(role);
+                player.setPosition(position);
             }
         }
     }
