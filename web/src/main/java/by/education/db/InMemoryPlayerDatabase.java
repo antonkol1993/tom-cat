@@ -26,6 +26,11 @@ public class InMemoryPlayerDatabase implements PlayerDatabase {
     }
 
     @Override
+    public Player getPlayerById(Integer id) {
+        return null;
+    }
+
+    @Override
     public void addPlayer(Player player) {
         playerList.add(player);
     }
