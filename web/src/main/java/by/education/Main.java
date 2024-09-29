@@ -11,6 +11,6 @@ public class Main  {
     public static void main(String[] args) throws Exception {
 
         PlayerService instance = PlayerService.getInstance();
-        instance.removePlayer(9);
+        instance.removePlayer(13);
     }
 }

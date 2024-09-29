@@ -34,11 +34,11 @@ public class PlayerService {
 
 
     public void removePlayer(Integer id) {
-        int i = 0;
-        while (i < getPlayerList().size()) {
-            if (Objects.equals(id, getPlayerList().get(i).getId())) getPlayerList().remove(i);
-            i++;
-        }
+//        int i = 0;
+//        while (i < getPlayerList().size()) {
+//            if (Objects.equals(id, getPlayerList().get(i).getId())) getPlayerList().remove(i);
+//            i++;
+//        }
         playerListDatabase.removePlayer(id);
     }
 
