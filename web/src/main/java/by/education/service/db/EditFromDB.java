@@ -5,9 +5,9 @@ import by.education.data.Player;
 import java.sql.*;
 
 
-public class AddFromDB {
+public class EditFromDB {
 
-    public void addFromDB(Player player) {
+    public void editFromDB(Player player) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (
@@ -18,19 +18,24 @@ public class AddFromDB {
         try (
                 Connection connection = DriverManager
                         .getConnection("jdbc:mysql://localhost:3306/players", "root", "root")) {
-            System.out.println("add passed connection");
+            System.out.println("editDB passed connection");
 
-            try (PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO players.players(name, age, country, position) VALUES(?,?,?,?)")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("" +
+                    "UPDATE players.players " +
+                    "SET name = ?, age = ?, country = ?, position = ? " +
+                    "WHERE id = ?")) {
                 String name = player.getName();
-                Integer age = player.getAge();
+                String age = String.valueOf(player.getAge());
                 String country = player.getCountry();
                 String position = player.getPosition();
+                String id = String.valueOf(player.getId());
                 preparedStatement.setString(1, name);
-                preparedStatement.setString(2, String.valueOf(age));
+                preparedStatement.setString(2, age);
                 preparedStatement.setString(3, country);
                 preparedStatement.setString(4, position);
+                preparedStatement.setString(5, id);
                 preparedStatement.executeUpdate();
+                connection.close();
             }
 
         } catch (SQLException e) {

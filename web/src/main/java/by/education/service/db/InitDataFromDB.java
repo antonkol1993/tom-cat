@@ -21,7 +21,7 @@ public class InitDataFromDB {
         try (
                 Connection connection = DriverManager
                         .getConnection("jdbc:mysql://localhost:3306/players", "root", "root")) {
-            System.out.println("passed connection");
+            System.out.println("init passed connection");
             try (Statement statement = connection.createStatement()) {
 
                 try (ResultSet resultSet = statement.executeQuery("SELECT * FROM players;")) {

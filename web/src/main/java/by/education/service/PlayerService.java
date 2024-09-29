@@ -47,16 +47,21 @@ public class PlayerService {
         playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
     }
 
-    public void editPlayer(Integer id, String name, Integer age, String country, String position) {
-
+    public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
+        Player editedPlayer = null;
         for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
                 player.setName(name);
                 player.setAge(age);
                 player.setCountry(country);
                 player.setPosition(position);
+                editedPlayer = player;
             }
         }
+        if(editedPlayer !=null){
+            playerListDatabase.editPlayer(id, editedPlayer);
+        }
+
     }
 
     private void getID() {

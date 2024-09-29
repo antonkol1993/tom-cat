@@ -19,7 +19,7 @@ public class RemoveFromDB {
         try (
     Connection connection = DriverManager
             .getConnection("jdbc:mysql://localhost:3306/players", "root", "root")) {
-        System.out.println("passed connection");
+        System.out.println("remove passed connection");
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate("DELETE FROM players.players WHERE id =" + id + ";");
         } catch (SQLException e) {

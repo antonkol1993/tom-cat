@@ -2,6 +2,7 @@ package by.education.db;
 
 import by.education.data.Player;
 import by.education.service.db.AddFromDB;
+import by.education.service.db.EditFromDB;
 import by.education.service.db.InitDataFromDB;
 import by.education.service.PlayerService;
 import by.education.service.db.RemoveFromDB;
@@ -10,8 +11,8 @@ import java.util.List;
 
 public class DbPlayerDatabase implements PlayerDatabase {
 
-    List<Player> playerList = getPlayerList();
-    PlayerService playerService;
+//    List<Player> playerList = getPlayerList();
+//    PlayerService playerService = PlayerService.getInstance();
 
     @Override
     public List<Player> getPlayerList() {
@@ -46,11 +47,7 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
 
     @Override
-    public void editPlayer(int i, Player player) {
-        String name = player.getName();
-        Integer age = player.getAge();
-        String country = player.getCountry();
-        String position = player.getPosition();
-        playerService.editPlayer(i,name,age,country,position);
+    public void editPlayer(int id, Player player) {
+        new EditFromDB().editFromDB(player);
     }
 }
