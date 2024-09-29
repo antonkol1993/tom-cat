@@ -20,8 +20,7 @@ public class EditFromDB {
                         .getConnection("jdbc:mysql://localhost:3306/players", "root", "root")) {
             System.out.println("editDB passed connection");
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement("" +
-                    "UPDATE players.players " +
+            try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE players.players " +
                     "SET name = ?, age = ?, country = ?, position = ? " +
                     "WHERE id = ?")) {
                 String name = player.getName();

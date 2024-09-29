@@ -10,7 +10,7 @@ import java.util.List;
 public class InitDataFromDB {
 
 
-    public List<Player> initPlayers() throws Exception {
+    public List<Player> initPlayers() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (
@@ -24,7 +24,7 @@ public class InitDataFromDB {
             System.out.println("init passed connection");
             try (Statement statement = connection.createStatement()) {
 
-                try (ResultSet resultSet = statement.executeQuery("SELECT * FROM players;")) {
+                try (ResultSet resultSet = statement.executeQuery("SELECT * FROM players.players;")) {
 
                     List<Player> players = new ArrayList<Player>();
 

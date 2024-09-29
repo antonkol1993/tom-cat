@@ -1,10 +1,7 @@
 package by.education.service.db;
 
-import by.education.data.Player;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class RemoveFromDB {
 
