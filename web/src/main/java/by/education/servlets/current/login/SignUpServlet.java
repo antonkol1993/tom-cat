@@ -11,7 +11,7 @@ import java.io.IOException;
 public class SignUpServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("url","/register");
         req.setAttribute("buttonName", "sign up");
         req.getRequestDispatcher("/filter/signUp.jsp").forward(req,resp);
