@@ -12,14 +12,10 @@ public class DbPlayerDatabase implements PlayerDatabase {
     List<Player> playerList = getPlayerList();
     PlayerService playerService;
 
-    private List<Player> initPlayersFromDB() throws Exception {
-        return new InitDataFromDB().initPlayers();
-    };
-
     @Override
     public List<Player> getPlayerList() {
         try {
-            return initPlayersFromDB();
+            return new InitDataFromDB().initPlayers();
         } catch (Exception e) {
             throw new RuntimeException("Database error", e);
         }
@@ -35,17 +31,18 @@ public class DbPlayerDatabase implements PlayerDatabase {
         playerList.add(player);
     }
 
-    private void removePlayerFromDB(Integer id) {
+
+
+
+    @Override
+    public void removePlayer(int id) {
         try {
             new RemoveFromDB().removeFromDB(id);
         } catch (Exception e) {
             throw new RuntimeException("Database error", e);
         }
     }
-    @Override
-    public void removePlayer(int id) {
-        removePlayerFromDB(id);
-    }
+
 
     @Override
     public void editPlayer(int i, Player player) {
