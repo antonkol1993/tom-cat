@@ -16,11 +16,7 @@ public class RemoverPlayerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
         Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
-        try {
-            playerService.deletePlayer(id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        playerService.removePlayer(id);
 //
 //        List<Player> list = playerService.getPlayerList();
 //        req.setAttribute("list", list);

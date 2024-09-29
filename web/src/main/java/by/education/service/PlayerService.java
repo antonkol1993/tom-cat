@@ -3,7 +3,6 @@ package by.education.service;
 
 import by.education.data.Player;
 import by.education.db.DbPlayerDatabase;
-import by.education.db.InMemoryPlayerDatabase;
 import by.education.db.PlayerDatabase;
 
 import java.util.List;
@@ -25,27 +24,30 @@ public class PlayerService {
         return instance;
     }
 
-
-    public List<Player> getPlayerList() throws Exception {
-        return new InitDataFromDB().initPlayers();
+    public List<Player> getPlayerList() {
+        return playerListDatabase.getPlayerList();
     }
 
-    public void addPlayer(String name, Integer age, String country, String role) throws Exception {
-        getID();
-        playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
+    public Player getPlayerById(Integer id) {
+        return null;
     }
 
 
-    public void deletePlayer(Integer id) throws Exception {
-
+    public void removePlayer(Integer id) {
         int i = 0;
         while (i < getPlayerList().size()) {
             if (Objects.equals(id, getPlayerList().get(i).getId())) getPlayerList().remove(i);
             i++;
         }
+        playerListDatabase.removePlayer(id);
     }
 
-    public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
+    public void addPlayer(String name, Integer age, String country, String role) {
+        getID();
+        playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
+    }
+
+    public void editPlayer(Integer id, String name, Integer age, String country, String position) {
 
         for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
@@ -57,7 +59,7 @@ public class PlayerService {
         }
     }
 
-    private void getID() throws Exception {
+    private void getID() {
         // todo will doing add after deleteAll without exceptions
         if (getPlayerList().isEmpty()) {
             maxId = 0;

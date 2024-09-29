@@ -1,4 +1,4 @@
-package by.education.service;
+package by.education.service.db;
 
 import by.education.data.Player;
 
