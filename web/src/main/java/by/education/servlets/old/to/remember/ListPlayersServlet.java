@@ -64,7 +64,12 @@ public class ListPlayersServlet extends HttpServlet {
                          \s"""
         );
 
-        List<Player> playerList = playerService.getPlayerList();
+        List<Player> playerList = null;
+        try {
+            playerList = playerService.getPlayerList();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         for (Player player : playerList) {
             String name = player.getName();
             Integer age = player.getAge();

@@ -18,7 +18,12 @@ public class ListPlayerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Player> list = playerService.getPlayerList();
+        List<Player> list = null;
+        try {
+            list = playerService.getPlayerList();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         req.setAttribute("list", list);
         req.getRequestDispatcher("/players/playersList.jsp").forward(req, resp);

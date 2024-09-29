@@ -30,7 +30,11 @@ public class AddPlayerServlet extends HttpServlet {
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
         String role = req.getParameter("role");
-        playerService.addPlayer(name,age,country,role);
+        try {
+            playerService.addPlayer(name,age,country,role);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         req.getRequestDispatcher("/new/players").forward(req,resp);
     }
 }

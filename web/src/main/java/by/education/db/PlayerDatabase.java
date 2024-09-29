@@ -12,8 +12,8 @@ public interface PlayerDatabase {
 
     void addPlayer(Player player);
 
-    void removePlayer(int id);
+    void removePlayer(int id) throws Exception;
 
-    void editPlayer(int i, Player player);
+    void editPlayer(int i, Player player) throws Exception;
 
 }

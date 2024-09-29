@@ -36,12 +36,12 @@ public class DbPlayerDatabase implements PlayerDatabase {
     }
 
     @Override
-    public void removePlayer(int id) {
+    public void removePlayer(int id) throws Exception {
         playerService.deletePlayer(id);
     }
 
     @Override
-    public void editPlayer(int i, Player player) {
+    public void editPlayer(int i, Player player) throws Exception {
         String name = player.getName();
         Integer age = player.getAge();
         String country = player.getCountry();

@@ -18,20 +18,23 @@ public class EditPlayerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
         int id = Integer.parseInt(pathInfo.substring(1));
-        for (int i = 0; i < playerService.getPlayerList().size(); i++) {
-            if (playerService.getPlayerList().get(i).getId() == id) {
-                Player player = playerService.getPlayerList().get(i);
-                req.setAttribute("name", player.getName());
-                req.setAttribute("age", player.getAge());
-                req.setAttribute("country", player.getCountry());
-                req.setAttribute("role", player.getPosition());
-                req.setAttribute("input", "Edit");
-                req.setAttribute("url", "/new/players/edit/");
-                req.setAttribute("id", id);
+        try {
+            for (int i = 0; i < playerService.getPlayerList().size(); i++) {
+                if (playerService.getPlayerList().get(i).getId() == id) {
+                    Player player = playerService.getPlayerList().get(i);
+                    req.setAttribute("name", player.getName());
+                    req.setAttribute("age", player.getAge());
+                    req.setAttribute("country", player.getCountry());
+                    req.setAttribute("role", player.getPosition());
+                    req.setAttribute("input", "Edit");
+                    req.setAttribute("url", "/new/players/edit/");
+                    req.setAttribute("id", id);
+                }
             }
+            req.getRequestDispatcher("/players/playersEdit.jsp").forward(req, resp);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        req.getRequestDispatcher("/players/playersEdit.jsp").forward(req, resp);
-
     }
 
     @Override
@@ -41,7 +44,11 @@ public class EditPlayerServlet extends HttpServlet {
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
         String role = req.getParameter("role");
-        playerService.editPlayer(id, name, age, country, role);
+        try {
+            playerService.editPlayer(id, name, age, country, role);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         resp.sendRedirect(req.getContextPath() + "/new/players");
     }
 }
