@@ -11,6 +11,6 @@ public class Main  {
     public static void main(String[] args) throws Exception {
 
         PlayerService instance = PlayerService.getInstance();
-        instance.removePlayer(13);
+        instance.addPlayer("231123213",11,"America", "midfielder");
     }
 }

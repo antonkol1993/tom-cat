@@ -1,6 +1,7 @@
 package by.education.db;
 
 import by.education.data.Player;
+import by.education.service.db.AddFromDB;
 import by.education.service.db.InitDataFromDB;
 import by.education.service.PlayerService;
 import by.education.service.db.RemoveFromDB;
@@ -28,7 +29,7 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-        playerList.add(player);
+        new AddFromDB().addFromDB(player);
     }
 
 
