@@ -36,6 +36,7 @@ public class InitDataFromDB {
                         String position = resultSet.getString("position");
                         players.add(new Player(name,age,country,id,position));
                     }
+                    connection.close();
                     return players;
 
                 } catch (SQLException e) {

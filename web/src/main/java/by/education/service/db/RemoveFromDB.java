@@ -22,6 +22,7 @@ public class RemoveFromDB {
         System.out.println("remove passed connection");
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate("DELETE FROM players.players WHERE id =" + id + ";");
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

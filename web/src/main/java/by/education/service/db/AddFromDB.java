@@ -31,6 +31,7 @@ public class AddFromDB {
                 preparedStatement.setString(3, country);
                 preparedStatement.setString(4, position);
                 preparedStatement.executeUpdate();
+                connection.close();
             }
 
         } catch (SQLException e) {
