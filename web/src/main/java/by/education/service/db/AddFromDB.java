@@ -7,6 +7,8 @@ import java.sql.*;
 
 public class AddFromDB {
 
+    private static final String INSERT_PLAYER = "INSERT INTO players.players(name, age, country, position) VALUES(?,?,?,?)";
+
     public void addFromDB(Player player) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -21,17 +23,16 @@ public class AddFromDB {
             System.out.println("add passed connection");
 
             try (PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO players.players(name, age, country, position) VALUES(?,?,?,?)")) {
+                    .prepareStatement(INSERT_PLAYER)) {
                 String name = player.getName();
                 Integer age = player.getAge();
                 String country = player.getCountry();
                 String position = player.getPosition();
                 preparedStatement.setString(1, name);
-                preparedStatement.setString(2, String.valueOf(age));
+                preparedStatement.setInt(2, age);
                 preparedStatement.setString(3, country);
                 preparedStatement.setString(4, position);
                 preparedStatement.executeUpdate();
-                connection.close();
             }
 
         } catch (SQLException e) {
