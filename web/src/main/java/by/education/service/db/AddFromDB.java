@@ -1,8 +1,11 @@
 package by.education.service.db;
 
+import by.education.constants.Constants;
 import by.education.data.Player;
 
 import java.sql.*;
+
+import static by.education.constants.Constants.DRIVER_TO_DB;
 
 
 public class AddFromDB {
@@ -11,7 +14,7 @@ public class AddFromDB {
 
     public void addFromDB(Player player) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(DRIVER_TO_DB);
         } catch (
                 ClassNotFoundException e) {
             throw new RuntimeException("driver not found");

@@ -12,7 +12,7 @@ public class PlayerService {
     private static PlayerService instance;
 
     private Integer maxId;
-    PlayerDatabase playerListDatabase = new DbPlayerDatabase();
+    PlayerDatabase playerListDatabase = DbPlayerDatabase.getInstance();
 
     private PlayerService() {
     }
