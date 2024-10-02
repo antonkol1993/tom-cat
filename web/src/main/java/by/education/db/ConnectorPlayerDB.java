@@ -1,7 +1,11 @@
 package by.education.db;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,9 +25,16 @@ public class ConnectorPlayerDB implements ConnectionManager {
             throw new RuntimeException("driver not found");
         }
         try {
+
+            URL url = new URL("web\\src\\main\\webapp\\db.properties");
+            URLConnection con = url.openConnection();
+//
+            InputStream stream = con.getInputStream();
+
+            File file = new File("web\\src\\main\\webapp\\db.properties");
             Properties property = new Properties();
             FileInputStream fis;
-            fis = new FileInputStream("web\\src\\main\\webapp\\db.properties");
+            fis = new FileInputStream(file);
             property.load(fis);
 
             String jdbcURL = property.getProperty("jdbcURL");
