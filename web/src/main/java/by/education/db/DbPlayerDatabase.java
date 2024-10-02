@@ -1,21 +1,18 @@
 package by.education.db;
 
 import by.education.data.Player;
-import by.education.service.PlayerService;
 import by.education.service.db.AddFromDB;
-import by.education.service.db.InitDataFromDB;
 import by.education.service.db.RemoveFromDB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DbPlayerDatabase implements PlayerDatabase {
 
     private static PlayerDatabase instance;
 
-    private final ConnectionManager connectionManager = new PlayerConnectorDB();
+    private final ConnectionManager connectionManager = new ConnectorPlayerDB();
     private final Connection connectionToDataBase = connectionManager.getConnection();
 
     private DbPlayerDatabase() {
@@ -35,11 +32,24 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public List<Player> getPlayerList() {
-        try {
-            return new InitDataFromDB().initPlayers();
-        } catch (Exception e) {
-            throw new RuntimeException("Database error", e);
-        }
+        try (Statement statement = connectionToDataBase.createStatement()) {
+
+            try (ResultSet resultSet = statement.executeQuery("SELECT * FROM players.players;")) {
+
+                List<Player> players = new ArrayList<Player>();
+
+                while (resultSet.next()) {
+                    Integer id = Integer.valueOf(resultSet.getString("id"));
+                    String name = resultSet.getString("name");
+                    Integer age = Integer.valueOf(resultSet.getString("age"));
+                    String country = resultSet.getString("country");
+                    String position = resultSet.getString("position");
+                    players.add(new Player(name, age, country, id, position));
+                }
+                return players;
+            }
+            } catch (SQLException e) {
+        }throw new RuntimeException("unsuccesfull");
     }
 
     @Override

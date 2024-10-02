@@ -1,14 +1,25 @@
 package by.education;
 
-import by.education.db.PlayerConnectorDB;
+import by.education.data.Player;
 import by.education.service.PlayerService;
+
+import java.util.List;
 
 public class Main  {
     public static void main(String[] args) throws Exception {
 
 
         PlayerService instance = PlayerService.getInstance();
-        instance.editPlayer(4,"9999999",9999999,"9999999","9999999");
+        List<Player> playerList = instance.getPlayerList();
+        for (Player player : playerList) {
+            System.out.print(player.getId() + "\t");
+            System.out.print(player.getName() + "\t");
+            System.out.print(player.getAge() + "\t");
+            System.out.print(player.getCountry() + "\t");
+            System.out.print(player.getPosition() + "\t");
+            System.out.println();
+        }
+        instance.editPlayer(5,"9999999",9999999,"9999999","9999999");
 
     }
 }

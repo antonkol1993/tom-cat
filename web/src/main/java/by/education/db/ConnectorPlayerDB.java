@@ -9,7 +9,7 @@ import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class PlayerConnectorDB implements ConnectionManager {
+public class ConnectorPlayerDB implements ConnectionManager {
 
 
     @Override
@@ -23,7 +23,7 @@ public class PlayerConnectorDB implements ConnectionManager {
         try {
             Properties property = new Properties();
             FileInputStream fis;
-            fis = new FileInputStream("web/src/main/webapp/db.properties");
+            fis = new FileInputStream("web\\src\\main\\webapp\\db.properties");
             property.load(fis);
 
             String jdbcURL = property.getProperty("jdbcURL");
@@ -35,10 +35,8 @@ public class PlayerConnectorDB implements ConnectionManager {
             return DriverManager.getConnection(jdbcURL,
                     username,
                     password);
-        } catch (IOException e) {
-            System.err.println("Error: The file's properties didn't find!");
-        } catch (SQLException e) {
-            System.err.println("Error, problem with connection to DB!");
+        } catch (IOException | SQLException e) {
+            System.err.println(e.getMessage());
         }
         return null;
     }
