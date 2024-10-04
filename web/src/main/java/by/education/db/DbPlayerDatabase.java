@@ -25,11 +25,6 @@ public class DbPlayerDatabase implements PlayerDatabase {
         return instance;
     }
 
-
-
-//    List<Player> playerList = getPlayerList();
-//    PlayerService playerService = PlayerService.getInstance();
-
     @Override
     public List<Player> getPlayerList() {
         try (Statement statement = connectionToDataBase.createStatement()) {

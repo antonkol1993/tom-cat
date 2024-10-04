@@ -1,5 +1,9 @@
 package by.education.db;
 
+import by.education.prop.ListPropertiesToDateBase;
+import by.education.prop.PreparedPropertiesEnum;
+import by.education.prop.PropertiesToDataBase;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,28 +29,18 @@ public class ConnectorPlayerDB implements ConnectionManager {
             throw new RuntimeException("driver not found");
         }
         try {
+            PropertiesToDataBase propertiesToDataBasePlayer = PreparedPropertiesEnum.PROPERTIES_TO_DATA_BASE_PLAYER;
 
-            URL url = new URL("web\\src\\main\\webapp\\db.properties");
-            URLConnection con = url.openConnection();
-//
-            InputStream stream = con.getInputStream();
-
-            File file = new File("web\\src\\main\\webapp\\db.properties");
-            Properties property = new Properties();
-            FileInputStream fis;
-            fis = new FileInputStream(file);
-            property.load(fis);
-
-            String jdbcURL = property.getProperty("jdbcURL");
-            String username = property.getProperty("username");
-            String password = property.getProperty("password");
+            String jdbcURL = propertiesToDataBasePlayer.getUrlDB();
+            String username = propertiesToDataBasePlayer.getUser();
+            String password = propertiesToDataBasePlayer.getPassword();
 //            System.out.println("jdbcURL: " + jdbcURL
 //                    + ", username: " + username
 //                    + ", PASSWORD: " + password);
             return DriverManager.getConnection(jdbcURL,
                     username,
                     password);
-        } catch (IOException | SQLException e) {
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
         return null;
