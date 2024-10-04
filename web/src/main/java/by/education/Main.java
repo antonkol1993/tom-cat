@@ -19,7 +19,7 @@ public class Main  {
             System.out.print(player.getPosition() + "\t");
             System.out.println();
         }
-        instance.editPlayer(6,"9999999",9999999,"9999999","9999999");
+        instance.removePlayer(1);
 
     }
 }

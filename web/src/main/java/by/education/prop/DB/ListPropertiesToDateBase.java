@@ -1,4 +1,4 @@
-package by.education.prop;
+package by.education.prop.DB;
 
 public class ListPropertiesToDateBase {
     public static final String URL_PLAYER = "jdbc:mysql://localhost:3306/players";

@@ -1,4 +1,4 @@
-package by.education.prop;
+package by.education.prop.DB;
 
 public class PropertiesToDataBase {
     private String urlDB;

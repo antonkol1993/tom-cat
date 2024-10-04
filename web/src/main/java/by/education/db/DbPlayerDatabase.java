@@ -1,8 +1,6 @@
 package by.education.db;
 
 import by.education.data.Player;
-import by.education.service.db.AddFromDB;
-import by.education.service.db.RemoveFromDB;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,6 +12,15 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     private final ConnectionManager connectionManager = new ConnectorPlayerDB();
     private final Connection connectionToDataBase = connectionManager.getConnection();
+
+    private static final String GET_PLAYERS = "SELECT * FROM players.players;";
+    private static final String INSERT_PLAYER = "INSERT INTO players.players" +
+            "(name, age, country, position) VALUES(?,?,?,?)";
+    private static final String DELETE_PLAYERS = "DELETE FROM players.players WHERE id = ?";
+    private static final String EDIT_PLAYER = "UPDATE players.players " +
+            "SET name = ?, age = ?, country = ?, position = ? " +
+            "WHERE id = ?";
+
 
     private DbPlayerDatabase() {
     }
@@ -29,9 +36,9 @@ public class DbPlayerDatabase implements PlayerDatabase {
     public List<Player> getPlayerList() {
         try (Statement statement = connectionToDataBase.createStatement()) {
 
-            try (ResultSet resultSet = statement.executeQuery("SELECT * FROM players.players;")) {
+            try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
 
-                List<Player> players = new ArrayList<Player>();
+                List<Player> players = new ArrayList<>();
 
                 while (resultSet.next()) {
                     Integer id = Integer.valueOf(resultSet.getString("id"));
@@ -43,8 +50,9 @@ public class DbPlayerDatabase implements PlayerDatabase {
                 }
                 return players;
             }
-            } catch (SQLException e) {
-        }throw new RuntimeException("unsuccesfull");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -54,27 +62,39 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-        new AddFromDB().addFromDB(player);
+        try (PreparedStatement preparedStatement = connectionToDataBase
+                .prepareStatement(INSERT_PLAYER)) {
+            String name = player.getName();
+            Integer age = player.getAge();
+            String country = player.getCountry();
+            String position = player.getPosition();
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, age);
+            preparedStatement.setString(3, country);
+            preparedStatement.setString(4, position);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
-
-
 
 
     @Override
     public void removePlayer(int id) {
-        try {
-            new RemoveFromDB().removeFromDB(id);
-        } catch (Exception e) {
-            throw new RuntimeException("Database error", e);
+
+        try (PreparedStatement preparedStatement = connectionToDataBase
+                .prepareStatement(DELETE_PLAYERS)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
 
     @Override
     public void editPlayer(int id, Player player) {
-        try (PreparedStatement preparedStatement = connectionToDataBase.prepareStatement("UPDATE players.players " +
-                "SET name = ?, age = ?, country = ?, position = ? " +
-                "WHERE id = ?")) {
+        try (PreparedStatement preparedStatement = connectionToDataBase.prepareStatement(EDIT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();
             String country = player.getCountry();

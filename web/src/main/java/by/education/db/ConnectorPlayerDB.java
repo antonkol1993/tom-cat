@@ -1,19 +1,11 @@
 package by.education.db;
 
-import by.education.prop.ListPropertiesToDateBase;
-import by.education.prop.PreparedPropertiesEnum;
-import by.education.prop.PropertiesToDataBase;
+import by.education.prop.DB.PreparedPropertiesEnum;
+import by.education.prop.DB.PropertiesToDataBase;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
