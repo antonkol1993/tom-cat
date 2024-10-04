@@ -23,13 +23,13 @@ public class LoginServlet extends HttpServlet {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
         boolean valid = personService.isValid(userName, password);
-        Person personByUserName = personService.getPersonByUserName(userName);
+        Person userByPersonName = personService.getPersonByUserName(userName);
 
         if (valid) {
-            req.getSession().setAttribute(USER, personByUserName.getUserRole());
-          if (personByUserName.getUserRole() == UsersRole.USER) {
+            req.getSession().setAttribute(USER, userByPersonName.getUserRole());
+          if (userByPersonName.getUserRole() == UsersRole.USER) {
               resp.sendRedirect(req.getContextPath() + "/new/players");
-          } else if (personByUserName.getUserRole() == UsersRole.ADMIN) {
+          } else if (userByPersonName.getUserRole() == UsersRole.ADMIN) {
               resp.sendRedirect(req.getContextPath() + "/admin/persons");
           }
 //                resp.sendRedirect(req.getContextPath() + "/new/players");

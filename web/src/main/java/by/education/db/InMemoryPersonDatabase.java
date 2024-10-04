@@ -15,6 +15,7 @@ public class InMemoryPersonDatabase  implements PersonDatabase{
         personsList.add(new Person("chamPion", "kOlesnik-0v", UsersRole.USER));
         personsList.add(new Person("admin", "admin", UsersRole.ADMIN));
         personsList.add(new Person("user", "user", UsersRole.USER));
+        personsList.add(new Person("narut", "narut", UsersRole.ADMIN));
     }
 
     @Override
