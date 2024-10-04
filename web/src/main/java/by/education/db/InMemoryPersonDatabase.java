@@ -24,8 +24,13 @@ public class InMemoryPersonDatabase  implements PersonDatabase{
     }
 
     @Override
-    public void addPersonList(Person person) {
+    public void addPerson(Person person) {
         getPersonList().add(person);
+    }
+
+    @Override
+    public void removePerson(int id) {
+
     }
 
 

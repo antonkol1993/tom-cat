@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface PersonDatabase {
     List<Person> getPersonList();
-    void addPersonList(Person person);
-
+    void addPerson(Person person);
+    void removePerson (int id);
 }

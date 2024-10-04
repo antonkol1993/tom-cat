@@ -3,13 +3,15 @@ package by.education.service;
 
 import by.education.constants.UsersRole;
 import by.education.data.Person;
+import by.education.db.DbPersonDatabase;
 import by.education.db.InMemoryPersonDatabase;
+import by.education.db.PersonDatabase;
 
 import java.util.List;
 
 public class PersonService {
     private static PersonService instance;
-    InMemoryPersonDatabase persons = new InMemoryPersonDatabase();
+    PersonDatabase persons = new DbPersonDatabase();
 
     private PersonService() {
     }

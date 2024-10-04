@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class ConnectorPlayerDB implements ConnectionManager {
+public class ConnectorPersonDB implements ConnectionManager {
 
 
     @Override
@@ -21,11 +21,11 @@ public class ConnectorPlayerDB implements ConnectionManager {
             throw new RuntimeException("driver not found");
         }
         try {
-            PropertiesToDataBase playerPropertiesToDataBase = PreparedPropertiesEnum.PROPERTIES_TO_DATA_BASE_PLAYER;
+            PropertiesToDataBase personPropertiesToDataBase = PreparedPropertiesEnum.PROPERTIES_TO_DATA_BASE_PERSON;
 
-            String jdbcURL = playerPropertiesToDataBase.getUrlDB();
-            String username = playerPropertiesToDataBase.getUser();
-            String password = playerPropertiesToDataBase.getPassword();
+            String jdbcURL = personPropertiesToDataBase.getUrlDB();
+            String username = personPropertiesToDataBase.getUser();
+            String password = personPropertiesToDataBase.getPassword();
 //            System.out.println("jdbcURL: " + jdbcURL
 //                    + ", username: " + username
 //                    + ", PASSWORD: " + password);
