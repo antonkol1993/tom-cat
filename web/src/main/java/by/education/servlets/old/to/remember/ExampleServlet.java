@@ -16,5 +16,6 @@ public class ExampleServlet extends HttpServlet {
         List<String> days = List.of("Mon", "Tue", "Wed", "Thu", "Friday", "Sat", "Sun");
         req.setAttribute("days", days);
         req.getRequestDispatcher("example.jsp").forward(req, resp);
+
     }
 }

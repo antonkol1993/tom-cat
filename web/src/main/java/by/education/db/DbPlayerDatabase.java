@@ -11,7 +11,6 @@ public class DbPlayerDatabase implements PlayerDatabase {
     private static PlayerDatabase instance;
 
     private final ConnectionManager connectionManager = new ConnectorPlayerDB();
-    private final Connection connectionToDataBase = connectionManager.getConnection();
 
     private static final String GET_PLAYERS = "SELECT * FROM players.players;";
     private static final String INSERT_PLAYER = "INSERT INTO players.players" +
@@ -34,7 +33,8 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public List<Player> getPlayerList() {
-        try (Statement statement = connectionToDataBase.createStatement()) {
+        try (Connection connection = connectionManager.getConnection();
+                Statement statement = connection.createStatement()) {
 
             try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
 
@@ -62,8 +62,9 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-        try (PreparedStatement preparedStatement = connectionToDataBase
-                .prepareStatement(INSERT_PLAYER)) {
+
+        try (Connection connection = connectionManager.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();
             String country = player.getCountry();
@@ -82,8 +83,8 @@ public class DbPlayerDatabase implements PlayerDatabase {
     @Override
     public void removePlayer(int id) {
 
-        try (PreparedStatement preparedStatement = connectionToDataBase
-                .prepareStatement(DELETE_PLAYERS)) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PLAYERS)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -94,7 +95,8 @@ public class DbPlayerDatabase implements PlayerDatabase {
 
     @Override
     public void editPlayer(int id, Player player) {
-        try (PreparedStatement preparedStatement = connectionToDataBase.prepareStatement(EDIT_PLAYER)) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();
             String country = player.getCountry();
