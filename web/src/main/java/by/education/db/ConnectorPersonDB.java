@@ -26,9 +26,9 @@ public class ConnectorPersonDB implements ConnectionManager {
             String jdbcURL = personPropertiesToDataBase.getUrlDB();
             String username = personPropertiesToDataBase.getUser();
             String password = personPropertiesToDataBase.getPassword();
-//            System.out.println("jdbcURL: " + jdbcURL
-//                    + ", username: " + username
-//                    + ", PASSWORD: " + password);
+            System.out.println("jdbcURL: " + jdbcURL
+                    + ", username: " + username
+                    + ", PASSWORD: " + password);
             return DriverManager.getConnection(jdbcURL,
                     username,
                     password);

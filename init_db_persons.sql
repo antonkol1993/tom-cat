@@ -1,6 +1,6 @@
-create schema users;
+create schema persons;
 
-create table users.users
+create table persons.persons
 (
     Id       int auto_increment
         primary key,
@@ -9,16 +9,16 @@ create table users.users
     Role varchar(20) not null
 );
 
-INSERT INTO users.users (Username, Password, Role)
+INSERT INTO persons.persons (Username, Password, Role)
 VALUES ('Anton','KOLESNIKOV','user');
-INSERT INTO users.users (Username, Password, Role)
+INSERT INTO persons.persons (Username, Password, Role)
 VALUES ('Messii','KOLESNIKOV','user');
-INSERT INTO users.users (Username, Password, Role)
+INSERT INTO persons.persons (Username, Password, Role)
 VALUES ('admin','admin','admin');
-INSERT INTO users.users (Username, Password, Role)
+INSERT INTO persons.persons (Username, Password, Role)
 VALUES ('user','user','user');
-INSERT INTO users.users (Username, Password, Role)
+INSERT INTO persons.persons (Username, Password, Role)
 VALUES ('narut','narut','admin');
-INSERT INTO users.users (Username, Password, Role)
+INSERT INTO persons.persons (Username, Password, Role)
 VALUES ('chamPion','kOlesnik-0v','user');
 
