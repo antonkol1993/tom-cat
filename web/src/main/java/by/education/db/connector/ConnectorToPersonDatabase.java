@@ -43,6 +43,8 @@ public class ConnectorToPersonDatabase implements IConnectortoDatabase {
                 return connection;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
+            } finally {
+                connection = null;
             }
         }
 

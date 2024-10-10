@@ -44,6 +44,8 @@ public class ConnectorToPlayerDatabase implements IConnectortoDatabase {
 
             } catch (Exception e) {
                 System.err.println(e.getMessage());
+            } finally {
+                connection = null;
             }
         }
 

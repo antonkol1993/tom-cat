@@ -4,6 +4,7 @@ package by.education;
 import by.education.db.connector.ConnectorToPersonDatabase;
 import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.connector.IConnectortoDatabase;
+import by.education.service.PlayerService;
 
 public class Main  {
     public static void main(String[] args) throws Exception {
@@ -33,11 +34,12 @@ public class Main  {
 //        }
         IConnectortoDatabase connPerson = ConnectorToPersonDatabase.getInstance();
         IConnectortoDatabase connPlayer = ConnectorToPlayerDatabase.getInstance();
-        connPerson.getConnection();
-        System.out.println(connPerson.getConnection().getMetaData());
 
-        connPlayer.getConnection();
-        System.out.println(connPlayer.getConnection().getMetaData());
+        PlayerService instance = PlayerService.getInstance();
+        for (int i = 0; i <instance.getPlayerList().size(); i++) {
+            System.out.println(instance.getPlayerList().get(i).getName());
+
+        }
 
 //        IConnectortoDatabase ConnectorPersonDB = ConnectortoDatabase.getInstance();
 //        ConnectorPersonDB.getConnection();
