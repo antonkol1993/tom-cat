@@ -47,6 +47,7 @@ public class DbPlayerDatabase implements PlayerDatabase {
                     String country = resultSet.getString("country");
                     String position = resultSet.getString("position");
                     players.add(new Player(name, age, country, id, position));
+
                 }
                 return players;
             }

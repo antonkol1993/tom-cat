@@ -42,9 +42,21 @@ public class PlayerService {
         playerListDatabase.removePlayer(id);
     }
 
+    public boolean isUnique(String name) {
+        for (int i = 0; i < getPlayerList().size(); i++) {
+
+            if (name.equals(getPlayerList().get(i).getName())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void addPlayer(String name, Integer age, String country, String role) {
         getID();
-        playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
+        if (isUnique(name)) {
+            playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
+        }
     }
 
     public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
@@ -58,7 +70,7 @@ public class PlayerService {
                 editedPlayer = player;
             }
         }
-        if(editedPlayer !=null){
+        if (editedPlayer != null) {
             playerListDatabase.editPlayer(id, editedPlayer);
         }
 
