@@ -1,6 +1,6 @@
 package by.education.db.memory;
 
-import by.education.data.objects.Player;
+import by.education.objects.Player;
 import by.education.db.IPlayer;
 
 import java.util.ArrayList;

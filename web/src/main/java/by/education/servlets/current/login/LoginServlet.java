@@ -1,7 +1,7 @@
 package by.education.servlets.current.login;
 
 import by.education.constants.UsersRole;
-import by.education.data.objects.Person;
+import by.education.objects.Person;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;
@@ -27,13 +27,11 @@ public class LoginServlet extends HttpServlet {
 
         if (valid) {
             req.getSession().setAttribute(USER, userByPersonName.getUserRole());
-          if (userByPersonName.getUserRole() == UsersRole.USER) {
-              resp.sendRedirect(req.getContextPath() + "/new/players");
-          } else if (userByPersonName.getUserRole() == UsersRole.ADMIN) {
-              resp.sendRedirect(req.getContextPath() + "/admin/persons");
-          }
-//                resp.sendRedirect(req.getContextPath() + "/new/players");
-//            resp.sendRedirect(req.getContextPath() + "/admin/persons");
+            if (userByPersonName.getUserRole() == UsersRole.USER) {
+                resp.sendRedirect(req.getContextPath() + "/new/players");
+            } else if (userByPersonName.getUserRole() == UsersRole.ADMIN) {
+                resp.sendRedirect(req.getContextPath() + "/admin/persons");
+            }
         } else {
             req.setAttribute("answer", "Invalid login or password");
             req.getRequestDispatcher("/filter/answer.jsp").forward(req, resp);

@@ -1,25 +1,22 @@
 package by.education.db.connector;
 
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class ConnectortoDatabase implements IConnectortoDatabase {
-    private static ConnectortoDatabase instance;
+public class ConnectorToPlayerDatabase implements IConnectortoDatabase {
+    private static ConnectorToPlayerDatabase instance;
     private Connection connection;
 
-    private ConnectortoDatabase() {
+    private ConnectorToPlayerDatabase() {
     }
 
-    public static ConnectortoDatabase getInstance() {
+    public static ConnectorToPlayerDatabase getInstance() {
         if (instance == null) {
-            instance = new ConnectortoDatabase();
+            instance = new ConnectorToPlayerDatabase();
         }
         return instance;
     }
@@ -36,20 +33,20 @@ public class ConnectortoDatabase implements IConnectortoDatabase {
             try {
 
                 Properties property = new Properties();
-                InputStream stream = getClass().getResourceAsStream("db.properties");
+                InputStream stream = getClass().getResourceAsStream("/db.properties");
                 property.load(stream);
-                String jdbcURL = property.getProperty("jdbcURL");
-                String username = property.getProperty("username");
-                String password = property.getProperty("password");
+                String jdbcURL = property.getProperty("player.jdbcURL");
+                String username = property.getProperty("player.username");
+                String password = property.getProperty("player.password");
                 connection = DriverManager.getConnection(jdbcURL, username, password);
+
                 return connection;
 
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
+
         return connection;
     }
 

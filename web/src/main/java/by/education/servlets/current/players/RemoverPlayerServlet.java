@@ -1,4 +1,4 @@
-package by.education.servlets.current.player;
+package by.education.servlets.current.players;
 
 import by.education.service.PlayerService;
 
@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "RemoverPlayerServlet", urlPatterns = "/new/players/delete/*")
+@WebServlet(name = "RemoverPlayerServlet", urlPatterns = "/players/delete/*")
 public class RemoverPlayerServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
@@ -21,11 +22,7 @@ public class RemoverPlayerServlet extends HttpServlet {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-//
-//        List<PlayerDatabase> list = playerService.getPlayerList();
-//        req.setAttribute("list", list);
-        req.getRequestDispatcher("/new/players").forward(req,resp);
 
+        req.getRequestDispatcher("/new/players").forward(req, resp);
     }
-
 }

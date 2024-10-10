@@ -1,4 +1,4 @@
-package by.education.servlets.current.player;
+package by.education.servlets.current.players;
 
 import by.education.service.PlayerService;
 
@@ -21,7 +21,7 @@ public class AddPlayerServlet extends HttpServlet {
         req.setAttribute("role", "");
         req.setAttribute("input", "Create");
         req.setAttribute("url", "/players/add");
-        req.getRequestDispatcher("/players/addPlayers.jsp").forward(req,resp);
+        req.getRequestDispatcher("/players/playersAdd.jsp").forward(req, resp);
     }
 
     @Override
@@ -30,14 +30,14 @@ public class AddPlayerServlet extends HttpServlet {
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
         String role = req.getParameter("role");
-        if (!playerService.isUnique(name)){
-            req.getRequestDispatcher("/informationally/userAlreadyExists.jsp").forward(req,resp);
+        if (!playerService.isUnique(name)) {
+            req.getRequestDispatcher("/informationally/userAlreadyExists.jsp").forward(req, resp);
         }
         try {
-            playerService.addPlayer(name,age,country,role);
+            playerService.addPlayer(name, age, country, role);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        req.getRequestDispatcher("/new/players").forward(req,resp);
+        req.getRequestDispatcher("/new/players").forward(req, resp);
     }
 }

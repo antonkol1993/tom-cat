@@ -1,6 +1,6 @@
-package by.education.servlets.current.player;
+package by.education.servlets.current.players;
 
-import by.education.data.objects.Player;
+import by.education.objects.Player;
 import by.education.service.PlayerService;
 
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditPlayerServlet", urlPatterns = "/new/players/edit/*")
+@WebServlet(name = "EditPlayerServlet", urlPatterns = "/players/edit/*")
 public class EditPlayerServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
 

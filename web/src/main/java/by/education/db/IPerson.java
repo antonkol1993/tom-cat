@@ -1,6 +1,6 @@
 package by.education.db;
 
-import by.education.data.objects.Person;
+import by.education.objects.Person;
 
 import java.util.List;
 

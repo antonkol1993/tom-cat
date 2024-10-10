@@ -1,8 +1,9 @@
 package by.education.db.database;
 
-import by.education.db.connector.ConnectorPlayerDB;
+import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.IPlayer;
 import by.education.db.connector.IConnectortoDatabase;
+import by.education.objects.Player;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class PlayerDatabase implements IPlayer {
 
     private static IPlayer instance;
 
-    private final IConnectortoDatabase IConnectorPersonDB = ConnectorPlayerDB.getInstance();
+    private final IConnectortoDatabase IConnectorPersonDB = ConnectorToPlayerDatabase.getInstance();
 
     private static final String GET_PLAYERS = "SELECT * FROM players.players;";
     private static final String INSERT_PLAYER = "INSERT INTO players.players" +
@@ -34,13 +35,13 @@ public class PlayerDatabase implements IPlayer {
     }
 
     @Override
-    public List<by.education.data.objects.Player> getPlayerList() {
+    public List<Player> getPlayerList() {
         try (Connection connection = IConnectorPersonDB.getConnection();
              Statement statement = connection.createStatement()) {
 
             try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
 
-                List<by.education.data.objects.Player> players = new ArrayList<>();
+                List<Player> players = new ArrayList<>();
 
                 while (resultSet.next()) {
                     Integer id = Integer.valueOf(resultSet.getString("id"));
@@ -48,7 +49,7 @@ public class PlayerDatabase implements IPlayer {
                     Integer age = Integer.valueOf(resultSet.getString("age"));
                     String country = resultSet.getString("country");
                     String position = resultSet.getString("position");
-                    players.add(new by.education.data.objects.Player(name, age, country, id, position));
+                    players.add(new Player(name, age, country, id, position));
 
                 }
                 return players;
@@ -59,12 +60,12 @@ public class PlayerDatabase implements IPlayer {
     }
 
     @Override
-    public by.education.data.objects.Player getPlayerById(Integer id) {
+    public Player getPlayerById(Integer id) {
         return null;
     }
 
     @Override
-    public void addPlayer(by.education.data.objects.Player player) {
+    public void addPlayer(Player player) {
 
         try (Connection connection = IConnectorPersonDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYER)) {
@@ -97,7 +98,7 @@ public class PlayerDatabase implements IPlayer {
 
 
     @Override
-    public void editPlayer(int id, by.education.data.objects.Player player) {
+    public void editPlayer(int id, Player player) {
         try (Connection connection = IConnectorPersonDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PLAYER)) {
             String name = player.getName();

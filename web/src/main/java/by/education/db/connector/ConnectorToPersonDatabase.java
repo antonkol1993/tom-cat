@@ -7,16 +7,16 @@ import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class ConnectorPlayerDB implements IConnectortoDatabase {
-    private static ConnectorPlayerDB instance;
+public class ConnectorToPersonDatabase implements IConnectortoDatabase {
+    private static ConnectorToPersonDatabase instance;
     private Connection connection;
 
-    private ConnectorPlayerDB() {
+    private ConnectorToPersonDatabase() {
     }
 
-    public static ConnectorPlayerDB getInstance() {
+    public static ConnectorToPersonDatabase getInstance() {
         if (instance == null) {
-            instance = new ConnectorPlayerDB();
+            instance = new ConnectorToPersonDatabase();
         }
         return instance;
     }
@@ -33,14 +33,14 @@ public class ConnectorPlayerDB implements IConnectortoDatabase {
             try {
 
                 Properties property = new Properties();
-                InputStream stream = getClass().getResourceAsStream("db.properties");
+                InputStream stream = getClass().getResourceAsStream("/db.properties");
                 property.load(stream);
-                String jdbcURL = property.getProperty("jdbcURL");
-                String username = property.getProperty("username");
-                String password = property.getProperty("password");
-                return DriverManager.getConnection(jdbcURL,
-                        username,
-                        password);
+                String jdbcURL = property.getProperty("person.jdbcURL");
+                String username = property.getProperty("person.username");
+                String password = property.getProperty("person.password");
+                connection = DriverManager.getConnection(jdbcURL, username, password);
+
+                return connection;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

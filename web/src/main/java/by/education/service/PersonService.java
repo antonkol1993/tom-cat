@@ -4,6 +4,7 @@ package by.education.service;
 import by.education.constants.UsersRole;
 import by.education.db.database.PersonDatabase;
 import by.education.db.IPerson;
+import by.education.objects.Person;
 
 import java.util.List;
 
@@ -22,13 +23,13 @@ public class PersonService {
     }
 
 
-    public List<by.education.data.objects.Person> getPersonList() {
+    public List<Person> getPersonList() {
         return persons.getPersonList();
     }
 
     public boolean isValid(String userName, String password) {
         for (int i = 0; i < persons.getPersonList().size(); i++) {
-            by.education.data.objects.Person person = persons.getPersonList().get(i);
+            Person person = persons.getPersonList().get(i);
             if (person.getUserName().equals(userName) && person.getPassword().equals(password)) {
                 return true;
             }
@@ -36,9 +37,9 @@ public class PersonService {
         return false;
     }
 
-    public by.education.data.objects.Person getPersonByUserName(String userName) {
+    public Person getPersonByUserName(String userName) {
         for (int i = 0; i < persons.getPersonList().size(); i++) {
-            by.education.data.objects.Person person = persons.getPersonList().get(i);
+            Person person = persons.getPersonList().get(i);
             if (person.getUserName().equals(userName)) {
                 return person;
             }
@@ -47,7 +48,7 @@ public class PersonService {
     }
     public void addPerson(String userName, String password) {
         if (isUniqueUser(userName)) {
-        getPersonList().add(new by.education.data.objects.Person(userName,password,UsersRole.USER));
+        getPersonList().add(new Person(userName,password,UsersRole.USER));
         }
     }
     public boolean isUniqueUser(String userName) {

@@ -3,6 +3,7 @@ package by.education.service;
 
 import by.education.db.database.PlayerDatabase;
 import by.education.db.IPlayer;
+import by.education.objects.Player;
 
 import java.util.List;
 import java.util.Objects;
@@ -23,27 +24,21 @@ public class PlayerService {
         return instance;
     }
 
-    public List<by.education.data.objects.Player> getPlayerList() {
+    public List<Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
     }
 
-    public by.education.data.objects.Player getPlayerById(Integer id) {
+    public Player getPlayerById(Integer id) {
         return null;
     }
 
 
     public void removePlayer(Integer id) throws Exception {
-//        int i = 0;
-//        while (i < getPlayerList().size()) {
-//            if (Objects.equals(id, getPlayerList().get(i).getId())) getPlayerList().remove(i);
-//            i++;
-//        }
         playerListDatabase.removePlayer(id);
     }
 
     public boolean isUnique(String name) {
         for (int i = 0; i < getPlayerList().size(); i++) {
-
             if (name.equals(getPlayerList().get(i).getName())) {
                 return false;
             }
@@ -54,13 +49,13 @@ public class PlayerService {
     public void addPlayer(String name, Integer age, String country, String role) {
         getID();
         if (isUnique(name)) {
-            playerListDatabase.addPlayer(new by.education.data.objects.Player(name, age, country, ++maxId, role));
+            playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
         }
     }
 
     public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
-        by.education.data.objects.Player editedPlayer = null;
-        for (by.education.data.objects.Player player : getPlayerList()) {
+        Player editedPlayer = null;
+        for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
                 player.setName(name);
                 player.setAge(age);
@@ -72,7 +67,6 @@ public class PlayerService {
         if (editedPlayer != null) {
             playerListDatabase.editPlayer(id, editedPlayer);
         }
-
     }
 
     private void getID() {

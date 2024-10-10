@@ -1,6 +1,6 @@
-package by.education.servlets.current.player;
+package by.education.servlets.current.players;
 
-import by.education.data.objects.Player;
+import by.education.objects.Player;
 import by.education.service.PlayerService;
 
 import javax.servlet.ServletException;
@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListPlayerServlet", urlPatterns = "/new/players")
+@WebServlet(name = "ListPlayerServlet", urlPatterns = "/players")
 public class ListPlayerServlet extends HttpServlet {
 
     private final PlayerService playerService = PlayerService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Player> list = null;
+        List<Player> list;
         try {
             list = playerService.getPlayerList();
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public class ListPlayerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 
 

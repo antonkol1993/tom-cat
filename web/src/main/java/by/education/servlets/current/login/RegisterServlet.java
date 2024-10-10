@@ -1,9 +1,7 @@
 package by.education.servlets.current.login;
 
 import by.education.constants.Constants;
-import by.education.constants.UsersRole;
 import by.education.service.PersonService;
-import by.education.service.PlayerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,9 +21,9 @@ public class RegisterServlet extends HttpServlet {
         if (personService.isUniqueUser(userName)) {
             personService.addPerson(userName, password);
             req.getSession().setAttribute(Constants.USER, personService.getPersonByUserName(userName));
-            resp.sendRedirect(req.getContextPath() + "/informationally/signUpSuccess.jsp");
+            resp.sendRedirect(req.getContextPath() + "/informational/signUpSuccess.jsp");
         } else {
-            resp.sendRedirect(req.getContextPath() + "/informationally/failedRegistrationLogin.jsp");
+            resp.sendRedirect(req.getContextPath() + "/informational/failedRegistrationLogin.jsp");
         }
     }
 }

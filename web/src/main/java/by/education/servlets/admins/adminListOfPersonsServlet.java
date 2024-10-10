@@ -1,6 +1,6 @@
 package by.education.servlets.admins;
 
-import by.education.data.objects.Person;
+import by.education.objects.Person;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;
@@ -18,7 +18,6 @@ public class adminListOfPersonsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("personList", personList);
         req.getRequestDispatcher("/admin/adminPersons.jsp").forward(req, resp);
-//        req.getRequestDispatcher("/admin/adminFormOfPersons.jsp").forward(req, resp);
     }
 
     @Override

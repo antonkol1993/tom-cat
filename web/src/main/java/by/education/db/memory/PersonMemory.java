@@ -1,7 +1,7 @@
 package by.education.db.memory;
 
 import by.education.constants.UsersRole;
-import by.education.data.objects.Person;
+import by.education.objects.Person;
 import by.education.db.IPerson;
 
 import java.util.ArrayList;

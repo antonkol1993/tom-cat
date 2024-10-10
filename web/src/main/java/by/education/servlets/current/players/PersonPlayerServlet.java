@@ -1,4 +1,4 @@
-package by.education.servlets.current.player;
+package by.education.servlets.current.players;
 
 import by.education.service.PlayerService;
 
@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
-@WebServlet(name = "PersonPlayerServlet", urlPatterns = "/new/players/*")
+@WebServlet(name = "PersonPlayerServlet", urlPatterns = "/players/*")
 public class PersonPlayerServlet extends HttpServlet {
     private final PlayerService playerService = PlayerService.getInstance();
 
