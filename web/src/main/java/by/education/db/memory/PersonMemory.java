@@ -1,14 +1,15 @@
-package by.education.db;
+package by.education.db.memory;
 
 import by.education.constants.UsersRole;
-import by.education.data.Person;
+import by.education.data.objects.Person;
+import by.education.db.IPerson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryPersonDatabase  implements PersonDatabase{
+public class PersonMemory implements IPerson {
     private final List<Person> personsList;
-    public InMemoryPersonDatabase() {
+    public PersonMemory() {
          personsList = new ArrayList<>();
         personsList.add(new Person("Anton", "kolesnikov", UsersRole.USER));
         personsList.add(new Person("Messii", "KOLESNIKOV", UsersRole.USER));

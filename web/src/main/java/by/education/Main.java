@@ -1,18 +1,15 @@
 package by.education;
 
-import by.education.data.Player;
-import by.education.db.ConnectorPersonDB;
-import by.education.service.PersonService;
 
-import java.util.List;
+import by.education.db.connector.IConnectorPersonDB;
 
 public class Main  {
     public static void main(String[] args) throws Exception {
 
 
 //        PlayerService instance = PlayerService.getInstance();
-//        List<Player> playerList = instance.getPlayerList();
-//        for (Player player : playerList) {
+//        List<PlayerDatabase> playerList = instance.getPlayerList();
+//        for (PlayerDatabase player : playerList) {
 //            System.out.print(player.getId() + "\t");
 //            System.out.print(player.getName() + "\t");
 //            System.out.print(player.getAge() + "\t");
@@ -23,8 +20,8 @@ public class Main  {
 //        instance.removePlayer(1);
 
 //        PersonService instance = PersonService.getInstance();
-//        List<Player> playerList = instance.getPlayerList();
-//        for (Player player : playerList) {
+//        List<PlayerDatabase> playerList = instance.getPlayerList();
+//        for (PlayerDatabase player : playerList) {
 //            System.out.print(player.getId() + "\t");
 //            System.out.print(player.getName() + "\t");
 //            System.out.print(player.getAge() + "\t");
@@ -33,8 +30,8 @@ public class Main  {
 //            System.out.println();
 //        }
 
-        ConnectorPersonDB connectorPersonDB = new ConnectorPersonDB();
-        connectorPersonDB.getConnection();
+        IConnectorPersonDB ConnectorPersonDB = by.education.db.connector.ConnectorPersonDB.getInstance();
+        ConnectorPersonDB.getConnection();
 //        instance.removePlayer(1);
 
     }

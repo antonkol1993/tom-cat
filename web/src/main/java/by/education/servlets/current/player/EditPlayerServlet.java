@@ -1,6 +1,6 @@
 package by.education.servlets.current.player;
 
-import by.education.data.Player;
+import by.education.data.objects.Player;
 import by.education.service.PlayerService;
 
 import javax.servlet.ServletException;

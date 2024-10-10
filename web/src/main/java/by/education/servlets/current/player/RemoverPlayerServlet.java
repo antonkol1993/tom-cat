@@ -22,7 +22,7 @@ public class RemoverPlayerServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 //
-//        List<Player> list = playerService.getPlayerList();
+//        List<PlayerDatabase> list = playerService.getPlayerList();
 //        req.setAttribute("list", list);
         req.getRequestDispatcher("/new/players").forward(req,resp);
 

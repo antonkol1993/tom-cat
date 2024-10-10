@@ -1,7 +1,7 @@
 package by.education.servlets.current.login;
 
 import by.education.constants.UsersRole;
-import by.education.data.Person;
+import by.education.data.objects.Person;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;

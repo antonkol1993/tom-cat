@@ -1,6 +1,6 @@
 package by.education.servlets.admins;
 
-import by.education.data.Person;
+import by.education.data.objects.Person;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;

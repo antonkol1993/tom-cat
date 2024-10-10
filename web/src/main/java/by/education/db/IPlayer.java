@@ -1,10 +1,10 @@
 package by.education.db;
 
-import by.education.data.Player;
+import by.education.data.objects.Player;
 
 import java.util.List;
 
-public interface PlayerDatabase {
+public interface IPlayer {
 
     List<Player> getPlayerList();
 

@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="by.education.data.Player" %>
+<%@ page import="by.education.data.objects.Player" %>
 <%@ page import="by.education.service.PlayerService" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>

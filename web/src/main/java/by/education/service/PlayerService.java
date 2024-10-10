@@ -1,9 +1,8 @@
 package by.education.service;
 
 
-import by.education.data.Player;
-import by.education.db.DbPlayerDatabase;
-import by.education.db.PlayerDatabase;
+import by.education.db.database.PlayerDatabase;
+import by.education.db.IPlayer;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +11,7 @@ public class PlayerService {
     private static PlayerService instance;
 
     private Integer maxId;
-    PlayerDatabase playerListDatabase = DbPlayerDatabase.getInstance();
+    IPlayer playerListDatabase = PlayerDatabase.getInstance();
 
     private PlayerService() {
     }
@@ -24,11 +23,11 @@ public class PlayerService {
         return instance;
     }
 
-    public List<Player> getPlayerList() {
+    public List<by.education.data.objects.Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
     }
 
-    public Player getPlayerById(Integer id) {
+    public by.education.data.objects.Player getPlayerById(Integer id) {
         return null;
     }
 
@@ -55,13 +54,13 @@ public class PlayerService {
     public void addPlayer(String name, Integer age, String country, String role) {
         getID();
         if (isUnique(name)) {
-            playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
+            playerListDatabase.addPlayer(new by.education.data.objects.Player(name, age, country, ++maxId, role));
         }
     }
 
     public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
-        Player editedPlayer = null;
-        for (Player player : getPlayerList()) {
+        by.education.data.objects.Player editedPlayer = null;
+        for (by.education.data.objects.Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
                 player.setName(name);
                 player.setAge(age);

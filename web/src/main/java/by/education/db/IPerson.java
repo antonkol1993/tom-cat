@@ -1,10 +1,10 @@
 package by.education.db;
 
-import by.education.data.Person;
+import by.education.data.objects.Person;
 
 import java.util.List;
 
-public interface PersonDatabase {
+public interface IPerson {
     List<Person> getPersonList();
     void addPerson(Person person);
     void removePerson (int id);

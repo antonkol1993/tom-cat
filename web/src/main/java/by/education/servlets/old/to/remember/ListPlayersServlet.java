@@ -1,6 +1,6 @@
 package by.education.servlets.old.to.remember;
 
-import by.education.data.Player;
+import by.education.data.objects.Player;
 import by.education.service.PlayerService;
 
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +26,7 @@ public class ListPlayersServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.addHeader("Set-Cookie", "JSESSIONID=33F6FD3CE3CAAFBDB516FCB1956F5303; Path=/web; HttpOnly");
 
-//        req.setAttribute("playerList", new ArrayList<Player>());
+//        req.setAttribute("playerList", new ArrayList<PlayerDatabase>());
         PrintWriter writer = resp.getWriter();
         writer.write(
                 """

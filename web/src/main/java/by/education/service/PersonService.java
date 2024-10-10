@@ -2,16 +2,14 @@ package by.education.service;
 
 
 import by.education.constants.UsersRole;
-import by.education.data.Person;
-import by.education.db.DbPersonDatabase;
-import by.education.db.InMemoryPersonDatabase;
-import by.education.db.PersonDatabase;
+import by.education.db.database.PersonDatabase;
+import by.education.db.IPerson;
 
 import java.util.List;
 
 public class PersonService {
     private static PersonService instance;
-    PersonDatabase persons = new DbPersonDatabase();
+    IPerson persons = new PersonDatabase();
 
     private PersonService() {
     }
@@ -24,13 +22,13 @@ public class PersonService {
     }
 
 
-    public List<Person> getPersonList() {
+    public List<by.education.data.objects.Person> getPersonList() {
         return persons.getPersonList();
     }
 
     public boolean isValid(String userName, String password) {
         for (int i = 0; i < persons.getPersonList().size(); i++) {
-            Person person = persons.getPersonList().get(i);
+            by.education.data.objects.Person person = persons.getPersonList().get(i);
             if (person.getUserName().equals(userName) && person.getPassword().equals(password)) {
                 return true;
             }
@@ -38,9 +36,9 @@ public class PersonService {
         return false;
     }
 
-    public Person getPersonByUserName(String userName) {
+    public by.education.data.objects.Person getPersonByUserName(String userName) {
         for (int i = 0; i < persons.getPersonList().size(); i++) {
-            Person person = persons.getPersonList().get(i);
+            by.education.data.objects.Person person = persons.getPersonList().get(i);
             if (person.getUserName().equals(userName)) {
                 return person;
             }
@@ -49,7 +47,7 @@ public class PersonService {
     }
     public void addPerson(String userName, String password) {
         if (isUniqueUser(userName)) {
-        getPersonList().add(new Person(userName,password,UsersRole.USER));
+        getPersonList().add(new by.education.data.objects.Person(userName,password,UsersRole.USER));
         }
     }
     public boolean isUniqueUser(String userName) {

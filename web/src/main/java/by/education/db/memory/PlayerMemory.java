@@ -1,14 +1,15 @@
-package by.education.db;
+package by.education.db.memory;
 
-import by.education.data.Player;
+import by.education.data.objects.Player;
+import by.education.db.IPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryPlayerDatabase implements PlayerDatabase {
+public class PlayerMemory implements IPlayer {
     private final List<Player> playerList;
 
-    public InMemoryPlayerDatabase() {
+    public PlayerMemory() {
         playerList = new ArrayList<>();
         playerList.add(new Player("Rois", 34, "Germany", 1, "defender"));
         playerList.add(new Player("Hleb", 38, "Belarus", 2, "defender"));

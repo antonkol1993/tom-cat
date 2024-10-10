@@ -1,7 +1,7 @@
 //package by.education.servlets.filter;
 //
 //import by.education.constants.UsersRole;
-//import by.education.data.Player;
+//import by.education.data.PlayerDatabase;
 //
 //import javax.servlet.*;
 //import javax.servlet.annotation.WebFilter;

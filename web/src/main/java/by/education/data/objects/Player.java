@@ -1,4 +1,4 @@
-package by.education.data;
+package by.education.data.objects;
 
 public class Player {
 
