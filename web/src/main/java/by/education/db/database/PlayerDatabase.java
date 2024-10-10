@@ -2,6 +2,7 @@ package by.education.db.database;
 
 import by.education.db.connector.ConnectorPlayerDB;
 import by.education.db.IPlayer;
+import by.education.db.connector.IConnectortoDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class PlayerDatabase implements IPlayer {
 
     private static IPlayer instance;
 
-    private final by.education.db.connector.IConnectorPersonDB IConnectorPersonDB = ConnectorPlayerDB.getInstance();
+    private final IConnectortoDatabase IConnectorPersonDB = ConnectorPlayerDB.getInstance();
 
     private static final String GET_PLAYERS = "SELECT * FROM players.players;";
     private static final String INSERT_PLAYER = "INSERT INTO players.players" +

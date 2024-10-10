@@ -1,7 +1,8 @@
 package by.education;
 
 
-import by.education.db.connector.IConnectorPersonDB;
+import by.education.db.connector.ConnectortoDatabase;
+import by.education.db.connector.IConnectortoDatabase;
 
 public class Main  {
     public static void main(String[] args) throws Exception {
@@ -29,9 +30,12 @@ public class Main  {
 //            System.out.print(player.getPosition() + "\t");
 //            System.out.println();
 //        }
-
-        IConnectorPersonDB ConnectorPersonDB = by.education.db.connector.ConnectorPersonDB.getInstance();
-        ConnectorPersonDB.getConnection();
+        IConnectortoDatabase connectorToDatabase = ConnectortoDatabase.getInstance();
+        connectorToDatabase.getConnection();
+        System.out.println(connectorToDatabase.getConnection().getMetaData());
+//        IConnectortoDatabase ConnectorPersonDB = ConnectortoDatabase.getInstance();
+//        ConnectorPersonDB.getConnection();
+//        System.out.println(ConnectorPersonDB.getConnection().getMetaData());
 //        instance.removePlayer(1);
 
     }

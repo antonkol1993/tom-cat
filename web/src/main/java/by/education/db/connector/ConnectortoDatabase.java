@@ -10,16 +10,16 @@ import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class ConnectorPersonDB implements IConnectorPersonDB {
-    private static ConnectorPersonDB instance;
+public class ConnectortoDatabase implements IConnectortoDatabase {
+    private static ConnectortoDatabase instance;
     private Connection connection;
 
-    private ConnectorPersonDB() {
+    private ConnectortoDatabase() {
     }
 
-    public static ConnectorPersonDB getInstance() {
+    public static ConnectortoDatabase getInstance() {
         if (instance == null) {
-            instance = new ConnectorPersonDB();
+            instance = new ConnectortoDatabase();
         }
         return instance;
     }

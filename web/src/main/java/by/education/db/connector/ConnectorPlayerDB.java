@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class ConnectorPlayerDB implements IConnectorPersonDB {
+public class ConnectorPlayerDB implements IConnectortoDatabase {
     private static ConnectorPlayerDB instance;
     private Connection connection;
 
@@ -31,13 +31,6 @@ public class ConnectorPlayerDB implements IConnectorPersonDB {
                 throw new RuntimeException("driver not found");
             }
             try {
-//            PropertiesToDataBase playerPropertiesToDataBase = PreparedPropertiesEnum.PROPERTIES_TO_DATA_BASE_PLAYER;
-//
-//
-//
-//            String jdbcURL = playerPropertiesToDataBase.getUrlDB();
-//            String username = playerPropertiesToDataBase.getUser();
-//            String password = playerPropertiesToDataBase.getPassword();
 
                 Properties property = new Properties();
                 InputStream stream = getClass().getResourceAsStream("db.properties");
@@ -45,10 +38,6 @@ public class ConnectorPlayerDB implements IConnectorPersonDB {
                 String jdbcURL = property.getProperty("jdbcURL");
                 String username = property.getProperty("username");
                 String password = property.getProperty("password");
-
-//            System.out.println("jdbcURL: " + jdbcURL
-//                    + ", username: " + username
-//                    + ", PASSWORD: " + password);
                 return DriverManager.getConnection(jdbcURL,
                         username,
                         password);
