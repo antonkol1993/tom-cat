@@ -27,7 +27,7 @@ public class EditPlayerServlet extends HttpServlet {
                     req.setAttribute("country", player.getCountry());
                     req.setAttribute("role", player.getPosition());
                     req.setAttribute("input", "Edit");
-                    req.setAttribute("url", "/new/players/edit/");
+                    req.setAttribute("url", "/players/edit/");
                     req.setAttribute("id", id);
                 }
             }
@@ -49,6 +49,6 @@ public class EditPlayerServlet extends HttpServlet {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        resp.sendRedirect(req.getContextPath() + "/new/players");
+        resp.sendRedirect(req.getContextPath() + "/players");
     }
 }

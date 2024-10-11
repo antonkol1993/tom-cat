@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "RemoverPlayerServlet", urlPatterns = "/players/delete/*")
-public class RemoverPlayerServlet extends HttpServlet {
+@WebServlet(name = "DeletePlayerServlet", urlPatterns = "/players/delete/*")
+public class DeletePlayerServlet extends HttpServlet {
     PlayerService playerService = PlayerService.getInstance();
 
     @Override
@@ -23,6 +23,6 @@ public class RemoverPlayerServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        req.getRequestDispatcher("/new/players").forward(req, resp);
+        req.getRequestDispatcher("/players").forward(req, resp);
     }
 }
