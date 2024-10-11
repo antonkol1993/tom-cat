@@ -62,7 +62,7 @@
     <t:forEach items="${list}" var="player">
 
         <tr>
-            <td><a href="<t:url value="${pageContext.request.contextPath}/players/${player.id}"/>">
+            <td><a href="<t:url value="/players/${player.id}"/>">
                 ${player.name}</a>
             </td>
             <td>${player.age}
