@@ -1,10 +1,16 @@
 package by.education;
 
 
+import by.education.constants.UsersRole;
+import by.education.db.IPerson;
 import by.education.db.connector.ConnectorToPersonDatabase;
 import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.connector.IConnectortoDatabase;
+import by.education.objects.Person;
+import by.education.service.PersonService;
 import by.education.service.PlayerService;
+
+import java.util.List;
 
 public class Main  {
     public static void main(String[] args) throws Exception {
@@ -32,13 +38,15 @@ public class Main  {
 //            System.out.print(players.getPosition() + "\t");
 //            System.out.println();
 //        }
-        IConnectortoDatabase connPerson = ConnectorToPersonDatabase.getInstance();
-        IConnectortoDatabase connPlayer = ConnectorToPlayerDatabase.getInstance();
-
-        PlayerService instance = PlayerService.getInstance();
-        for (int i = 0; i <instance.getPlayerList().size(); i++) {
-            System.out.println(instance.getPlayerList().get(i).getName());
-
+        PersonService personService = PersonService.getInstance();
+        List<Person> personList = personService.getPersonList();
+        for (int i = 0; i < personList.size(); i++) {
+            int id = personList.get(i).getId();
+            String userName = personList.get(i).getUserName();
+            String password = personList.get(i).getPassword();
+            UsersRole userRole = personList.get(i).getUserRole();
+            System.out.println(id + ". " + userName + ", "+ password + ", "+ userRole );
+            System.out.println();
         }
 
 //        IConnectortoDatabase ConnectorPersonDB = ConnectortoDatabase.getInstance();

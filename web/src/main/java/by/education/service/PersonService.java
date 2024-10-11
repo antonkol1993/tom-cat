@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PersonService {
     private static PersonService instance;
-    IPerson persons = new PersonDatabase();
+    IPerson personDatabase = PersonDatabase.getInstance();
 
     private PersonService() {
     }
@@ -24,13 +24,14 @@ public class PersonService {
 
 
     public List<Person> getPersonList() {
-        return persons.getPersonList();
+        return personDatabase.getPersonList();
     }
 
+//todo it's transfering to another class (ForLoginService)
     public boolean isValid(String userName, String password) {
-        for (int i = 0; i < persons.getPersonList().size(); i++) {
-            Person person = persons.getPersonList().get(i);
-            if (person.getUserName().equals(userName) && person.getPassword().equals(password)) {
+        for (int i = 0; i < personDatabase.getPersonList().size(); i++) {
+            Person person = personDatabase.getPersonList().get(i);
+            if (person.getUserName().equalsIgnoreCase(userName) && person.getPassword().equals(password)) {
                 return true;
             }
         }
@@ -38,8 +39,8 @@ public class PersonService {
     }
 
     public Person getPersonByUserName(String userName) {
-        for (int i = 0; i < persons.getPersonList().size(); i++) {
-            Person person = persons.getPersonList().get(i);
+        for (int i = 0; i < personDatabase.getPersonList().size(); i++) {
+            Person person = personDatabase.getPersonList().get(i);
             if (person.getUserName().equals(userName)) {
                 return person;
             }
@@ -47,9 +48,9 @@ public class PersonService {
         return null;
     }
     public void addPerson(String userName, String password) {
-        if (isUniqueUser(userName)) {
-        getPersonList().add(new Person(userName,password,UsersRole.USER));
-        }
+//        if (isUniqueUser(userName)) {
+//        getPersonList().add(new Person(userName,password,UsersRole.USER));
+//        }
     }
     public boolean isUniqueUser(String userName) {
         for (int i = 0; i <getPersonList().size(); i++) {

@@ -44,7 +44,7 @@
             font-size: large;
         }
     </style>
-    <title>Players list</title>
+    <title>Users list</title>
 </head>
 <body>
 
@@ -52,27 +52,27 @@
 
 <table>
     <tr>
-        <th>Player</th>
-        <th>Age</th>
-        <th>Country</th>
+        <th>User</th>
+        <th>Password</th>
+        <th>Role</th>
         <th>Id</th>
-        <th>Reference</th>
     </tr>
 
     <t:forEach items="${list}" var="person">
 
         <tr>
-            <td><a href="<t:url value="/players/${person.id}"/>">
-                ${person.name}</a>
+            <td><a href="<t:url value="/persons/${person.id}"/>">
+                ${person.id}</a>
             </td>
-            <td>${person.age}
+            <td>${person.userName}
             </td>
-            <td>${person.country}
+            <td>${person.password}
             </td>
-            <td>${person.id}
+            <td>${person.role.name}
             </td>
-            <td>${person}
-            </td>
+
+<%--            ////////////////////////////////////////////////--%>
+
 
             <td>
                 <form action="${pageContext.request.contextPath}/players/edit/${person.id}" method="get">

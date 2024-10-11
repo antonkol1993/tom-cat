@@ -13,7 +13,7 @@ public class PlayerDatabase implements IPlayer {
 
     private static IPlayer instance;
 
-    private final IConnectortoDatabase IConnectorPersonDB = ConnectorToPlayerDatabase.getInstance();
+    private final IConnectortoDatabase IConnectorPlayersDB = ConnectorToPlayerDatabase.getInstance();
 
     private static final String GET_PLAYERS = "SELECT * FROM players.players;";
     private static final String INSERT_PLAYER = "INSERT INTO players.players" +
@@ -22,6 +22,7 @@ public class PlayerDatabase implements IPlayer {
     private static final String EDIT_PLAYER = "UPDATE players.players " +
             "SET name = ?, age = ?, country = ?, position = ? " +
             "WHERE id = ?";
+
 
 
     private PlayerDatabase() {
@@ -36,7 +37,7 @@ public class PlayerDatabase implements IPlayer {
 
     @Override
     public List<Player> getPlayerList() {
-        try (Connection connection = IConnectorPersonDB.getConnection();
+        try (Connection connection = IConnectorPlayersDB.getConnection();
              Statement statement = connection.createStatement()) {
 
             try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
@@ -66,7 +67,7 @@ public class PlayerDatabase implements IPlayer {
     @Override
     public void addPlayer(Player player) {
 
-        try (Connection connection = IConnectorPersonDB.getConnection();
+        try (Connection connection = IConnectorPlayersDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();
@@ -86,7 +87,7 @@ public class PlayerDatabase implements IPlayer {
     @Override
     public void removePlayer(int id) {
 
-        try (Connection connection = IConnectorPersonDB.getConnection();
+        try (Connection connection = IConnectorPlayersDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PLAYERS)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
@@ -98,7 +99,7 @@ public class PlayerDatabase implements IPlayer {
 
     @Override
     public void editPlayer(int id, Player player) {
-        try (Connection connection = IConnectorPersonDB.getConnection();
+        try (Connection connection = IConnectorPlayersDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();

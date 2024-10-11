@@ -1,7 +1,7 @@
-package by.education.servlets.current.players;
+package by.education.servlets.current.persons;
 
-import by.education.objects.Player;
-import by.education.service.PlayerService;
+import by.education.objects.Person;
+import by.education.service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,22 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListPlayerServlet", urlPatterns = "/players")
-public class ListPlayerServlet extends HttpServlet {
+@WebServlet(name = "PersonsListServlet", urlPatterns = "/persons")
+public class PersonsListServlet extends HttpServlet {
 
-    private final PlayerService playerService = PlayerService.getInstance();
+    private final PersonService personService = PersonService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Player> list;
+        List<Person> list;
         try {
-            list = playerService.getPlayerList();
+            list = personService.getPersonList();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         req.setAttribute("list", list);
-        req.getRequestDispatcher("/players/personsList.jsp").forward(req, resp);
+        req.getRequestDispatcher("/persons/personsList.jsp").forward(req, resp);
     }
 
     @Override
