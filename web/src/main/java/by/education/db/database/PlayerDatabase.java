@@ -13,6 +13,7 @@ public class PlayerDatabase implements IPlayer {
 
     private static IPlayer instance;
 
+    private List<Player> players;
     private final IConnectortoDatabase IConnectorPlayersDB = ConnectorToPlayerDatabase.getInstance();
 
     private static final String GET_PLAYERS = "SELECT * FROM players.players;";
@@ -22,7 +23,6 @@ public class PlayerDatabase implements IPlayer {
     private static final String EDIT_PLAYER = "UPDATE players.players " +
             "SET name = ?, age = ?, country = ?, position = ? " +
             "WHERE id = ?";
-
 
 
     private PlayerDatabase() {
@@ -37,25 +37,32 @@ public class PlayerDatabase implements IPlayer {
 
     @Override
     public List<Player> getPlayerList() {
-        try (Connection connection = IConnectorPlayersDB.getConnection();
-             Statement statement = connection.createStatement()) {
+        if (players == null) {
 
-            try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
 
-                List<Player> players = new ArrayList<>();
+            try (Connection connection = IConnectorPlayersDB.getConnection();
+                 Statement statement = connection.createStatement()) {
 
-                while (resultSet.next()) {
-                    Integer id = Integer.valueOf(resultSet.getString("id"));
-                    String name = resultSet.getString("name");
-                    Integer age = Integer.valueOf(resultSet.getString("age"));
-                    String country = resultSet.getString("country");
-                    String position = resultSet.getString("position");
-                    players.add(new Player(name, age, country, id, position));
+                try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
+
+
+                    while (resultSet.next()) {
+                        players = new ArrayList<>();
+                        Integer id = Integer.valueOf(resultSet.getString("id"));
+                        String name = resultSet.getString("name");
+                        Integer age = Integer.valueOf(resultSet.getString("age"));
+                        String country = resultSet.getString("country");
+                        String position = resultSet.getString("position");
+                        players.add(new Player(name, age, country, id, position));
+                    }
+                    return players;
                 }
-                return players;
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            return players;
         }
     }
 
