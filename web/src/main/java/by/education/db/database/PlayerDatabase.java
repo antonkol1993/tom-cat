@@ -13,7 +13,7 @@ public class PlayerDatabase implements IPlayer {
 
     private static IPlayer instance;
 
-    private List<Player> players;
+
     private final IConnectortoDatabase IConnectorPlayersDB = ConnectorToPlayerDatabase.getInstance();
 
     private static final String GET_PLAYERS = "SELECT * FROM players.players;";
@@ -34,6 +34,7 @@ public class PlayerDatabase implements IPlayer {
         }
         return instance;
     }
+    private List<Player> players;
 
     @Override
     public List<Player> getPlayerList() {
@@ -45,9 +46,8 @@ public class PlayerDatabase implements IPlayer {
 
                 try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
 
-
+                    players = new ArrayList<>();
                     while (resultSet.next()) {
-                        players = new ArrayList<>();
                         Integer id = Integer.valueOf(resultSet.getString("id"));
                         String name = resultSet.getString("name");
                         Integer age = Integer.valueOf(resultSet.getString("age"));

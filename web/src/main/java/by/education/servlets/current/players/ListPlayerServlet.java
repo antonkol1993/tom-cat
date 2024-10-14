@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ListPlayerServlet", urlPatterns = "/players")
@@ -26,7 +27,7 @@ public class ListPlayerServlet extends HttpServlet {
         }
 
         req.setAttribute("list", list);
-        req.getRequestDispatcher("/players/personsList.jsp").forward(req, resp);
+        req.getRequestDispatcher("/players/playersList.jsp").forward(req, resp);
     }
 
     @Override

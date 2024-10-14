@@ -14,10 +14,10 @@ public class PersonPlayerServlet extends HttpServlet {
     private final PlayerService playerService = PlayerService.getInstance();
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp){
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = req.getPathInfo();
         Integer id = Integer.valueOf(pathInfo.startsWith("/") ? pathInfo.substring(1) : pathInfo);
-        try {
+
             for (int i = 0; i < playerService.getPlayerList().size(); i++) {
                 if (id.equals(playerService.getPlayerList().get(i).getId())) {
                     req.setAttribute("ref", playerService.getPlayerList().get(i));
@@ -29,9 +29,7 @@ public class PersonPlayerServlet extends HttpServlet {
                     req.getRequestDispatcher("/players/playersPersonInfo.jsp").forward(req, resp);
                 }
             }
-        } catch (Exception e){
-            throw new RuntimeException(e);
-        }
+
 
     }
 
