@@ -6,7 +6,7 @@ public class Person {
 
     private String userName;
     private String password;
-    private final UsersRole userRole;
+    private UsersRole userRole;
     private final int id;
 
     public Person(String userName, String password, UsersRole userRole, int id) {
@@ -18,6 +18,10 @@ public class Person {
 
     public UsersRole getUserRole() {
         return userRole;
+    }
+
+    public void setUserRole(UsersRole userRole) {
+        this.userRole = userRole;
     }
 
     public String getUserName() {

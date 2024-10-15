@@ -18,6 +18,7 @@ import java.util.List;
 public class PersonDatabase implements IPerson {
     private static IPerson instance;
     private final IConnectortoDatabase IConnectorPersonDB = ConnectorToPlayerDatabase.getInstance();
+    private List<Person> persons;
 
     private static final String GET_PERSONS = "SELECT * FROM persons.persons;";
 
@@ -33,29 +34,32 @@ public class PersonDatabase implements IPerson {
 
     @Override
     public List<Person> getPersonList() {
-        try (Connection connection = IConnectorPersonDB.getConnection();
-             Statement statement = connection.createStatement()) {
+        if (persons == null) {
+            try (Connection connection = IConnectorPersonDB.getConnection();
+                 Statement statement = connection.createStatement()) {
 
-            try (ResultSet resultSet = statement.executeQuery(GET_PERSONS)) {
+                try (ResultSet resultSet = statement.executeQuery(GET_PERSONS)) {
 
-                List<Person> persons = new ArrayList<>();
+                    List<Person> persons = new ArrayList<>();
 
-                while (resultSet.next()) {
-                    int id = Integer.parseInt(resultSet.getString("id"));
-                    String username = resultSet.getString("Username");
-                    String password = resultSet.getString("Password");
-                    String role = resultSet.getString("Role");
-                    if (role.equalsIgnoreCase("admin")) {
-                        persons.add(new Person(username, password, UsersRole.ADMIN, id));
-                    } else if (role.equalsIgnoreCase("user")) {
-                        persons.add(new Person(username, password, UsersRole.USER, id));
+                    while (resultSet.next()) {
+                        int id = Integer.parseInt(resultSet.getString("id"));
+                        String username = resultSet.getString("Username");
+                        String password = resultSet.getString("Password");
+                        String role = resultSet.getString("Role");
+                        if (role.equalsIgnoreCase("admin")) {
+                            persons.add(new Person(username, password, UsersRole.ADMIN, id));
+                        } else if (role.equalsIgnoreCase("user")) {
+                            persons.add(new Person(username, password, UsersRole.USER, id));
+                        }
                     }
+                    return persons;
+
                 }
-                return persons;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        } else return persons;
     }
 
     @Override
