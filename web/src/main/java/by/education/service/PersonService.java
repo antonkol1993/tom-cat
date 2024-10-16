@@ -22,6 +22,9 @@ public class PersonService {
         return instance;
     }
 
+    private void updatePerson(){
+        personList = personDatabase.getPersonList();
+    }
 
     public List<Person> getPersonList() {
         if ( personList == null) {
@@ -40,6 +43,14 @@ public class PersonService {
             }
         }
         return null;
+    }
+
+
+    public void addPerson(String userName, String password) {
+        if (isUniqueUser(userName)) {
+        personDatabase.addPerson(new Person(userName,password,UsersRole.USER));
+        updatePerson();
+        }
     }
 
 //todo it's transfering to another class (ForLoginService)
@@ -62,11 +73,7 @@ public class PersonService {
         }
         return null;
     }
-    public void addPerson(String userName, String password) {
-//        if (isUniqueUser(userName)) {
-//        getPersonList().add(new Person(userName,password,UsersRole.USER));
-//        }
-    }
+
     public boolean isUniqueUser(String userName) {
         for (int i = 0; i <getPersonList().size(); i++) {
             if (getPersonList().get(i).getUserName().equalsIgnoreCase(userName)) {

@@ -17,13 +17,13 @@ public class Main  {
     public static void main(String[] args) throws Exception {
 
 
-        PersonService instance = PersonService.getInstance();
-        instance.getPersonList();
-
-        for (Person person : instance.getPersonList())
-        {
-            System.out.println(person.getUserRole().name());
-        }
+//        PersonService instance = PersonService.getInstance();
+//        instance.getPersonList();
+//
+//        for (Person person : instance.getPersonList())
+//        {
+//            System.out.println(person.getUserRole().name());
+//        }
 
 //        PlayerService instance = PlayerService.getInstance();
 //        List<Player> playerList = instance.getPlayerList();
@@ -37,16 +37,26 @@ public class Main  {
 //        }
 //        instance.removePlayer(1);
 
-//        PersonService instance = PersonService.getInstance();
-//        List<PlayerDatabase> playerList = instance.getPlayerList();
-//        for (PlayerDatabase players : playerList) {
-//            System.out.print(players.getId() + "\t");
-//            System.out.print(players.getName() + "\t");
-//            System.out.print(players.getAge() + "\t");
-//            System.out.print(players.getCountry() + "\t");
-//            System.out.print(players.getPosition() + "\t");
-//            System.out.println();
-//        }
+        PersonService personService = PersonService.getInstance();
+        List<Person> personList = personService.getPersonList();
+        for (Person person : personList) {
+            System.out.print(person.getId() + "\t");
+            System.out.print(person.getUserName() + "\t");
+            System.out.print(person.getPassword() + "\t");
+            System.out.print(person.getUserRole().name() + "\t");
+            System.out.print(person + "\t");
+            System.out.println();
+        }
+        personService.addPerson("112313","sadsadsa");
+        personList = personService.getPersonList();
+        for (Person person : personList) {
+            System.out.print(person.getId() + "\t");
+            System.out.print(person.getUserName() + "\t");
+            System.out.print(person.getPassword() + "\t");
+            System.out.print(person.getUserRole().name() + "\t");
+            System.out.print(person + "\t");
+            System.out.println();
+        }
 //        PersonService personService = PersonService.getInstance();
 //        List<Person> personList = personService.getPersonList();
 //        for (int i = 0; i < personList.size(); i++) {

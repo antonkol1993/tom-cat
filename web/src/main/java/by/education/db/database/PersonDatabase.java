@@ -5,22 +5,20 @@ import by.education.db.IPerson;
 import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.connector.IConnectortoDatabase;
 import by.education.objects.Person;
-import by.education.objects.Player;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class PersonDatabase implements IPerson {
     private static IPerson instance;
-    private final IConnectortoDatabase IConnectorPersonDB = ConnectorToPlayerDatabase.getInstance();
+    private final IConnectortoDatabase connectorPersonDB = ConnectorToPlayerDatabase.getInstance();
     private List<Person> persons;
 
     private static final String GET_PERSONS = "SELECT * FROM persons.persons;";
+    private static final String INSERT_PLAYER = "INSERT INTO persons.persons" +
+            "(userName, password, role) VALUES(?,?,?)";
 
     private PersonDatabase() {
     }
@@ -35,7 +33,7 @@ public class PersonDatabase implements IPerson {
     @Override
     public List<Person> getPersonList() {
         if (persons == null) {
-            try (Connection connection = IConnectorPersonDB.getConnection();
+            try (Connection connection = connectorPersonDB.getConnection();
                  Statement statement = connection.createStatement()) {
 
                 try (ResultSet resultSet = statement.executeQuery(GET_PERSONS)) {
@@ -48,9 +46,14 @@ public class PersonDatabase implements IPerson {
                         String password = resultSet.getString("Password");
                         String role = resultSet.getString("Role");
                         if (role.equalsIgnoreCase("admin")) {
-                            persons.add(new Person(username, password, UsersRole.ADMIN, id));
+                            Person person = new Person(username, password, UsersRole.ADMIN);
+                            person.setId(id) ;
+                            persons.add(person);
+
                         } else if (role.equalsIgnoreCase("user")) {
-                            persons.add(new Person(username, password, UsersRole.USER, id));
+                            Person person = new Person(username, password, UsersRole.USER);
+                            person.setId(id) ;
+                            persons.add(person);
                         }
                     }
                     return persons;
@@ -64,7 +67,16 @@ public class PersonDatabase implements IPerson {
 
     @Override
     public void addPerson(Person person) {
-
+        try {
+            Connection connection = connectorPersonDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYER);
+            preparedStatement.setString(1,person.getUserName());
+            preparedStatement.setString(2,person.getPassword());
+            preparedStatement.setString(3,person.getUserRole().name());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

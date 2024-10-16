@@ -7,13 +7,12 @@ public class Person {
     private String userName;
     private String password;
     private UsersRole userRole;
-    private final int id;
+    private int id;
 
-    public Person(String userName, String password, UsersRole userRole, int id) {
+    public Person(String userName, String password, UsersRole userRole) {
         this.userName = userName;
         this.password = password;
         this.userRole = userRole;
-        this.id = id;
     }
 
     public UsersRole getUserRole() {
@@ -42,5 +41,9 @@ public class Person {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

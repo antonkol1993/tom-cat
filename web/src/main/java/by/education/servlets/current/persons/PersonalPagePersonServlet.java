@@ -19,7 +19,6 @@ public class PersonalPagePersonServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Person> personList = personService.getPersonList();
         int personId = Integer.parseInt(req.getPathInfo().startsWith("/") ?
                 req.getPathInfo().substring(1) : req.getPathInfo());
         Person personById = personService.getPersonById(personId);
