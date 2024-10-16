@@ -14,19 +14,20 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/person/*")
 public class PersonalPagePersonServlet extends HttpServlet {
-    List<Person> personList = PersonService.getInstance().getPersonList();
+    PersonService personService = PersonService.getInstance();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        List<Person> personList = personService.getPersonList();
         int personId = Integer.parseInt(req.getPathInfo().startsWith("/") ?
                 req.getPathInfo().substring(1) : req.getPathInfo());
-        System.out.println(personId);
-        Person person = personList.get(personId);
-        int id = person.getId();
-        String name = person.getUserName();
-        String password = person.getPassword();
-        UsersRole role = person.getUserRole();
+        Person personById = personService.getPersonById(personId);
+        int id = personById.getId();
+        String name = personById.getUserName();
+        String password = personById.getPassword();
+        UsersRole role = personById.getUserRole();
+
         req.setAttribute( "id", id);
         req.setAttribute( "name", name);
         req.setAttribute( "password", password);

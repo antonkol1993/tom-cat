@@ -10,8 +10,8 @@ import java.util.List;
 
 public class PersonService {
     private static PersonService instance;
-    IPerson personDatabase = PersonDatabase.getInstance();
-
+    private IPerson personDatabase = PersonDatabase.getInstance();
+    private List<Person> personList;
     private PersonService() {
     }
 
@@ -24,7 +24,22 @@ public class PersonService {
 
 
     public List<Person> getPersonList() {
-        return personDatabase.getPersonList();
+        if ( personList == null) {
+            personList = personDatabase.getPersonList();
+            return personList;
+        }
+        return personList;
+    }
+    public Person getPersonById (int id) {
+        personList = getPersonList();
+        Person personById;
+        for (int i = 0; i < getPersonList().size(); i++) {
+            if (personList.get(i).getId() == id) {
+                personById = personList.get(i);
+                return personById;
+            }
+        }
+        return null;
     }
 
 //todo it's transfering to another class (ForLoginService)
