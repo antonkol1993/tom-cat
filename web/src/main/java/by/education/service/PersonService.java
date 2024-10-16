@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PersonService {
     private static PersonService instance;
-    private IPerson personDatabase = PersonDatabase.getInstance();
+    private final IPerson personDatabase = PersonDatabase.getInstance();
     private List<Person> personList;
     private PersonService() {
     }

@@ -84,8 +84,8 @@
         </tr>
 
     </t:forEach>
-    <%--    <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/players/add">Add a new--%>
-    <%--        player</a>--%>
+        <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/persons/add">Add a new
+            player</a>
 
 
 </table>

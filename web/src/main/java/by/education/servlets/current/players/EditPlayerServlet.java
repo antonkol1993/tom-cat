@@ -31,7 +31,7 @@ public class EditPlayerServlet extends HttpServlet {
                     req.setAttribute("id", id);
                 }
             }
-            req.getRequestDispatcher("/players/playersEdit.jsp").forward(req, resp);
+            req.getRequestDispatcher("/players/playersEditsadadsadssad.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
