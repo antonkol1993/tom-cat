@@ -64,7 +64,7 @@
         <tr>
             <td>${person.id }
             </td>
-            <td><a href="/person/${person.id}">${person.userName}</a>
+            <td><a href=<t:url value="/person/${person.id}"/> />${person.userName}
             </td>
             <td>${person.getUserRole().name()}
             </td>

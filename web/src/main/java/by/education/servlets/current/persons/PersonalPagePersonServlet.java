@@ -7,16 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet (urlPatterns = "/person/*")
-public class PersonPersonalPageServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/person/*")
+public class PersonalPagePersonServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getRequestURI().equals("/persons")) {
-            int personId = Integer.parseInt(req.getPathInfo().startsWith("/") ?
-                    req.getPathInfo().substring(1) : req.getPathInfo());
-            System.out.println(personId);
-        }
+
+        int personId = Integer.parseInt(req.getPathInfo().startsWith("/") ?
+                req.getPathInfo().substring(1) : req.getPathInfo());
+        System.out.println(personId);
+
 
     }
 
