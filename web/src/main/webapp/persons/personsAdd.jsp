@@ -16,7 +16,7 @@
 
 <jsp:include page="../filter/signOutButton.jsp"/>
 
-<jsp:include page="forms/playersFormadssadasdasd.jsp"/>
+<jsp:include page="../persons/forms/personsForm.jsp"/>
 
 
 </body>

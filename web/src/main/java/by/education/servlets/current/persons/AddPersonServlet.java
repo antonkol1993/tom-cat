@@ -1,17 +1,13 @@
 package by.education.servlets.current.persons;
 
-import by.education.objects.Person;
 import by.education.service.PersonService;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet( urlPatterns = "/persons/add")
 public class AddPersonServlet extends HttpServlet {
@@ -28,7 +24,7 @@ public class AddPersonServlet extends HttpServlet {
         req.setAttribute("input", "Create");
         req.setAttribute("servletPath", servletPath);
         req.setAttribute("id", "");
-        req.getRequestDispatcher("/persons/forms/personsForm.jsp").forward(req, resp);
+        req.getRequestDispatcher("/persons/personsAdd.jsp").forward(req, resp);
     }
 
     @Override

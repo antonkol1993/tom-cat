@@ -21,7 +21,7 @@ public class AddPlayerServlet extends HttpServlet {
         req.setAttribute("role", "");
         req.setAttribute("input", "Create");
         req.setAttribute("url", "/players/add");
-        req.getRequestDispatcher("/players/playersAdd.jsp").forward(req, resp);
+        req.getRequestDispatcher("/players/personsAdd.jsp").forward(req, resp);
     }
 
     @Override
