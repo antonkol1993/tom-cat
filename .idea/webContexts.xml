@@ -9,6 +9,9 @@
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/example.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/helloBot.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/newPlayersList.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/persons/forms/personsForm.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/persons/forms" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/persons/personsAdd.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/persons" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/persons/personsList.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/persons" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/players/playersPersonInfo.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/players" />
       </map>
     </option>

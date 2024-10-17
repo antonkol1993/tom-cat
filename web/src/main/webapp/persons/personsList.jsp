@@ -1,6 +1,4 @@
-<%@ page import="java.util.List" %>
-<%@ page import="by.education.objects.Player" %>
-<%@ page import="by.education.service.PlayerService" %>
+
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -24,7 +22,6 @@
         .add_submit {
             width: 250px;
             height: 40px;
-            background: burlywood;
             font-size: large;
             font-weight: bold;
         }
@@ -34,7 +31,7 @@
             font-weight: bold;
         }
 
-        .to_form_submit {
+        .edit_submit {
             background: darkseagreen;
             font-weight: bold;
         }
@@ -59,12 +56,13 @@
 
     </tr>
 
+    <jsp:useBean id="list" scope="request" type="java.util.List"/>
     <t:forEach items="${list}" var="person">
 
         <tr>
             <td>${person.id }
             </td>
-            <td><a href=<t:url value="/person/${person.id}"/> />${person.userName}
+            <td><a class="add_submit" href=<t:url value="/person/${person.id}"/> ></a>${person.userName}
             </td>
             <td>${person.getPassword()}
             </td>
@@ -73,11 +71,11 @@
 
             <td>
                 <form action="${pageContext.request.contextPath}/persons/edit/${person.id}" method="get">
-                    <input value="Edit" type="submit" class="to_form_submit">
+                    <input value="Edit" type="submit" class="edit_submit">
                 </form>
 
                                 <form action="${pageContext.request.contextPath}/persons/remove/${person.id}" method="post">
-                                    <input value="Delete" type="submit" class="to_form_submit">
+                                    <input value="Delete" type="submit" class="delete_submit">
                                 </form>
                             </td>
         </tr>

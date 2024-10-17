@@ -1,6 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="by.education.objects.Player" %>
-<%@ page import="by.education.service.PlayerService" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -21,23 +18,6 @@
             background-color: #dddddd;
         }
 
-        .add_submit {
-            width: 250px;
-            height: 40px;
-            background: burlywood;
-            font-size: large;
-            font-weight: bold;
-        }
-
-        .delete_submit {
-            background: aquamarine;
-            font-weight: bold;
-        }
-
-        .to_form_submit {
-            background: darkseagreen;
-            font-weight: bold;
-        }
     </style>
     <title>Players list</title>
 </head>
@@ -66,7 +46,7 @@
         </th>
     </tr>
     <tr>
-        <th><a href=<t:url value="/persons"/> Back to list /></th>
+        <th><a href=<t:url value="/persons"/>/> Back to list</th>
     </tr>
 </table>
 </body>
