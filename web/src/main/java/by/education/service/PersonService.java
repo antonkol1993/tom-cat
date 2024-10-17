@@ -12,6 +12,7 @@ public class PersonService {
     private static PersonService instance;
     private final IPerson personDatabase = PersonDatabase.getInstance();
     private List<Person> personList;
+
     private PersonService() {
     }
 
@@ -22,18 +23,19 @@ public class PersonService {
         return instance;
     }
 
-    private void updatePerson(){
+    private void updatePerson() {
         personList = personDatabase.getPersonList();
     }
 
     public List<Person> getPersonList() {
-        if ( personList == null) {
+        if (personList == null) {
             personList = personDatabase.getPersonList();
             return personList;
         }
         return personList;
     }
-    public Person getPersonById (int id) {
+
+    public Person getPersonById(int id) {
         personList = getPersonList();
         Person personById;
         for (int i = 0; i < getPersonList().size(); i++) {
@@ -48,12 +50,12 @@ public class PersonService {
 
     public void addPerson(String userName, String password) {
         if (isUniqueUser(userName)) {
-        personDatabase.addPerson(new Person(userName,password,UsersRole.USER));
-        updatePerson();
+            personDatabase.addPerson(new Person(userName, password, UsersRole.USER));
+            updatePerson();
         }
     }
 
-//todo it's transfering to another class (ForLoginService)
+    //todo it's transfering to another class (ForLoginService)
     public boolean isValid(String userName, String password) {
         for (int i = 0; i < personDatabase.getPersonList().size(); i++) {
             Person person = personDatabase.getPersonList().get(i);
@@ -75,13 +77,24 @@ public class PersonService {
     }
 
     public boolean isUniqueUser(String userName) {
-        for (int i = 0; i <getPersonList().size(); i++) {
+        for (int i = 0; i < getPersonList().size(); i++) {
             if (getPersonList().get(i).getUserName().equalsIgnoreCase(userName)) {
                 return false;
             }
         }
         return true;
     }
+//todo need to do
+    public void editPerson(int id, String userName, String password) {
+        Person person = getPersonById(id);
+        person.setUserName(userName);
+        person.setPassword(password);
+        personDatabase.editPerson(person);
+        updatePerson();
+    }
+
+
+
 
 
 }

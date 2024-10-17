@@ -34,7 +34,7 @@
             font-weight: bold;
         }
 
-        .edit_submit {
+        .to_form_submit {
             background: darkseagreen;
             font-weight: bold;
         }

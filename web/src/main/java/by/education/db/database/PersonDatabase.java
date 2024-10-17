@@ -5,6 +5,7 @@ import by.education.db.IPerson;
 import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.connector.IConnectortoDatabase;
 import by.education.objects.Person;
+import by.education.service.PersonService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,8 +18,11 @@ public class PersonDatabase implements IPerson {
     private List<Person> persons;
 
     private static final String GET_PERSONS = "SELECT * FROM persons.persons;";
-    private static final String INSERT_PLAYER = "INSERT INTO persons.persons" +
+    private static final String INSERT_PERSON = "INSERT INTO persons.persons" +
             "(userName, password, role) VALUES(?,?,?)";
+    private static final String EDIT_PERSON = "UPDATE persons.persons " +
+            "SET Username = ?, Password = ? " +
+            "WHERE id = ?; ";
 
     private PersonDatabase() {
     }
@@ -67,9 +71,10 @@ public class PersonDatabase implements IPerson {
 
     @Override
     public void addPerson(Person person) {
+
         try {
             Connection connection = connectorPersonDB.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYER);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PERSON);
             preparedStatement.setString(1,person.getUserName());
             preparedStatement.setString(2,person.getPassword());
             preparedStatement.setString(3,person.getUserRole().name());
@@ -80,7 +85,23 @@ public class PersonDatabase implements IPerson {
     }
 
     @Override
+    public void editPerson(Person person) {
+
+        try {
+            Connection connection = connectorPersonDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PERSON);
+            preparedStatement.setString(1, person.getUserName());
+            preparedStatement.setString(2, person.getPassword());
+            preparedStatement.setInt(3, person.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public void removePerson(int id) {
 
     }
+
 }

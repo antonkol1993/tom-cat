@@ -34,7 +34,7 @@
             font-weight: bold;
         }
 
-        .edit_submit {
+        .to_form_submit {
             background: darkseagreen;
             font-weight: bold;
         }
@@ -69,16 +69,13 @@
             <td>${person.getUserRole().name()}
             </td>
 
-                <%--            ////////////////////////////////////////////////--%>
-
-
-<%--                            <td>--%>
-<%--                                <form action="${pageContext.request.contextPath}/players/edit/${person.id}" method="get">--%>
-<%--                                    <input value="Edit" type="submit" class="edit_submit">--%>
-<%--                                </form>--%>
+            <td>
+                <form action="${pageContext.request.contextPath}/persons/edit/${person.id}" method="get">
+                    <input value="Edit" type="submit" class="to_form_submit">
+                </form>
 
                 <%--                <form action="${pageContext.request.contextPath}/players/delete/${person.id}" method="post">--%>
-                <%--                    <input value="Delete" type="submit" class="edit_submit">--%>
+                <%--                    <input value="Delete" type="submit" class="to_form_submit">--%>
                 <%--                </form>--%>
                 <%--            </td>--%>
         </tr>
