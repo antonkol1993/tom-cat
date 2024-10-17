@@ -86,10 +86,11 @@ public class PersonService {
     }
 //todo need to do
     public void editPerson(int id, String userName, String password) {
-        Person person = getPersonById(id);
-        person.setUserName(userName);
-        person.setPassword(password);
         personDatabase.editPerson(id, userName, password);
+        updatePerson();
+    }
+    public void removePerson (int id){
+        personDatabase.removePerson(id);
         updatePerson();
     }
 

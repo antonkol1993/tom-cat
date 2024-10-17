@@ -38,6 +38,7 @@ public class EditPersonServlet extends HttpServlet {
         String password = req.getParameter("password");
         int id = Integer.parseInt(req.getParameter("id"));
         personService.editPerson(id,username,password);
+        resp.sendRedirect(req.getContextPath() + "/persons");
     }
 
 

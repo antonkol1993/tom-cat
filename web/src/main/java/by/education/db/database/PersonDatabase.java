@@ -23,6 +23,7 @@ public class PersonDatabase implements IPerson {
     private static final String EDIT_PERSON = "UPDATE persons.persons " +
             "SET Username = ?, Password = ? " +
             "WHERE id = ?; ";
+    private static final String DELETE_PERSON = "DELETE FROM persons.persons WHERE id = ?";
 
     private PersonDatabase() {
     }
@@ -101,7 +102,14 @@ public class PersonDatabase implements IPerson {
 
     @Override
     public void removePerson(int id) {
-
+        try {
+            Connection connection = connectorPersonDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PERSON);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

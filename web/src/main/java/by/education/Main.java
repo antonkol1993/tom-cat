@@ -24,6 +24,6 @@ public class Main  {
 
         IPerson personDatabase = PersonDatabase.getInstance();
         PersonService personService = PersonService.getInstance();
-        personService.editPerson(10,"22222","222222");
+        personService.removePerson(10);
     }
 }
