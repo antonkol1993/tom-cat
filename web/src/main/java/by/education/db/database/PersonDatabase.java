@@ -85,14 +85,14 @@ public class PersonDatabase implements IPerson {
     }
 
     @Override
-    public void editPerson(Person person) {
+    public void editPerson(int id, String userName, String password) {
 
         try {
             Connection connection = connectorPersonDB.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PERSON);
-            preparedStatement.setString(1, person.getUserName());
-            preparedStatement.setString(2, person.getPassword());
-            preparedStatement.setInt(3, person.getId());
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, password);
+            preparedStatement.setInt(3, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

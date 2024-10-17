@@ -8,5 +8,5 @@ public interface IPerson {
     List<Person> getPersonList();
     void addPerson(Person person);
     void removePerson (int id);
-    void editPerson (Person person);
+    void editPerson (int id, String userName, String password);
 }

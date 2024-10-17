@@ -89,7 +89,7 @@ public class PersonService {
         Person person = getPersonById(id);
         person.setUserName(userName);
         person.setPassword(password);
-        personDatabase.editPerson(person);
+        personDatabase.editPerson(id, userName, password);
         updatePerson();
     }
 
