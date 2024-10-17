@@ -5,7 +5,6 @@ import by.education.db.IPerson;
 import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.connector.IConnectortoDatabase;
 import by.education.objects.Person;
-import by.education.service.PersonService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -112,4 +111,7 @@ public class PersonDatabase implements IPerson {
         }
     }
 
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
 }

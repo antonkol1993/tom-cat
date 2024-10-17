@@ -1,6 +1,5 @@
 package by.education.servlets.current.persons;
 
-import by.education.objects.Person;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;
