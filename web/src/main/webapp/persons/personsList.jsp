@@ -66,6 +66,8 @@
             </td>
             <td><a href=<t:url value="/person/${person.id}"/> />${person.userName}
             </td>
+            <td>${person.getPassword()}
+            </td>
             <td>${person.getUserRole().name()}
             </td>
 
@@ -74,10 +76,10 @@
                     <input value="Edit" type="submit" class="to_form_submit">
                 </form>
 
-                <%--                <form action="${pageContext.request.contextPath}/players/delete/${person.id}" method="post">--%>
-                <%--                    <input value="Delete" type="submit" class="to_form_submit">--%>
-                <%--                </form>--%>
-                <%--            </td>--%>
+                                <form action="${pageContext.request.contextPath}/persons/remove/${person.id}" method="post">
+                                    <input value="Delete" type="submit" class="to_form_submit">
+                                </form>
+                            </td>
         </tr>
 
     </t:forEach>
