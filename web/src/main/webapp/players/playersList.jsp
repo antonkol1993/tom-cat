@@ -62,7 +62,7 @@
     <t:forEach items="${list}" var="person">
 
         <tr>
-            <td><a href="<t:url value="/players/${person.id}"/>">
+            <td><a href="<t:url value="/player/${person.id}"/>">
                 ${person.name}</a>
             </td>
             <td>${person.age}

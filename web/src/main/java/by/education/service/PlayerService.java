@@ -3,6 +3,7 @@ package by.education.service;
 
 import by.education.db.database.PlayerDatabase;
 import by.education.db.IPlayer;
+import by.education.objects.Person;
 import by.education.objects.Player;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class PlayerService {
 
     private Integer maxId;
     IPlayer playerListDatabase = PlayerDatabase.getInstance();
+    private List<Player> playerList;
 
     private PlayerService() {
     }
@@ -24,6 +26,10 @@ public class PlayerService {
         return instance;
     }
 
+    private void updatePlayers() {
+        playerList = playerListDatabase.getPlayerList();
+
+    }
     public List<Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
     }
@@ -35,6 +41,7 @@ public class PlayerService {
 
     public void removePlayer(Integer id) throws Exception {
         playerListDatabase.removePlayer(id);
+        updatePlayers();
     }
 
     public boolean isUnique(String name) {
@@ -51,6 +58,7 @@ public class PlayerService {
         if (isUnique(name)) {
             playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
         }
+        updatePlayers();
     }
 
     public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
@@ -67,6 +75,7 @@ public class PlayerService {
         if (editedPlayer != null) {
             playerListDatabase.editPlayer(id, editedPlayer);
         }
+        updatePlayers();
     }
 
     private void getID() {

@@ -21,7 +21,7 @@ public class AddPlayerServlet extends HttpServlet {
         req.setAttribute("role", "");
         req.setAttribute("input", "Create");
         req.setAttribute("url", "/players/add");
-        req.getRequestDispatcher("/players/personsAdd.jsp").forward(req, resp);
+        req.getRequestDispatcher("/players/playersAdd.jsp").forward(req, resp);
     }
 
     @Override
@@ -31,13 +31,13 @@ public class AddPlayerServlet extends HttpServlet {
         String country = req.getParameter("country");
         String role = req.getParameter("role");
         if (!playerService.isUnique(name)) {
-            req.getRequestDispatcher("/informationally/userAlreadyExists.jsp").forward(req, resp);
+            req.getRequestDispatcher("/informational/userAlreadyExists.jsp").forward(req, resp);
         }
         try {
             playerService.addPlayer(name, age, country, role);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        req.getRequestDispatcher("/new/players").forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/players");
     }
 }
