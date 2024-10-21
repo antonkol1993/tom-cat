@@ -7,16 +7,18 @@ public class Player {
     private Integer age;
     private String country;
     private String position;
+    private String rating;
 
 //    private
     public Player() {
     }
 
-    public Player(String name, Integer age, String country, String position) {
+    public Player(String name, Integer age, String country, String position, String rating) {
         this.name = name;
         this.age = age;
         this.country = country;
         this.position = position;
+        this.rating = rating;
     }
 
     public Integer getId() {
@@ -57,5 +59,13 @@ public class Player {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

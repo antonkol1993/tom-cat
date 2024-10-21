@@ -26,6 +26,7 @@ public class EditPlayerServlet extends HttpServlet {
                     req.setAttribute("age", player.getAge());
                     req.setAttribute("country", player.getCountry());
                     req.setAttribute("role", player.getPosition());
+                    req.setAttribute("rating", player.getRating());
                     req.setAttribute("input", "Edit");
                     req.setAttribute("url", "/players/edit/");
                     req.setAttribute("id", id);
@@ -44,8 +45,9 @@ public class EditPlayerServlet extends HttpServlet {
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
         String role = req.getParameter("role");
+        String rating = req.getParameter("rating");
         try {
-            playerService.editPlayer(id, name, age, country, role);
+            playerService.editPlayer(id, name, age, country, role,rating);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -21,6 +21,7 @@ public class AddPlayerServlet extends HttpServlet {
         req.setAttribute("role", "");
         req.setAttribute("input", "Create");
         req.setAttribute("url", "/players/add");
+        req.setAttribute("rating", "");
         req.getRequestDispatcher("/players/playersAdd.jsp").forward(req, resp);
     }
 
@@ -30,11 +31,17 @@ public class AddPlayerServlet extends HttpServlet {
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
         String role = req.getParameter("role");
-        if (!playerService.isUnique(name,age,country,role)) {
+        String rating;
+        if (req.getParameter("rating").isEmpty() || req.getParameter("rating") == null) {
+            rating = "DNP";
+        } else {
+            rating = req.getParameter("rating");
+        }
+        if (!playerService.isUnique(name, age, country, role)) {
             req.getRequestDispatcher("/informational/userAlreadyExists.jsp").forward(req, resp);
         }
         try {
-            playerService.addPlayer(name, age, country, role);
+            playerService.addPlayer(name, age, country, role, rating);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -29,8 +29,6 @@ public class PlayerService {
     }
 
 
-
-
     public void removePlayer(Integer id) throws Exception {
         playerListDatabase.removePlayer(id);
     }
@@ -40,21 +38,21 @@ public class PlayerService {
             if (name.equalsIgnoreCase(getPlayerList().get(i).getName())
                     && age.equals(getPlayerList().get(i).getAge())
                     && country.equalsIgnoreCase(getPlayerList().get(i).getCountry())
-                     && role.equalsIgnoreCase(getPlayerList().get(i).getPosition())) {
+                    && role.equalsIgnoreCase(getPlayerList().get(i).getPosition())) {
                 return false;
             }
         }
         return true;
     }
 
-    public void addPlayer(String name, Integer age, String country, String role) {
+    public void addPlayer(String name, Integer age, String country, String role, String rating) {
 
         if (isUnique(name, age, country, role)) {
-            playerListDatabase.addPlayer(new Player(name, age, country, role));
+            playerListDatabase.addPlayer(new Player(name, age, country, role, rating));
         }
     }
 
-    public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
+    public void editPlayer(Integer id, String name, Integer age, String country, String position, String rating) throws Exception {
         Player editedPlayer = null;
         for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
@@ -62,6 +60,7 @@ public class PlayerService {
                 player.setAge(age);
                 player.setCountry(country);
                 player.setPosition(position);
+                player.setRating(rating);
                 editedPlayer = player;
             }
         }

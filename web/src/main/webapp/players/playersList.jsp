@@ -56,7 +56,7 @@
         <th>Age</th>
         <th>Country</th>
         <th>Id</th>
-        <th>Reference</th>
+        <th>Rating</th>
     </tr>
 
     <t:forEach items="${list}" var="person">
@@ -71,7 +71,7 @@
             </td>
             <td>${person.id}
             </td>
-            <td>${person}
+            <td>${person.rating}
             </td>
 
             <td>
