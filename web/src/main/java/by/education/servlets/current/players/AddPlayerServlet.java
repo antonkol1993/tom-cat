@@ -31,12 +31,7 @@ public class AddPlayerServlet extends HttpServlet {
         Integer age = Integer.valueOf(req.getParameter("age"));
         String country = req.getParameter("country");
         String role = req.getParameter("role");
-        String rating;
-        if (req.getParameter("rating").isEmpty() || req.getParameter("rating") == null) {
-            rating = "DNP";
-        } else {
-            rating = req.getParameter("rating");
-        }
+        String rating = req.getParameter("rating");
         if (!playerService.isUnique(name, age, country, role)) {
             req.getRequestDispatcher("/informational/userAlreadyExists.jsp").forward(req, resp);
         }

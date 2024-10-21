@@ -70,6 +70,10 @@
         </th>
     </tr>
     <tr>
+        <th>Rating: <%=request.getAttribute("rating")%>
+        </th>
+    </tr>
+    <tr>
         <th>Reference: <%=request.getAttribute("ref")%>
         </th>
     </tr>
