@@ -12,11 +12,10 @@ public class Player {
     public Player() {
     }
 
-    public Player(String name, Integer age, String country, Integer id, String position) {
+    public Player(String name, Integer age, String country, String position) {
         this.name = name;
         this.age = age;
         this.country = country;
-        this.id = id;
         this.position = position;
     }
 

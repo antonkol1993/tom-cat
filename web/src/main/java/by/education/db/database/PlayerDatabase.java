@@ -1,8 +1,8 @@
 package by.education.db.database;
 
-import by.education.db.connector.ConnectorToPlayerDatabase;
 import by.education.db.IPlayer;
-import by.education.db.connector.IConnectortoDatabase;
+import by.education.db.connector.ConnectorToDatabase;
+import by.education.db.connector.IConnectorToDatabase;
 import by.education.objects.Player;
 
 import java.sql.*;
@@ -14,13 +14,13 @@ public class PlayerDatabase implements IPlayer {
     private static IPlayer instance;
 
 
-    private final IConnectortoDatabase IConnectorPlayersDB = ConnectorToPlayerDatabase.getInstance();
+    private final IConnectorToDatabase connectorPlayersDB = ConnectorToDatabase.getInstance();
 
-    private static final String GET_PLAYERS = "SELECT * FROM players.players;";
-    private static final String INSERT_PLAYER = "INSERT INTO players.players" +
+    private static final String GET_PLAYERS = "SELECT * FROM my_schema.players;";
+    private static final String INSERT_PLAYER = "INSERT INTO my_schema.players" +
             "(name, age, country, position) VALUES(?,?,?,?)";
-    private static final String DELETE_PLAYERS = "DELETE FROM players.players WHERE id = ?";
-    private static final String EDIT_PLAYER = "UPDATE players.players " +
+    private static final String DELETE_PLAYERS = "DELETE FROM my_schema.players WHERE id = ?";
+    private static final String EDIT_PLAYER = "UPDATE my_schema.players " +
             "SET name = ?, age = ?, country = ?, position = ? " +
             "WHERE id = ?";
 
@@ -38,10 +38,9 @@ public class PlayerDatabase implements IPlayer {
 
     @Override
     public List<Player> getPlayerList() {
-        if (players == null) {
 
 
-            try (Connection connection = IConnectorPlayersDB.getConnection();
+            try (Connection connection = connectorPlayersDB.getConnection();
                  Statement statement = connection.createStatement()) {
 
                 try (ResultSet resultSet = statement.executeQuery(GET_PLAYERS)) {
@@ -53,7 +52,9 @@ public class PlayerDatabase implements IPlayer {
                         Integer age = Integer.valueOf(resultSet.getString("age"));
                         String country = resultSet.getString("country");
                         String position = resultSet.getString("position");
-                        players.add(new Player(name, age, country, id, position));
+                        Player player = new Player(name, age, country, position);
+                        player.setId(id);
+                        players.add(player);
                     }
                     return players;
                 }
@@ -61,10 +62,9 @@ public class PlayerDatabase implements IPlayer {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        } else {
-            return players;
         }
-    }
+
+
 
     @Override
     public Player getPlayerById(Integer id) {
@@ -74,7 +74,7 @@ public class PlayerDatabase implements IPlayer {
     @Override
     public void addPlayer(Player player) {
 
-        try (Connection connection = IConnectorPlayersDB.getConnection();
+        try (Connection connection = connectorPlayersDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();
@@ -94,7 +94,7 @@ public class PlayerDatabase implements IPlayer {
     @Override
     public void removePlayer(int id) {
 
-        try (Connection connection = IConnectorPlayersDB.getConnection();
+        try (Connection connection = connectorPlayersDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PLAYERS)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
@@ -106,7 +106,7 @@ public class PlayerDatabase implements IPlayer {
 
     @Override
     public void editPlayer(int id, Player player) {
-        try (Connection connection = IConnectorPlayersDB.getConnection();
+        try (Connection connection = connectorPlayersDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PLAYER)) {
             String name = player.getName();
             Integer age = player.getAge();

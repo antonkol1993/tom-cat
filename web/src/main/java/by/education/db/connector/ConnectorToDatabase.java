@@ -7,23 +7,23 @@ import java.util.Properties;
 
 import static by.education.constants.Constants.DRIVER_TO_DB;
 
-public class ConnectorToPersonDatabase implements IConnectortoDatabase {
-    private static ConnectorToPersonDatabase instance;
+public class ConnectorToDatabase implements IConnectorToDatabase {
+    private static ConnectorToDatabase instance;
     private Connection connection;
 
-    private ConnectorToPersonDatabase() {
+    private ConnectorToDatabase() {
     }
 
-    public static ConnectorToPersonDatabase getInstance() {
+    public static ConnectorToDatabase getInstance() {
         if (instance == null) {
-            instance = new ConnectorToPersonDatabase();
+            instance = new ConnectorToDatabase();
         }
         return instance;
     }
 
     @Override
     public Connection getConnection() {
-        if (connection == null) {
+            if (connection == null) {
             try {
                 Class.forName(DRIVER_TO_DB);
             } catch (
@@ -35,9 +35,9 @@ public class ConnectorToPersonDatabase implements IConnectortoDatabase {
                 Properties property = new Properties();
                 InputStream stream = getClass().getResourceAsStream("/db.properties");
                 property.load(stream);
-                String jdbcURL = property.getProperty("person.jdbcURL");
-                String username = property.getProperty("person.username");
-                String password = property.getProperty("person.password");
+                String jdbcURL = property.getProperty("my.schema.jdbcURL");
+                String username = property.getProperty("my.schema.username");
+                String password = property.getProperty("my.schema.password");
                 connection = DriverManager.getConnection(jdbcURL, username, password);
 
                 return connection;

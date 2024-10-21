@@ -2,8 +2,8 @@ package by.education.db.database;
 
 import by.education.constants.UsersRole;
 import by.education.db.IPerson;
-import by.education.db.connector.ConnectorToPlayerDatabase;
-import by.education.db.connector.IConnectortoDatabase;
+import by.education.db.connector.ConnectorToDatabase;
+import by.education.db.connector.IConnectorToDatabase;
 import by.education.objects.Person;
 
 import java.sql.*;
@@ -13,16 +13,16 @@ import java.util.List;
 
 public class PersonDatabase implements IPerson {
     private static IPerson instance;
-    private final IConnectortoDatabase connectorPersonDB = ConnectorToPlayerDatabase.getInstance();
+    private final IConnectorToDatabase connectorToDatabase = ConnectorToDatabase.getInstance();
     private List<Person> persons;
 
-    private static final String GET_PERSONS = "SELECT * FROM persons.persons;";
-    private static final String INSERT_PERSON = "INSERT INTO persons.persons" +
+    private static final String GET_PERSONS = "SELECT * FROM my_schema.persons;";
+    private static final String INSERT_PERSON = "INSERT INTO my_schema.persons" +
             "(userName, password, role) VALUES(?,?,?)";
-    private static final String EDIT_PERSON = "UPDATE persons.persons " +
+    private static final String EDIT_PERSON = "UPDATE my_schema.persons " +
             "SET Username = ?, Password = ? " +
             "WHERE id = ?; ";
-    private static final String DELETE_PERSON = "DELETE FROM persons.persons WHERE id = ?";
+    private static final String DELETE_PERSON = "DELETE FROM my_schema.persons WHERE id = ?";
 
     private PersonDatabase() {
     }
@@ -37,7 +37,7 @@ public class PersonDatabase implements IPerson {
     @Override
     public List<Person> getPersonList() {
         if (persons == null) {
-            try (Connection connection = connectorPersonDB.getConnection();
+            try (Connection connection = connectorToDatabase.getConnection();
                  Statement statement = connection.createStatement()) {
 
                 try (ResultSet resultSet = statement.executeQuery(GET_PERSONS)) {
@@ -73,7 +73,7 @@ public class PersonDatabase implements IPerson {
     public void addPerson(Person person) {
 
         try {
-            Connection connection = connectorPersonDB.getConnection();
+            Connection connection = connectorToDatabase.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PERSON);
             preparedStatement.setString(1,person.getUserName());
             preparedStatement.setString(2,person.getPassword());
@@ -88,7 +88,7 @@ public class PersonDatabase implements IPerson {
     public void editPerson(int id, String userName, String password) {
 
         try {
-            Connection connection = connectorPersonDB.getConnection();
+            Connection connection = connectorToDatabase.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(EDIT_PERSON);
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2, password);
@@ -102,7 +102,7 @@ public class PersonDatabase implements IPerson {
     @Override
     public void removePerson(int id) {
         try {
-            Connection connection = connectorPersonDB.getConnection();
+            Connection connection = connectorToDatabase.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PERSON);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();

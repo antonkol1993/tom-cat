@@ -26,10 +26,7 @@ public class PlayerService {
         return instance;
     }
 
-    private void updatePlayers() {
-        playerList = playerListDatabase.getPlayerList();
 
-    }
     public List<Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
     }
@@ -41,12 +38,14 @@ public class PlayerService {
 
     public void removePlayer(Integer id) throws Exception {
         playerListDatabase.removePlayer(id);
-        updatePlayers();
     }
 
-    public boolean isUnique(String name) {
+    public boolean isUnique(String name, Integer age, String country, String role) {
         for (int i = 0; i < getPlayerList().size(); i++) {
-            if (name.equals(getPlayerList().get(i).getName())) {
+            if (name.equalsIgnoreCase(getPlayerList().get(i).getName())
+                    && age.equals(getPlayerList().get(i).getAge())
+                    && country.equalsIgnoreCase(getPlayerList().get(i).getCountry())
+                     && role.equalsIgnoreCase(getPlayerList().get(i).getPosition())) {
                 return false;
             }
         }
@@ -54,11 +53,10 @@ public class PlayerService {
     }
 
     public void addPlayer(String name, Integer age, String country, String role) {
-        getID();
-        if (isUnique(name)) {
-            playerListDatabase.addPlayer(new Player(name, age, country, ++maxId, role));
+
+        if (isUnique(name, age, country, role)) {
+            playerListDatabase.addPlayer(new Player(name, age, country, role));
         }
-        updatePlayers();
     }
 
     public void editPlayer(Integer id, String name, Integer age, String country, String position) throws Exception {
@@ -75,7 +73,7 @@ public class PlayerService {
         if (editedPlayer != null) {
             playerListDatabase.editPlayer(id, editedPlayer);
         }
-        updatePlayers();
+
     }
 
     private void getID() {
