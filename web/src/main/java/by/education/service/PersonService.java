@@ -23,16 +23,11 @@ public class PersonService {
         return instance;
     }
 
-    private void updatePerson() {
-        personList = personDatabase.getPersonList();
-    }
+
 
     public List<Person> getPersonList() {
-        if (personList == null) {
             personList = personDatabase.getPersonList();
             return personList;
-        }
-        return personList;
     }
 
     public Person getPersonById(int id) {
@@ -51,7 +46,6 @@ public class PersonService {
     public void addPerson(String userName, String password) {
         if (isUniqueUser(userName)) {
             personDatabase.addPerson(new Person(userName, password, UsersRole.USER));
-            updatePerson();
         }
     }
 
@@ -87,11 +81,9 @@ public class PersonService {
 //todo need to do
     public void editPerson(int id, String userName, String password) {
         personDatabase.editPerson(id, userName, password);
-        updatePerson();
     }
     public void removePerson (int id){
         personDatabase.removePerson(id);
-        updatePerson();
     }
 
 

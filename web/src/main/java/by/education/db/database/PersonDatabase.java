@@ -9,6 +9,7 @@ import by.education.objects.Person;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 public class PersonDatabase implements IPerson {
@@ -79,6 +80,7 @@ public class PersonDatabase implements IPerson {
             preparedStatement.setString(2,person.getPassword());
             preparedStatement.setString(3,person.getUserRole().name());
             preparedStatement.executeUpdate();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

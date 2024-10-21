@@ -3,7 +3,6 @@ package by.education.service;
 
 import by.education.db.database.PlayerDatabase;
 import by.education.db.IPlayer;
-import by.education.objects.Person;
 import by.education.objects.Player;
 
 import java.util.List;
@@ -12,9 +11,7 @@ import java.util.Objects;
 public class PlayerService {
     private static PlayerService instance;
 
-    private Integer maxId;
     IPlayer playerListDatabase = PlayerDatabase.getInstance();
-    private List<Player> playerList;
 
     private PlayerService() {
     }
@@ -31,9 +28,7 @@ public class PlayerService {
         return playerListDatabase.getPlayerList();
     }
 
-    public Player getPlayerById(Integer id) {
-        return null;
-    }
+
 
 
     public void removePlayer(Integer id) throws Exception {
@@ -78,6 +73,7 @@ public class PlayerService {
 
     private void getID() {
         // todo will doing add after deleteAll without exceptions
+        Integer maxId;
         if (getPlayerList().isEmpty()) {
             maxId = 0;
         } else {
