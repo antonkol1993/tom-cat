@@ -45,7 +45,10 @@ public class PersonService {
 
     public void addPerson(String userName, String password) {
         if (isUniqueUser(userName)) {
-            personDatabase.addPerson(new Person(userName, password, UsersRole.USER));
+            personDatabase.addPerson(new Person()
+                    .withUserName(userName)
+                    .withPassword(password)
+                    .withUserRole(UsersRole.USER));
         }
     }
 

@@ -51,12 +51,18 @@ public class PersonDatabase implements IPerson {
                         String password = resultSet.getString("Password");
                         String role = resultSet.getString("Role");
                         if (role.equalsIgnoreCase("admin")) {
-                            Person person = new Person(username, password, UsersRole.ADMIN);
+                            Person person = new Person()
+                                    .withUserName(username)
+                                    .withPassword(password)
+                                    .withUserRole(UsersRole.USER);
                             person.setId(id) ;
                             persons.add(person);
 
                         } else if (role.equalsIgnoreCase("user")) {
-                            Person person = new Person(username, password, UsersRole.USER);
+                            Person person = new Person()
+                                    .withUserName(username)
+                                    .withPassword(password)
+                                    .withUserRole(UsersRole.USER);
                             person.setId(id) ;
                             persons.add(person);
                         }
