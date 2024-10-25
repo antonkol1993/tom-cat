@@ -13,14 +13,14 @@ import java.util.List;
 
 public class Main  {
     public static void main(String[] args) throws Exception {
-        Person person1 = new Person(null, "11111", "aa222aa",null);
+        Person person1 = new Person(null, "zzzzz", "aa222aa",null);
         Person person2 = new Person()
-                .withUserName("222222")
+                .withUserName("wwww")
                 .withPassword("3333333")
                 .withUserRole(UsersRole.USER);
 
         Person person3 = new Person()
-                .withUserName("user3")
+                .withUserName("qqqqq")
                 .withPassword("3323131132123");
 
 
