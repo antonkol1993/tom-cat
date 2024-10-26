@@ -4,23 +4,7 @@
              version="3.1"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
 
-    <persistence-unit name="hiber-demo-unit">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>by.education.model.Person</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
-        <properties>
-            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hiber_demo" />
-            <property name="jakarta.persistence.jdbc.user" value="root" />
-            <property name="jakarta.persistence.jdbc.password" value="root" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
-            <property name="show_sql" value="true" />
-            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
-        </properties>
-    </persistence-unit>
-
-    <persistence-unit name="player-app-unit">
+    <persistence-unit name="player-person-app-unit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>by.education.objects.Person</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

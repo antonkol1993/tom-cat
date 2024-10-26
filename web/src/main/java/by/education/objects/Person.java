@@ -15,12 +15,15 @@ import lombok.With;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private Integer id;
-    @Column()
-    private String userName;
-    @Column
-    private String password;
-    @Column
-    private UsersRole userRole;
 
+    @Column(name = "Username", unique = true, nullable = false, length = 20)
+    private String userName;
+
+    @Column(name = "Password", nullable = false, length = 20)
+    private String password;
+
+    @Column(name = "Role", nullable = false)
+    private UsersRole userRole;
 }
