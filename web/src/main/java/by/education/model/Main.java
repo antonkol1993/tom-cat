@@ -27,7 +27,6 @@ public class Main {
         entityManager.persist(person2);
         entityManager.persist(person3);
         entityManager.getTransaction().commit();
-
         Person person = entityManager.find(Person.class, person1.getId());
         @SuppressWarnings("unchecked")
         List<Person> list = (List<Person>)

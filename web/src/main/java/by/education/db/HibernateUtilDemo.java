@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 public class HibernateUtilDemo {
 
     private static final EntityManagerFactory factory =
-            Persistence.createEntityManagerFactory("player-app-unit");
+            Persistence.createEntityManagerFactory("hiber-demo-unit");
 
 
     public static EntityManager getEntityManager() {

@@ -4,25 +4,38 @@ import by.education.db.IPerson;
 import by.education.db.connector.HibernateUtils;
 import by.education.objects.Person;
 import jakarta.persistence.EntityManager;
+import org.hibernate.Session;
 
 import java.util.List;
 
 public class PersonDatabaseHibernate implements IPerson {
+    private static PersonDatabaseHibernate instance;
+    private EntityManager entityManager = HibernateUtils.getEntityManager();
 
-private EntityManager entityManager = HibernateUtils.getEntityManager();
+    private PersonDatabaseHibernate() {
+    }
 
-public void createPersonsToDatabase (List<Person> persons) {
+    public static PersonDatabaseHibernate getInstance() {
+        if (instance == null) {
+            instance = new PersonDatabaseHibernate();
+        }
+        return instance;
+    }
+
+    public void createPersonsToDatabase(List<Person> persons) {
         entityManager.getTransaction().begin();
         for (Person person : persons) {
-        entityManager.persist(person);
+            entityManager.persist(person);
         }
-    entityManager.getTransaction().commit();
-    entityManager.close();
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
     @Override
     public List<Person> getPersonList() {
-        return List.of();
+        var fromPerson = entityManager.createQuery("from Person").getResultList();
+
+        return fromPerson;
     }
 
     @Override

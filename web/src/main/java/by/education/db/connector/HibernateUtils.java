@@ -28,4 +28,5 @@ public class HibernateUtils {
         factory.close();
     }
 
+
 }
