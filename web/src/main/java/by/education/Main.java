@@ -36,9 +36,12 @@ public class Main {
 //            System.out.print("!!!!!!!!!!!!");
 //        }
 
-
-        EmployeeManager employeeManager = new EmployeeManager();
-        Session session = employeeManager.getSession();
-        System.out.println(session);
+        PersonDatabaseHibernate instance = PersonDatabaseHibernate.getInstance();
+        instance.createPersonsToDatabase(CreatedObjects.getLocalePersons());
+        List<Person> personList = instance.getPersonList();
+        personList.forEach(System.out::println);
+//        EmployeeManager employeeManager = new EmployeeManager();
+//        Session session = employeeManager.getSession();
+//        System.out.println(session);
     }
 }
