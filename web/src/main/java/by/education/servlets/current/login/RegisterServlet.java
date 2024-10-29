@@ -1,6 +1,6 @@
 package by.education.servlets.current.login;
 
-import by.education.constants.Constants;
+import constants.Constants;
 import by.education.service.PersonService;
 
 import javax.servlet.ServletException;

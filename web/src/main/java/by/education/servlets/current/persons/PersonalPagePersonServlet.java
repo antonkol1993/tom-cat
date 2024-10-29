@@ -1,6 +1,6 @@
 package by.education.servlets.current.persons;
 
-import by.education.constants.UsersRole;
+import constants.UsersRole;
 import by.education.objects.Person;
 import by.education.service.PersonService;
 

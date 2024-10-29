@@ -10,11 +10,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>web</module>
-        <module>database</module>
         <module>service</module>
         <module>model</module>
+        <module>database</module>
+        <module>for_test_module</module>
     </modules>
-
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
