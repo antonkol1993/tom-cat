@@ -36,7 +36,7 @@ public class EditPersonServlet extends HttpServlet {
     protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        int id = Integer.parseInt(req.getParameter("id"));
+        Integer id = Integer.parseInt(req.getParameter("id"));
         personService.editPerson(id,username,password);
         resp.sendRedirect(req.getContextPath() + "/persons");
     }

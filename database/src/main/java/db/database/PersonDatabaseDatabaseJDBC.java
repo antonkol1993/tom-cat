@@ -54,7 +54,7 @@ public class PersonDatabaseDatabaseJDBC implements IPersonDatabase {
                                     .withUserName(username)
                                     .withPassword(password)
                                     .withUserRole(UsersRole.USER);
-                            person.setId(id) ;
+                            person.setId(id);
                             persons.add(person);
 
                         } else if (role.equalsIgnoreCase("user")) {
@@ -62,7 +62,7 @@ public class PersonDatabaseDatabaseJDBC implements IPersonDatabase {
                                     .withUserName(username)
                                     .withPassword(password)
                                     .withUserRole(UsersRole.USER);
-                            person.setId(id) ;
+                            person.setId(id);
                             persons.add(person);
                         }
                     }
@@ -81,9 +81,9 @@ public class PersonDatabaseDatabaseJDBC implements IPersonDatabase {
         try {
             Connection connection = connectorToDatabase.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PERSON);
-            preparedStatement.setString(1,person.getUserName());
-            preparedStatement.setString(2,person.getPassword());
-            preparedStatement.setString(3,person.getUserRole().name());
+            preparedStatement.setString(1, person.getUserName());
+            preparedStatement.setString(2, person.getPassword());
+            preparedStatement.setString(3, person.getUserRole().name());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class PersonDatabaseDatabaseJDBC implements IPersonDatabase {
     }
 
     @Override
-    public void editPerson(int id, String userName, String password) {
+    public void editPerson(Integer id, String userName, String password) {
 
         try {
             Connection connection = connectorToDatabase.getConnection();
@@ -107,7 +107,7 @@ public class PersonDatabaseDatabaseJDBC implements IPersonDatabase {
     }
 
     @Override
-    public void removePerson(int id) {
+    public void removePerson(Integer id) {
         try {
             Connection connection = connectorToDatabase.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PERSON);

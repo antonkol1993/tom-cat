@@ -3,7 +3,6 @@ package service;
 
 import constants.UsersRole;
 import db.database.PersonDatabaseDatabaseHibernate;
-import db.database.PersonDatabaseDatabaseJDBC;
 import db.IPersonDatabase;
 import objects.Person;
 
@@ -25,10 +24,9 @@ public class PersonService {
     }
 
 
-
     public List<Person> getPersonList() {
-            personList = personDatabase.getPersonList();
-            return personList;
+        personList = personDatabase.getPersonList();
+        return personList;
     }
 
     public Person getPersonById(int id) {
@@ -53,7 +51,7 @@ public class PersonService {
         }
     }
 
-    //todo it's transfering to another class (ForLoginService)
+    //todo it's should to transfer to another class (ForLoginService)
     public boolean isValid(String userName, String password) {
         for (int i = 0; i < personDatabase.getPersonList().size(); i++) {
             Person person = personDatabase.getPersonList().get(i);
@@ -83,15 +81,14 @@ public class PersonService {
         return true;
     }
 //todo need to do
+
     public void editPerson(int id, String userName, String password) {
         personDatabase.editPerson(id, userName, password);
     }
-    public void removePerson (int id){
+
+    public void removePerson(int id) {
         personDatabase.removePerson(id);
     }
-
-
-
 
 
 }

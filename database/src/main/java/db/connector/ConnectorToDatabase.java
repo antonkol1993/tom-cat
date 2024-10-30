@@ -24,7 +24,7 @@ public class ConnectorToDatabase implements IConnectorToDatabase {
 
     @Override
     public Connection getConnection() {
-            if (connection == null) {
+        if (connection == null) {
             try {
                 Class.forName(Constants.DRIVER_TO_DB);
             } catch (

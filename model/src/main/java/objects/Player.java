@@ -1,71 +1,38 @@
 package objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.With;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@With
 public class Player {
 
+    @Id
+    @GeneratedValue
+    @Column(unique = true)
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private Integer age;
+
+    @Column()
     private String country;
+
+    @Column()
     private String position;
+
+    @Column()
     private String rating;
-
-//    private
-    public Player() {
-    }
-
-    public Player(String name, Integer age, String country, String position, String rating) {
-        this.name = name;
-        this.age = age;
-        this.country = country;
-        this.position = position;
-        this.rating = rating;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
 }

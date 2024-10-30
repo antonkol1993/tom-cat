@@ -16,6 +16,7 @@ public class PlayerDatabaseDatabaseJDBC implements IPlayerDatabase {
 
 
     private final IConnectorToDatabase connectorPlayersDB = ConnectorToDatabase.getInstance();
+    private List<Player> players;
 
     private static final String GET_PLAYERS = "SELECT * FROM my_schema.players;";
     private static final String INSERT_PLAYER = "INSERT INTO my_schema.players" +
@@ -36,8 +37,6 @@ public class PlayerDatabaseDatabaseJDBC implements IPlayerDatabase {
         return instance;
     }
 
-    private List<Player> players;
-
     @Override
     public List<Player> getPlayerList() {
 
@@ -57,13 +56,13 @@ public class PlayerDatabaseDatabaseJDBC implements IPlayerDatabase {
                     String rating;
                     if (resultSet.getString("rating").isEmpty() ||
                             Objects.equals(resultSet.getString("rating"), "<null>") ||
-                            Objects.equals(resultSet.getString("rating" ), "null")) {
+                            Objects.equals(resultSet.getString("rating"), "null")) {
                         rating = "DNP";
                     } else {
                         rating = resultSet.getString("rating");
                     }
 
-                    Player player = new Player(name, age, country, position, rating);
+                    Player player = new Player().withName(name).withAge(age).withCountry(country).withPosition(position).withRating(rating);
                     player.setId(id);
                     players.add(player);
                 }

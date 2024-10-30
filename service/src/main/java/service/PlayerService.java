@@ -1,6 +1,7 @@
 package service;
 
 
+import db.database.PlayerDatabaseDatabaseHibernate;
 import db.database.PlayerDatabaseDatabaseJDBC;
 import db.IPlayerDatabase;
 import objects.Player;
@@ -11,7 +12,7 @@ import java.util.Objects;
 public class PlayerService {
     private static PlayerService instance;
 
-    IPlayerDatabase playerListDatabase = PlayerDatabaseDatabaseJDBC.getInstance();
+    IPlayerDatabase playerListDatabase = PlayerDatabaseDatabaseHibernate.getInstance();
 
     private PlayerService() {
     }
@@ -45,14 +46,22 @@ public class PlayerService {
         return true;
     }
 
-    public void addPlayer(String name, Integer age, String country, String role, String rating) {
+    public void addPlayer(String name, Integer age, String country, String position, String rating) {
 
-        if (isUnique(name, age, country, role)) {
-            playerListDatabase.addPlayer(new Player(name, age, country, role, rating));
+        if (isUnique(name, age, country, position)) {
+            playerListDatabase.addPlayer(
+                    new Player()
+                            .withName(name)
+                            .withAge(age)
+                            .withCountry(country)
+                            .withPosition(position)
+                            .withRating(rating));
         }
     }
 
-    public void editPlayer(Integer id, String name, Integer age, String country, String position, String rating) throws Exception {
+    public void editPlayer(Integer id, String name,
+                           Integer age, String country,
+                           String position, String rating) throws Exception {
         Player editedPlayer = null;
         for (Player player : getPlayerList()) {
             if (Objects.equals(player.getId(), id)) {
@@ -69,23 +78,5 @@ public class PlayerService {
         }
 
     }
-
-    private void getID() {
-        // todo will doing add after deleteAll without exceptions
-        Integer maxId;
-        if (getPlayerList().isEmpty()) {
-            maxId = 0;
-        } else {
-            maxId = getPlayerList().get(0).getId();
-            for (int i = 0; i < getPlayerList().size(); i++) {
-                if (maxId < getPlayerList().get(i).getId()) {
-                    maxId = getPlayerList().get(i).getId();
-                }
-            }
-        }
-
-
-    }
-
 
 }

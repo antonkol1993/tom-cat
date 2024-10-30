@@ -21,8 +21,18 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
         return instance;
     }
 
-    public void createPersonsToDatabase(List<Person> persons) {
-        try (EntityManager entityManager = HibernateUtils.getEntityManager()){
+    private Person getPersonById(int id) {
+        List<Person> personList = getPersonList();
+        for (Person person : personList) {
+            if (person.getId() == id) {
+                return person;
+            }
+        }
+        return null;
+    }
+
+    public void createPersonsFromLocal(List<Person> persons) {
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
             entityManager.getTransaction().begin();
             for (Person person : persons) {
                 entityManager.persist(person);
@@ -36,7 +46,7 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     @Override
     public List<Person> getPersonList() {
         try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
-            return entityManager.createQuery("from Person").getResultList();
+            return (List<Person>) entityManager.createQuery("from Person");
         } catch (HibernateException e) {
             throw new RuntimeException(e);
         }
@@ -54,14 +64,8 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     }
 
     @Override
-    public void removePerson(int id) {
-        List<Person> personList = getPersonList();
-        Person person = null;
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).getId() == id) {
-            person = personList.get(i);
-            }
-        }
+    public void removePerson(Integer id) {
+        Person person = getPersonById(id);
         try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
             assert person != null;
             entityManager.getTransaction().begin();
@@ -73,8 +77,16 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     }
 
     @Override
-    public void editPerson(int id, String userName, String password) {
-
+    public void editPerson(Integer id, String userName, String password) {
+        Person person = getPersonById(id);
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+            assert person != null;
+            entityManager.getTransaction().begin();
+            person.setUserName(userName);
+            person.setPassword(password);
+            entityManager.merge(person);
+            entityManager.getTransaction().commit();
+        }
     }
 
 
