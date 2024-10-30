@@ -12,12 +12,9 @@ public class Main {
 
         PersonDatabaseDatabaseHibernate personDatabaseDatabaseHibernate = PersonDatabaseDatabaseHibernate.getInstance();
 //        personDatabaseDatabaseHibernate.createPersonsToDatabase(CreatedObjects.getLocalePersons());
-        personDatabaseDatabaseHibernate.addPerson(new Person()
-                .withPassword("sdaadsdsa")
-                .withUserRole(UsersRole.ADMIN)
-                .withUserName("AndrewSuperman"));
-        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
 
+        personDatabaseDatabaseHibernate.removePerson(2);
+        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
         personList.forEach(System.out::println);
 
     }
