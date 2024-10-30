@@ -1,7 +1,7 @@
 package db.database;
 
 import constants.UsersRole;
-import db.IPerson;
+import db.IPersonDatabase;
 import db.connector.ConnectorToDatabase;
 import db.connector.IConnectorToDatabase;
 import objects.Person;
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PersonDatabase implements IPerson {
-    private static IPerson instance;
+public class PersonDatabaseDatabaseJDBC implements IPersonDatabase {
+    private static IPersonDatabase instance;
     private final IConnectorToDatabase connectorToDatabase = ConnectorToDatabase.getInstance();
     private List<Person> persons;
 
@@ -24,12 +24,12 @@ public class PersonDatabase implements IPerson {
             "WHERE id = ?; ";
     private static final String DELETE_PERSON = "DELETE FROM my_schema.persons WHERE id = ?";
 
-    private PersonDatabase() {
+    private PersonDatabaseDatabaseJDBC() {
     }
 
-    public static IPerson getInstance() {
+    public static IPersonDatabase getInstance() {
         if (instance == null) {
-            instance = new PersonDatabase();
+            instance = new PersonDatabaseDatabaseJDBC();
         }
         return instance;
     }

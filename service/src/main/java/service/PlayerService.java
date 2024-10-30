@@ -1,8 +1,8 @@
 package service;
 
 
-import db.database.PlayerDatabase;
-import db.IPlayer;
+import db.database.PlayerDatabaseDatabaseJDBC;
+import db.IPlayerDatabase;
 import objects.Player;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Objects;
 public class PlayerService {
     private static PlayerService instance;
 
-    IPlayer playerListDatabase = PlayerDatabase.getInstance();
+    IPlayerDatabase playerListDatabase = PlayerDatabaseDatabaseJDBC.getInstance();
 
     private PlayerService() {
     }

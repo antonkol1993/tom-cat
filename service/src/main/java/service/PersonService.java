@@ -2,15 +2,16 @@ package service;
 
 
 import constants.UsersRole;
-import db.database.PersonDatabase;
-import db.IPerson;
+import db.database.PersonDatabaseDatabaseHibernate;
+import db.database.PersonDatabaseDatabaseJDBC;
+import db.IPersonDatabase;
 import objects.Person;
 
 import java.util.List;
 
 public class PersonService {
     private static PersonService instance;
-    private final IPerson personDatabase = PersonDatabase.getInstance();
+    private final IPersonDatabase personDatabase = PersonDatabaseDatabaseHibernate.getInstance();
     private List<Person> personList;
 
     private PersonService() {

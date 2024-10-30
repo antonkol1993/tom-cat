@@ -1,6 +1,6 @@
 package db.database;
 
-import db.IPlayer;
+import db.IPlayerDatabase;
 import db.connector.ConnectorToDatabase;
 import db.connector.IConnectorToDatabase;
 import objects.Player;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PlayerDatabase implements IPlayer {
+public class PlayerDatabaseDatabaseJDBC implements IPlayerDatabase {
 
-    private static IPlayer instance;
+    private static IPlayerDatabase instance;
 
 
     private final IConnectorToDatabase connectorPlayersDB = ConnectorToDatabase.getInstance();
@@ -26,12 +26,12 @@ public class PlayerDatabase implements IPlayer {
             "WHERE id = ?";
 
 
-    private PlayerDatabase() {
+    private PlayerDatabaseDatabaseJDBC() {
     }
 
-    public static IPlayer getInstance() {
+    public static IPlayerDatabase getInstance() {
         if (instance == null) {
-            instance = new PlayerDatabase();
+            instance = new PlayerDatabaseDatabaseJDBC();
         }
         return instance;
     }

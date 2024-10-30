@@ -1,14 +1,24 @@
 package db;
 
+import constants.UsersRole;
 import db.created.objects.CreatedObjects;
-import db.database.PersonDatabaseHibernate;
-import jakarta.persistence.EntityManager;
+import db.database.PersonDatabaseDatabaseHibernate;
 import objects.Person;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        PersonDatabaseHibernate instance = PersonDatabaseHibernate.getInstance();
-        instance.createPersonsToDatabase(CreatedObjects.getLocalePersons());
+        PersonDatabaseDatabaseHibernate personDatabaseDatabaseHibernate = PersonDatabaseDatabaseHibernate.getInstance();
+//        personDatabaseDatabaseHibernate.createPersonsToDatabase(CreatedObjects.getLocalePersons());
+        personDatabaseDatabaseHibernate.addPerson(new Person()
+                .withPassword("sdaadsdsa")
+                .withUserRole(UsersRole.ADMIN)
+                .withUserName("AndrewSuperman"));
+        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
+
+        personList.forEach(System.out::println);
+
     }
 }

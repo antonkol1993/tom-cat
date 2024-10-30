@@ -4,7 +4,7 @@ import objects.Person;
 
 import java.util.List;
 
-public interface IPerson {
+public interface IPersonDatabase {
     List<Person> getPersonList();
     void addPerson(Person person);
     void removePerson (int id);

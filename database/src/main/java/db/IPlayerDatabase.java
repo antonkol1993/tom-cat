@@ -1,11 +1,10 @@
 package db;
 
 import objects.Player;
-import objects.Player;
 
 import java.util.List;
 
-public interface IPlayer {
+public interface IPlayerDatabase {
 
     List<Player> getPlayerList();
 
