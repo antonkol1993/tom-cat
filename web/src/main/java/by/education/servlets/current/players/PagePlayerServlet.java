@@ -1,6 +1,6 @@
 package by.education.servlets.current.players;
 
-import by.education.service.PlayerService;
+import service.PlayerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

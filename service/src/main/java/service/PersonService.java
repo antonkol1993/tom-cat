@@ -1,10 +1,10 @@
 package service;
 
 
-import by.education.constants.UsersRole;
-import by.education.db.database.PersonDatabase;
-import by.education.db.IPerson;
-import by.education.objects.Person;
+import constants.UsersRole;
+import db.database.PersonDatabase;
+import db.IPerson;
+import objects.Person;
 
 import java.util.List;
 

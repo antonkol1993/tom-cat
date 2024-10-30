@@ -1,7 +1,7 @@
 package by.education.servlets.current.login;
 
 import constants.Constants;
-import by.education.service.PersonService;
+import service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

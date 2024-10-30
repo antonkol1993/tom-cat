@@ -1,6 +1,6 @@
 package model;
 
-import by.education.constants.UsersRole;
+import constants.UsersRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

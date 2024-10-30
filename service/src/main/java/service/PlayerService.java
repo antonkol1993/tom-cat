@@ -1,9 +1,9 @@
 package service;
 
 
-import by.education.db.database.PlayerDatabase;
-import by.education.db.IPlayer;
-import by.education.objects.Player;
+import db.database.PlayerDatabase;
+import db.IPlayer;
+import objects.Player;
 
 import java.util.List;
 import java.util.Objects;

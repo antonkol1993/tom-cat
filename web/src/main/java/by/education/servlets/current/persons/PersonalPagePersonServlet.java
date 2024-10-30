@@ -1,8 +1,8 @@
 package by.education.servlets.current.persons;
 
 import constants.UsersRole;
-import by.education.objects.Person;
-import by.education.service.PersonService;
+import objects.Person;
+import service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
