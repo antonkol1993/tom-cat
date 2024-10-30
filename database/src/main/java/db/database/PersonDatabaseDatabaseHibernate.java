@@ -60,13 +60,13 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
         for (int i = 0; i < personList.size(); i++) {
             if (personList.get(i).getId() == id) {
             person = personList.get(i);
-            } else {
-                throw new NullPointerException("Person is null!!");
             }
         }
         try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
             assert person != null;
-            entityManager.createQuery("DELETE FROM Person WHERE id = " + id).setParameter("id", person.getId()).executeUpdate();
+            entityManager.getTransaction().begin();
+            entityManager.createQuery("DELETE FROM Person WHERE id = :id").setParameter("id", person.getId()).executeUpdate();
+            entityManager.getTransaction().commit();
         } catch (HibernateException e) {
             throw new RuntimeException(e);
         }
