@@ -1,11 +1,12 @@
 package db.connector;
 
+import constants.Constants;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
-import static by.education.constants.Constants.DRIVER_TO_DB;
 
 public class ConnectorToDatabase implements IConnectorToDatabase {
     private static ConnectorToDatabase instance;

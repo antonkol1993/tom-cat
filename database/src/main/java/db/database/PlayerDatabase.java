@@ -3,7 +3,7 @@ package db.database;
 import db.IPlayer;
 import db.connector.ConnectorToDatabase;
 import db.connector.IConnectorToDatabase;
-import by.education.objects.Player;
+import objects.Player;
 
 import java.sql.*;
 import java.util.ArrayList;

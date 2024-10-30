@@ -1,10 +1,10 @@
 package db.database;
 
-import by.education.constants.UsersRole;
+import constants.UsersRole;
 import db.IPerson;
 import db.connector.ConnectorToDatabase;
 import db.connector.IConnectorToDatabase;
-import by.education.objects.Person;
+import objects.Person;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -118,7 +118,4 @@ public class PersonDatabase implements IPerson {
         }
     }
 
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
-    }
 }

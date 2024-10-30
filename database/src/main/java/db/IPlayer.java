@@ -1,6 +1,7 @@
 package db;
 
-import by.education.objects.Player;
+import objects.Player;
+import objects.Player;
 
 import java.util.List;
 

@@ -2,9 +2,8 @@ package db.database;
 
 import db.IPerson;
 import db.connector.HibernateUtils;
-import by.education.objects.Person;
+import objects.Person;
 import jakarta.persistence.EntityManager;
-import org.hibernate.Session;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package objects;
 
-import by.education.constants.UsersRole;
+import constants.UsersRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,17 +15,17 @@ import lombok.With;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Username", unique = true, nullable = false, length = 20)
+    @Column(name = "username", unique = true, nullable = false, length = 20)
     private String userName;
 
-    @Column(name = "Password", nullable = false, length = 20)
+    @Column(name = "password", nullable = false, length = 20)
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "Role", nullable = false)
+    @Column(name = "role", nullable = false)
     private UsersRole userRole;
     
 }

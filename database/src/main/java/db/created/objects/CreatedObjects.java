@@ -1,6 +1,7 @@
-package constants;
+package db.created.objects;
 
-import by.education.objects.Person;
+import constants.UsersRole;
+import objects.Person;
 
 import java.util.List;
 

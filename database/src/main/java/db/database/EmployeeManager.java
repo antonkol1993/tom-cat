@@ -1,6 +1,6 @@
 package db.database;
 
-import by.education.objects.Person;
+import objects.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
