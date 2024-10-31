@@ -48,7 +48,9 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public Player getPlayerById(Integer id) {
-        return null;
+        try(EntityManager entityManager = HibernateUtils.getEntityManager()){
+            return entityManager.find(Player.class, id);
+        }
     }
 
     @Override

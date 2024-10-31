@@ -17,12 +17,14 @@ public class Main {
 //        playerDatabaseDatabaseHibernate.createPlayersFromLocal(CreatedObjects.getLocalePlayers());
 
 //        personDatabaseDatabaseHibernate.removePerson(2);
-        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
-        List<Player> playerList = playerDatabaseDatabaseHibernate.getPlayerList();
 
 
-        personList.forEach(System.out::println);
-        playerList.forEach(System.out::println);
+//        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
+//        List<Player> playerList = playerDatabaseDatabaseHibernate.getPlayerList();
+//        personList.forEach(System.out::println);
+//        playerList.forEach(System.out::println);
 
+        Player playerById = playerDatabaseDatabaseHibernate.getPlayerById(3);
+        System.out.println(playerById);
     }
 }
