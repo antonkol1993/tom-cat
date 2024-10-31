@@ -11,6 +11,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/database_module/pom.xml" />
+        <option value="$PROJECT_DIR$/for_test_module/pom.xml" />
       </set>
     </option>
   </component>

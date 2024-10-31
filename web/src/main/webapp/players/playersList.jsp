@@ -63,7 +63,7 @@
 
         <tr>
             <td><a href="<t:url value="/player/${person.id}"/>">
-                ${person.name}</a>
+                    ${person.name}</a>
             </td>
             <td>${person.age}
             </td>

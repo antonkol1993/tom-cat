@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet (urlPatterns = "/admin/persons")
+@WebServlet(urlPatterns = "/admin/persons")
 public class adminListOfPersonsServlet extends HttpServlet {
     List<Person> personList = PersonService.getInstance().getPersonList();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("personList", personList);

@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>Enter to edit player</h1>
+<h1>Enter to edit person</h1>
 
 <jsp:include page="../filter/signOutButton.jsp"/>
 

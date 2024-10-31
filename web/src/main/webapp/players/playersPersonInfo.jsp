@@ -1,6 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="objects.Player" %>
-<%@ page import="service.PlayerService" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>

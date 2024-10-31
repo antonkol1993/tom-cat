@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -62,7 +61,8 @@
         <tr>
             <td>${person.id }
             </td>
-            <td><a class="add_submit" href=<t:url value="/person/${person.id}"/> ></a>${person.userName}
+            <td><a class="add_submit" href=
+                    <t:url value="/person/${person.id}"/>></a>${person.userName}
             </td>
             <td>${person.getPassword()}
             </td>
@@ -74,15 +74,15 @@
                     <input value="Edit" type="submit" class="edit_submit">
                 </form>
 
-                                <form action="${pageContext.request.contextPath}/persons/remove/${person.id}" method="post">
-                                    <input value="Delete" type="submit" class="delete_submit">
-                                </form>
-                            </td>
+                <form action="${pageContext.request.contextPath}/persons/remove/${person.id}" method="post">
+                    <input value="Delete" type="submit" class="delete_submit">
+                </form>
+            </td>
         </tr>
 
     </t:forEach>
-        <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/persons/add">Add a new
-            player</a>
+    <a class="add_href" style="color: darkred" href="${pageContext.request.contextPath}/persons/add">Add a new
+        person</a>
 
 
 </table>

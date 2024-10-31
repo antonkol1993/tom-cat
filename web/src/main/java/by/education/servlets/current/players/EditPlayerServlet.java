@@ -47,7 +47,7 @@ public class EditPlayerServlet extends HttpServlet {
         String role = req.getParameter("role");
         String rating = req.getParameter("rating");
         try {
-            playerService.editPlayer(id, name, age, country, role,rating);
+            playerService.editPlayer(id, name, age, country, role, rating);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

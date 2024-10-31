@@ -3,11 +3,16 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/admin/adminPersons.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/admin" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/current/newExample.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/current" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/current/personInfo.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/current" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/current/playersList.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/current" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/example.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/filter/answer.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/filter" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/filter/signIn.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/filter" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/helloBot.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/informational/signUpSuccess.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/informational" />
+        <entry key="file://$PROJECT_DIR$/web/src/main/webapp/informational/userAlreadyExists.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/informational" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/newPlayersList.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/persons/forms/personsForm.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/persons/forms" />
         <entry key="file://$PROJECT_DIR$/web/src/main/webapp/persons/personsAdd.jsp" value="file://$PROJECT_DIR$/web/src/main/webapp/persons" />

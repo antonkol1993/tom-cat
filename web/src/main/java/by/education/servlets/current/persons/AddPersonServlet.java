@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet( urlPatterns = "/persons/add")
+@WebServlet(urlPatterns = "/persons/add")
 public class AddPersonServlet extends HttpServlet {
 
     private final PersonService personService = PersonService.getInstance();
@@ -39,7 +39,7 @@ public class AddPersonServlet extends HttpServlet {
         } else {
             String servletPath = req.getServletPath();
             req.setAttribute("servletPath", servletPath);
-            req.getRequestDispatcher("../informational/persons/userAlreadyExists.jsp").forward(req,resp);
+            req.getRequestDispatcher("../informational/persons/userAlreadyExists.jsp").forward(req, resp);
         }
 
 

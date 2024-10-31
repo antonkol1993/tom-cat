@@ -27,11 +27,11 @@ public class PersonalPagePersonServlet extends HttpServlet {
         String password = personById.getPassword();
         UsersRole role = personById.getUserRole();
 
-        req.setAttribute( "id", id);
-        req.setAttribute( "name", name);
-        req.setAttribute( "password", password);
-        req.setAttribute( "role", role);
-        req.getRequestDispatcher("/persons/personsPersonInfo.jsp").forward(req,resp);
+        req.setAttribute("id", id);
+        req.setAttribute("name", name);
+        req.setAttribute("password", password);
+        req.setAttribute("role", role);
+        req.getRequestDispatcher("/persons/personsPersonInfo.jsp").forward(req, resp);
     }
 
 }
