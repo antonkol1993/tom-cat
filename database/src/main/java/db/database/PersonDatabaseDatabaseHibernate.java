@@ -46,7 +46,8 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     @Override
     public List<Person> getPersonList() {
         try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
-            return (List<Person>) entityManager.createQuery("from Person");
+            List<Person> personList = (List<Person>) entityManager.createQuery("from Person").getResultList();
+            return personList;
         } catch (HibernateException e) {
             throw new RuntimeException(e);
         }

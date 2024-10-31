@@ -1,7 +1,12 @@
 package db.database;
 
 import db.IPlayerDatabase;
+import db.connector.HibernateUtils;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import objects.Person;
 import objects.Player;
+import org.hibernate.HibernateException;
 
 import java.util.List;
 
@@ -18,10 +23,28 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
         return instance;
     }
 
+    public void createPlayersFromLocal(List<Player> players) {
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+            entityManager.getTransaction().begin();
+            for (Player player : players) {
+                entityManager.persist(player);
+            }
+            entityManager.getTransaction().commit();
+        } catch (HibernateException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public List<Player> getPlayerList() {
-        return List.of();
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+            List<Player> players = entityManager.createQuery("from Player").getResultList();
+            return players;
+        } catch (HibernateException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     @Override
     public Player getPlayerById(Integer id) {
