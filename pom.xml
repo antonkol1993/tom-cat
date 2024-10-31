@@ -13,7 +13,6 @@
         <module>service</module>
         <module>model</module>
         <module>database</module>
-        <module>for_test_module</module>
     </modules>
 
     <properties>
