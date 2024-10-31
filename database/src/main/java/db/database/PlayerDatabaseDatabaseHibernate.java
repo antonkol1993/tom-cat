@@ -55,12 +55,22 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public void addPlayer(Player player) {
-
+        try(EntityManager entityManager = HibernateUtils.getEntityManager()){
+            entityManager.getTransaction().begin();
+            entityManager.persist(player);
+            entityManager.getTransaction().commit();
+        }
     }
 
     @Override
     public void removePlayer(int id) throws Exception {
-
+        try(EntityManager entityManager = HibernateUtils.getEntityManager()){
+            Player playerById = getPlayerById(id);
+            Player playerFromDB = entityManager.find(Player.class, playerById.getId());
+                    entityManager.getTransaction().begin();
+            entityManager.remove(playerFromDB);
+            entityManager.getTransaction().commit();
+        }
     }
 
     @Override

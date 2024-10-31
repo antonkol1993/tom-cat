@@ -9,7 +9,7 @@ import objects.Player;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         PersonDatabaseDatabaseHibernate personDatabaseDatabaseHibernate = PersonDatabaseDatabaseHibernate.getInstance();
 //        personDatabaseDatabaseHibernate.createPersonsFromLocal(CreatedObjects.getLocalePersons());
@@ -20,11 +20,11 @@ public class Main {
 
 
 //        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
-//        List<Player> playerList = playerDatabaseDatabaseHibernate.getPlayerList();
 //        personList.forEach(System.out::println);
 //        playerList.forEach(System.out::println);
 
-        Player playerById = playerDatabaseDatabaseHibernate.getPlayerById(3);
-        System.out.println(playerById);
+        playerDatabaseDatabaseHibernate.addPlayer(new Player().withAge(999).withName("EEQQEEQ"));
+        List<Player> playerList = playerDatabaseDatabaseHibernate.getPlayerList();
+        playerList.forEach(System.out::println);
     }
 }
