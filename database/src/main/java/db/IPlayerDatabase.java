@@ -10,10 +10,10 @@ public interface IPlayerDatabase {
 
     Player getPlayerById(Integer id);
 
-    void addPlayer(Player player);
+    void addPlayer(Player player) throws Exception;
 
     void removePlayer(int id) throws Exception;
 
-    void editPlayer(int i, Player player) throws Exception;
+    void editPlayer(int id, Player player) throws Exception;
 
 }

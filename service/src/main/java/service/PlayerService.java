@@ -24,6 +24,15 @@ public class PlayerService {
         return instance;
     }
 
+    private Player getPlayerById(int id) {
+        Player player = null;
+        for (int i = 0; i < getPlayerList().size(); i++) {
+            if (getPlayerList().get(i).getId() == id) {
+                player = getPlayerList().get(i);
+            }
+        }
+        return player;
+    }
 
     public List<Player> getPlayerList() {
         return playerListDatabase.getPlayerList();
@@ -46,7 +55,7 @@ public class PlayerService {
         return true;
     }
 
-    public void addPlayer(String name, Integer age, String country, String position, String rating) {
+    public void addPlayer(String name, Integer age, String country, String position, String rating) throws Exception {
 
         if (isUnique(name, age, country, position)) {
             playerListDatabase.addPlayer(
@@ -62,19 +71,18 @@ public class PlayerService {
     public void editPlayer(Integer id, String name,
                            Integer age, String country,
                            String position, String rating) throws Exception {
-        Player editedPlayer = null;
-        for (Player player : getPlayerList()) {
-            if (Objects.equals(player.getId(), id)) {
-                player.setName(name);
-                player.setAge(age);
-                player.setCountry(country);
-                player.setPosition(position);
-                player.setRating(rating);
-                editedPlayer = player;
-            }
-        }
-        if (editedPlayer != null) {
-            playerListDatabase.editPlayer(id, editedPlayer);
+        Player playerById = getPlayerById(id);
+        if (playerById != null) {
+
+
+            playerById.setName(name);
+            playerById.setAge(age);
+            playerById.setCountry(country);
+            playerById.setPosition(position);
+            playerById.setRating(rating);
+            playerListDatabase.editPlayer(id,playerById);
+        } else {
+            throw new NullPointerException("Player's data are null");
         }
 
     }

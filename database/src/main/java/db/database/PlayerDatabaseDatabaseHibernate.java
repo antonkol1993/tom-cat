@@ -3,8 +3,6 @@ package db.database;
 import db.IPlayerDatabase;
 import db.connector.HibernateUtils;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
-import objects.Person;
 import objects.Player;
 import org.hibernate.HibernateException;
 
@@ -48,33 +46,55 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public Player getPlayerById(Integer id) {
-        try(EntityManager entityManager = HibernateUtils.getEntityManager()){
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
             return entityManager.find(Player.class, id);
         }
     }
 
     @Override
-    public void addPlayer(Player player) {
-        try(EntityManager entityManager = HibernateUtils.getEntityManager()){
+    public void addPlayer(Player player) throws Exception {
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
             entityManager.getTransaction().begin();
             entityManager.persist(player);
             entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            throw new Exception("Something is wrong!!! ");
         }
     }
 
     @Override
     public void removePlayer(int id) throws Exception {
-        try(EntityManager entityManager = HibernateUtils.getEntityManager()){
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
             Player playerById = getPlayerById(id);
             Player playerFromDB = entityManager.find(Player.class, playerById.getId());
-                    entityManager.getTransaction().begin();
+            entityManager.getTransaction().begin();
             entityManager.remove(playerFromDB);
             entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            throw new Exception("Something is wrong!!! ");
         }
     }
 
     @Override
-    public void editPlayer(int i, Player player) throws Exception {
+    public void editPlayer(int id, Player player) throws Exception {
+        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+            Player playerById = getPlayerById(id);
+            assert playerById !=null;
+            playerById.setName(player.getName());
+            playerById.setAge(player.getAge());
+            playerById.setCountry(player.getCountry());
+            playerById.setPosition(player.getPosition());
+            playerById.setRating(player.getRating());
+            entityManager.getTransaction().begin();
+            entityManager.merge(playerById);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            throw new Exception("Something is wrong!!! ");
+        }
 
     }
+
+
+
+
 }

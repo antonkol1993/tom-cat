@@ -22,8 +22,13 @@ public class Main {
 //        List<Person> personList = personDatabaseDatabaseHibernate.getPersonList();
 //        personList.forEach(System.out::println);
 //        playerList.forEach(System.out::println);
-
-        playerDatabaseDatabaseHibernate.addPlayer(new Player().withAge(999).withName("EEQQEEQ"));
+        Player player = new Player().withName("1111111")
+                .withRating("111111")
+                .withId(1111)
+                .withAge(111111)
+                .withPosition("111111111")
+                .withCountry("111111111");
+        playerDatabaseDatabaseHibernate.editPlayer(5, player);
         List<Player> playerList = playerDatabaseDatabaseHibernate.getPlayerList();
         playerList.forEach(System.out::println);
     }
