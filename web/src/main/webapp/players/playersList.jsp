@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="by.education.objects.Player" %>
-<%@ page import="by.education.service.PlayerService" %>
+<%@ page import="objects.Player" %>
+<%@ page import="service.PlayerService" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -63,7 +63,7 @@
 
         <tr>
             <td><a href="<t:url value="/player/${person.id}"/>">
-                ${person.name}</a>
+                    ${person.name}</a>
             </td>
             <td>${person.age}
             </td>

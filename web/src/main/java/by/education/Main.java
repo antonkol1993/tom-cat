@@ -1,14 +1,14 @@
 package by.education;
 
+import service.PersonService;
+import service.PlayerService;
 
-import by.education.db.IPerson;
-import by.education.db.database.PersonDatabase;
-import by.education.service.PersonService;
+import java.util.List;
 
-public class Main  {
+public class Main {
     public static void main(String[] args) throws Exception {
 
-        System.out.println();
+
 
     }
 }

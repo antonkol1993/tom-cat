@@ -10,6 +10,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>web</module>
+        <module>service</module>
+        <module>model</module>
+        <module>database</module>
     </modules>
 
     <properties>
@@ -17,5 +20,10 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+
+    </dependencies>
+
 
 </project>

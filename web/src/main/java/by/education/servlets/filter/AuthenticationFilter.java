@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-import static by.education.constants.Constants.USER;
+import static constants.Constants.USER;
 
 @WebFilter(filterName = "AuthenticationFilter", urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {

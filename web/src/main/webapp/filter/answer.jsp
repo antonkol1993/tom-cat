@@ -11,7 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<h1><%=request.getAttribute("answer")%></h1>
+<h1><%=request.getAttribute("answer")%>
+</h1>
 
 </body>
 </html>

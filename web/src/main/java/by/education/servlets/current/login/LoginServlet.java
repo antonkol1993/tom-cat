@@ -1,8 +1,8 @@
 package by.education.servlets.current.login;
 
-import by.education.constants.UsersRole;
-import by.education.objects.Person;
-import by.education.service.PersonService;
+import constants.UsersRole;
+import objects.Person;
+import service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static by.education.constants.Constants.USER;
+import static constants.Constants.USER;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {

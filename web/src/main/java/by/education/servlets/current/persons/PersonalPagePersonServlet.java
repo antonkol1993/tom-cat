@@ -1,8 +1,8 @@
 package by.education.servlets.current.persons;
 
-import by.education.constants.UsersRole;
-import by.education.objects.Person;
-import by.education.service.PersonService;
+import constants.UsersRole;
+import objects.Person;
+import service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,11 +27,11 @@ public class PersonalPagePersonServlet extends HttpServlet {
         String password = personById.getPassword();
         UsersRole role = personById.getUserRole();
 
-        req.setAttribute( "id", id);
-        req.setAttribute( "name", name);
-        req.setAttribute( "password", password);
-        req.setAttribute( "role", role);
-        req.getRequestDispatcher("/persons/personsPersonInfo.jsp").forward(req,resp);
+        req.setAttribute("id", id);
+        req.setAttribute("name", name);
+        req.setAttribute("password", password);
+        req.setAttribute("role", role);
+        req.getRequestDispatcher("/persons/personsPersonInfo.jsp").forward(req, resp);
     }
 
 }

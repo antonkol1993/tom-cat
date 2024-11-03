@@ -1,7 +1,7 @@
 package by.education.servlets.current.players;
 
-import by.education.objects.Player;
-import by.education.service.PlayerService;
+import objects.Player;
+import service.PlayerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,7 +47,7 @@ public class EditPlayerServlet extends HttpServlet {
         String role = req.getParameter("role");
         String rating = req.getParameter("rating");
         try {
-            playerService.editPlayer(id, name, age, country, role,rating);
+            playerService.editPlayer(id, name, age, country, role, rating);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
