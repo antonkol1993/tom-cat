@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 public class HibernateUtils {
 
     private static final EntityManagerFactory factory =
-            Persistence.createEntityManagerFactory("hibernate");
+            Persistence.createEntityManagerFactory("cars");
 
     public static EntityManager getEntityManager() {
         return factory.createEntityManager();
