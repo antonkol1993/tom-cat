@@ -45,13 +45,23 @@
         <class>objects.cars.one.mapped_super_class.ElectricCar</class>
         <class>objects.cars.one.mapped_super_class.PetrolCar</class>
 
-        <class>objects.cars.two.inheritance.Car</class>
-        <class>objects.cars.two.inheritance.ElectricCar</class>
-        <class>objects.cars.two.inheritance.PetrolCar</class>
+        <class>objects.cars.two.inheritance.single.Car</class>
+        <class>objects.cars.two.inheritance.single.ElectricCar</class>
+        <class>objects.cars.two.inheritance.single.PetrolCar</class>
 
-        <class>objects.Person</class>
-        <class>objects.Player</class>
-        <class>objects.Address</class>
+        <class>objects.cars.three.inheritance.joined.single.Car</class>
+        <class>objects.cars.three.inheritance.joined.single.ElectricCar</class>
+        <class>objects.cars.three.inheritance.joined.single.PetrolCar</class>
+
+<!--        <class>objects.cars.four.inheritance.joined.per_class.Car</class>-->
+<!--        <class>objects.cars.four.inheritance.joined.per_class.ElectricCar</class>-->
+<!--        <class>objects.cars.four.inheritance.joined.per_class.PetrolCar</class>-->
+
+        <class>objects.mapping.three.Student</class>
+        <class>objects.mapping.three.Tutor</class>
+        <class>objects.mapping.three.User</class>
+
+
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

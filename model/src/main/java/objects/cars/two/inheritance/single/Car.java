@@ -1,4 +1,4 @@
-package objects.cars.two.inheritance;
+package objects.cars.two.inheritance.single;
 
 
 import jakarta.persistence.*;
