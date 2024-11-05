@@ -45,6 +45,10 @@
         <class>objects.cars.one.mapped_super_class.ElectricCar</class>
         <class>objects.cars.one.mapped_super_class.PetrolCar</class>
 
+        <class>objects.cars.two.inheritance.Car</class>
+        <class>objects.cars.two.inheritance.ElectricCar</class>
+        <class>objects.cars.two.inheritance.PetrolCar</class>
+
         <class>objects.Person</class>
         <class>objects.Player</class>
         <class>objects.Address</class>

@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "1st_electric_car")
-@Table(name = "1st_electric_car")
+@Table()
 @With
 public class ElectricCar extends Car{
 
