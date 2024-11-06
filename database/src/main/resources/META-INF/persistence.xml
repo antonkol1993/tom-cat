@@ -40,7 +40,6 @@
     <persistence-unit name="cars">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <!--    first. "MappedSuperClass"    !-->
         <class>objects.cars.one.mapped_super_class.Car</class>
         <class>objects.cars.one.mapped_super_class.ElectricCar</class>
         <class>objects.cars.one.mapped_super_class.PetrolCar</class>
@@ -56,13 +55,6 @@
         <class>objects.cars.four.inheritance.table_per_class.Car</class>
         <class>objects.cars.four.inheritance.table_per_class.ElectricCar</class>
         <class>objects.cars.four.inheritance.table_per_class.PetrolCar</class>
-
-        <class>objects.mapping.three.Student</class>
-        <class>objects.mapping.three.Tutor</class>
-        <class>objects.mapping.three.User</class>
-
-
-
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
