@@ -1,4 +1,4 @@
-package objects.mapping.four;
+package objects.cars.four.inheritance.table_per_class;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,14 +8,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "four_user")
+@Entity(name = "4th_car")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class User {
+@Table(name = "4th_car")
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
-    private String name;
-    private String surname;
+
+    private String model;
+
+    private String brand;
+
+    private boolean isWorking;
 
 }

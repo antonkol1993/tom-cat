@@ -1,8 +1,7 @@
-package objects.mapping.four;
+package objects.cars.four.inheritance.table_per_class;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,10 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "four_tutor")
-public class Tutor extends User {
+@Entity(name = "4th_petrol_car")
+@Table(name = "4th_petrol_car")
+public class PetrolCar extends Car {
 
-    @Column(name = "tutor_number")
-    private Integer tutorNumber;
-    private Double rating;
+    @Column(name = "value")
+    private Double value;
 }

@@ -5,13 +5,13 @@ import jakarta.persistence.EntityManager;
 import objects.cars.one.mapped_super_class.ElectricCar;
 import objects.cars.one.mapped_super_class.PetrolCar;
 
-public class Main1 {
+public class Main1MappedSuperClass {
     public static void main(String[] args) throws Exception {
 
 //        PetrolCar petrolCar1 = new PetrolCar().withModel("MMMMM").withBrand("WWWWWWW").withWorking(false);
 //        ElectricCar electricCar1 = new ElectricCar().withModel("sadsad").withBrand("wqeeqeqw").withWorking(true);
 
-        //todo 1st
+        //todo 1st. Mapped Super Class
         PetrolCar petrolCar1 = new PetrolCar();
         ElectricCar electricCar1 = new ElectricCar();
         electricCar1.setBrand("electro");
@@ -57,10 +57,7 @@ public class Main1 {
 //        entityManager.close();
 
 
-
         //todo 4th
-
-
 
 
     }

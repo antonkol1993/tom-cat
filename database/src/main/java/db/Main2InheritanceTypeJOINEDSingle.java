@@ -6,15 +6,14 @@ import objects.cars.two.inheritance.single.ElectricCar;
 import objects.cars.two.inheritance.single.PetrolCar;
 import objects.cars.two.inheritance.single.Car;
 
-public class Main2 {
+public class Main2InheritanceTypeJOINEDSingle {
     public static void main(String[] args) throws Exception {
 
 //        PetrolCar petrolCar1 = new PetrolCar().withModel("MMMMM").withBrand("WWWWWWW").withWorking(false);
 //        ElectricCar electricCar1 = new ElectricCar().withModel("sadsad").withBrand("wqeeqeqw").withWorking(true);
 
 
-
-        //todo 2st-4th. Need export different paths for objects
+        //todo 2st.InheritanceType.SINGLE_TABLE
 
         Car car = new Car();
         car.setWorking(true);
@@ -42,10 +41,7 @@ public class Main2 {
         entityManager.close();
 
 
-
         //todo 4th
-
-
 
 
     }

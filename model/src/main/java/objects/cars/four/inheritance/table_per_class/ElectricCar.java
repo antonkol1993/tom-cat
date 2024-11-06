@@ -1,4 +1,4 @@
-package objects.mapping.four;
+package objects.cars.four.inheritance.table_per_class;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,11 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "four_student")
-public class Student extends User {
+@Entity(name = "4th_electric_car")
+@Table(name = "4th_electric_car")
+public class ElectricCar extends Car {
 
-    @Column(name = "student_number")
-    private Integer studentNumber;
-    @Column(name = "paid_subscription")
-    private Boolean paidSubscription;
+    @Column(name = "capacity")
+    private Integer capacity;
 }
