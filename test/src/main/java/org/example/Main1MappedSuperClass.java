@@ -1,4 +1,4 @@
-package db;
+package org.example;
 
 import db.connector.HibernateUtils;
 import jakarta.persistence.EntityManager;

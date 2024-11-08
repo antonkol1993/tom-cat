@@ -23,6 +23,13 @@
         <class>objects.mapping.four.Tutor</class>
         <class>objects.mapping.four.Student</class>
 
+        <class>objects.relations.User</class>
+        <class>objects.relations.Employee</class>
+        <class>objects.relations.EmployeeDetail</class>
+        <class>objects.relations.Department</class>
+        <class>objects.relations.Meeting</class>
+        <class>objects.relations.Invitation</class>
+
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
