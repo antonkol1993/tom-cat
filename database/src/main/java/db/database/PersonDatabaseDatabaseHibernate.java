@@ -32,7 +32,7 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     }
 
     public void createPersonsFromLocal(List<Person> persons) {
-        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
             entityManager.getTransaction().begin();
             for (Person person : persons) {
                 entityManager.persist(person);
@@ -45,7 +45,7 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
 
     @Override
     public List<Person> getPersonList() {
-        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
             List<Person> personList = (List<Person>) entityManager.createQuery("from Person").getResultList();
             return personList;
         } catch (HibernateException e) {
@@ -55,7 +55,7 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
 
     @Override
     public void addPerson(Person person) {
-        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
             entityManager.getTransaction().begin();
             entityManager.persist(person);
             entityManager.getTransaction().commit();
@@ -67,7 +67,7 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     @Override
     public void removePerson(Integer id) {
         Person person = getPersonById(id);
-        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
             assert person != null;
             entityManager.getTransaction().begin();
             entityManager.createQuery("DELETE FROM Person WHERE id = :id").setParameter("id", person.getId()).executeUpdate();
@@ -80,7 +80,7 @@ public class PersonDatabaseDatabaseHibernate implements IPersonDatabase {
     @Override
     public void editPerson(Integer id, String userName, String password) {
         Person person = getPersonById(id);
-        try (EntityManager entityManager = HibernateUtils.getEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
             assert person != null;
             entityManager.getTransaction().begin();
             person.setUserName(userName);

@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 public class RelationsMain {
 
     public static void main(String[] args) {
-        EntityManager entityManager = HibernateUtils.getEntityManager();
+        EntityManager entityManager = HibernateUtils.getHibernateEntityManager();
 
     }
 }

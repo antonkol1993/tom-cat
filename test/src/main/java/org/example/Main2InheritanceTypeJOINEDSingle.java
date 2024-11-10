@@ -32,7 +32,7 @@ public class Main2InheritanceTypeJOINEDSingle {
         electricCar.setModel("Model S");
         electricCar.setCapacity(120);
 
-        EntityManager entityManager = HibernateUtils.getEntityManager();
+        EntityManager entityManager = HibernateUtils.getHibernateEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(car);
         entityManager.persist(petrolCar);

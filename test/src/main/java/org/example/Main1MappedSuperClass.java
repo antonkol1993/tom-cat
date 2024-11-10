@@ -23,7 +23,7 @@ public class Main1MappedSuperClass {
         petrolCar1.setModel("s500");
         petrolCar1.setWorking(false);
         petrolCar1.setValue(3.2);
-        EntityManager entityManager = HibernateUtils.getEntityManager();
+        EntityManager entityManager = HibernateUtils.getHibernateEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(petrolCar1);
         entityManager.persist(electricCar1);

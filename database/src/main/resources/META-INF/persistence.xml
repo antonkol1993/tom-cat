@@ -6,22 +6,22 @@
 
     <persistence-unit name="hibernate">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>objects.Person</class>
-        <class>objects.Player</class>
-        <class>objects.Address</class>
+<!--        <class>objects.Person</class>-->
+<!--        <class>objects.Player</class>-->
+<!--        <class>objects.Address</class>-->
 
-        <class>objects.mapping.one.User</class>
-        <class>objects.mapping.one.Tutor</class>
-        <class>objects.mapping.one.Student</class>
-        <class>objects.mapping.two.User</class>
-        <class>objects.mapping.two.Tutor</class>
-        <class>objects.mapping.two.Student</class>
-        <class>objects.mapping.three.User</class>
-        <class>objects.mapping.three.Tutor</class>
-        <class>objects.mapping.three.Student</class>
-        <class>objects.mapping.four.User</class>
-        <class>objects.mapping.four.Tutor</class>
-        <class>objects.mapping.four.Student</class>
+<!--        <class>objects.mapping.one.User</class>-->
+<!--        <class>objects.mapping.one.Tutor</class>-->
+<!--        <class>objects.mapping.one.Student</class>-->
+<!--        <class>objects.mapping.two.User</class>-->
+<!--        <class>objects.mapping.two.Tutor</class>-->
+<!--        <class>objects.mapping.two.Student</class>-->
+<!--        <class>objects.mapping.three.User</class>-->
+<!--        <class>objects.mapping.three.Tutor</class>-->
+<!--        <class>objects.mapping.three.Student</class>-->
+<!--        <class>objects.mapping.four.User</class>-->
+<!--        <class>objects.mapping.four.Tutor</class>-->
+<!--        <class>objects.mapping.four.Student</class>-->
 
         <class>objects.relations.User</class>
         <class>objects.relations.Employee</class>
@@ -29,6 +29,11 @@
         <class>objects.relations.Department</class>
         <class>objects.relations.Meeting</class>
         <class>objects.relations.Invitation</class>
+
+        <class>objects.football.Team</class>
+        <class>objects.football.Player</class>
+
+
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
@@ -40,6 +45,7 @@
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="show_sql" value="true" />
             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
+
         </properties>
     </persistence-unit>
 

@@ -6,14 +6,14 @@ import jakarta.persistence.Persistence;
 
 public class HibernateUtils {
 
-    private static final EntityManagerFactory factory =
+    private static final EntityManagerFactory hibernateFactory =
             Persistence.createEntityManagerFactory("hibernate");
 
     private static final EntityManagerFactory carsFactory =
             Persistence.createEntityManagerFactory("cars");
 
-    public static EntityManager getEntityManager() {
-        return factory.createEntityManager();
+    public static EntityManager getHibernateEntityManager() {
+        return hibernateFactory.createEntityManager();
     }
 
     public static EntityManager getCarsEntityManager() {
@@ -21,7 +21,7 @@ public class HibernateUtils {
     }
 
     public static void closeEntityManager() {
-        factory.close();
+        hibernateFactory.close();
     }
 
 
