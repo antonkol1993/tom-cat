@@ -15,47 +15,8 @@ public class Main {
 //        ElectricCar electricCar1 = new ElectricCar().withModel("sadsad").withBrand("wqeeqeqw").withWorking(true);
 
 
-        //todo 4th. TABLE PER CLASS
-        Team teamManchester = new Team();
-        teamManchester.setName("Manchester");
+        EntityManager carsEntityManager = HibernateUtils.getCarsEntityManager();
 
-        Team teamReal = new Team();
-        teamReal.setName("Real");
-
-        Player player1 = new Player();
-        player1.setName("Kolesnikov");
-        player1.setTeam(teamReal);
-
-        Player player2 = new Player();
-        player2.setName("Narut");
-        player2.setTeam(teamReal);
-
-        Player player3 = new Player();
-        player3.setName("Vasya");
-        player3.setTeam(teamManchester);
-
-        Player player4 = new Player();
-        player4.setName("Petya");
-        player4.setTeam(teamManchester);
-
-
-
-
-
-        EntityManager entityManager = HibernateUtils.getHibernateEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(player1);
-        entityManager.persist(player2);
-        entityManager.persist(player3);
-        entityManager.persist(player4);
-        entityManager.persist(teamManchester);
-        entityManager.persist(teamReal);
-
-
-        entityManager.getTransaction().commit();
-
-
-        //todo 4th
 
 
     }
