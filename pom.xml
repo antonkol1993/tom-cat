@@ -15,6 +15,7 @@
         <module>model</module>
         <module>database</module>
         <module>test</module>
+        <module>spring</module>
     </modules>
 
     <properties>

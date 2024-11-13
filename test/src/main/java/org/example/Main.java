@@ -15,7 +15,8 @@ public class Main {
 //        ElectricCar electricCar1 = new ElectricCar().withModel("sadsad").withBrand("wqeeqeqw").withWorking(true);
 
 
-        EntityManager carsEntityManager = HibernateUtils.getCarsEntityManager();
+        EntityManager carsEntityManager = HibernateUtils.getTestEntityManager()
+                ;
 
 
 

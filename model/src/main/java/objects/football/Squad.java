@@ -1,4 +1,4 @@
 package objects.football;
 
-public class Squad {
+public class                                                                                                                                                                                                                                                                                                                                                                                                                        Squad {
 }
