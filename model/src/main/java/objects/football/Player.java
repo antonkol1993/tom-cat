@@ -21,5 +21,5 @@ public class Player {
 
 //    private boolean isInSquad;
 //    private Team team;
-//    private Match match;
+//    private Game match;
 }

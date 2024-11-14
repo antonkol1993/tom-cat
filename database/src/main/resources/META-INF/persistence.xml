@@ -69,7 +69,7 @@
         <class>objects.football.Team</class>
         <class>objects.football.League</class>
         <class>objects.football.Player</class>
-        <class>objects.football.Match</class>
+        <class>objects.football.Game</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>

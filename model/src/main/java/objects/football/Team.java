@@ -30,7 +30,7 @@ public class Team {
 //    @OneToMany(mappedBy = "team")
 //    private List<Player> players;
 //    @ManyToOne
-//    private Match match;
+//    private Game match;
 
 
 }
