@@ -12,19 +12,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Team {
-
+public class League {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     private String name;
+    private String country;
 
-    @ManyToOne
-    private League league;
-    @OneToMany(mappedBy = "team")
-    private List<Player> players;
-    @ManyToOne
-    private Match match;
-
+    @OneToMany(mappedBy = "league")
+    private List<Team> teams;
 
 }

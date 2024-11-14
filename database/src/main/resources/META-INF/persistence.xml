@@ -68,12 +68,10 @@
     <persistence-unit name="test">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>objects.test.Department</class>
-        <class>objects.test.Employee</class>
-        <class>objects.test.EmployeeDetail</class>
-        <class>objects.test.Invitation</class>
-        <class>objects.test.Meeting</class>
-
+        <class>objects.football.Team</class>
+        <class>objects.football.League</class>
+        <class>objects.football.Player</class>
+        <class>objects.football.Match</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
