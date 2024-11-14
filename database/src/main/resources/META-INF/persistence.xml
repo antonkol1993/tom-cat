@@ -13,8 +13,6 @@
         <class>objects.relations.Meeting</class>
         <class>objects.relations.Invitation</class>
 
-        <class>objects.football.Team</class>
-        <class>objects.football.Player</class>
 
 
 

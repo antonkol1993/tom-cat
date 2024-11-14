@@ -15,8 +15,8 @@ public class Match {
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "match")
-    private List<Team> teams;
+//    @OneToMany(mappedBy = "match")
+//    private List<Team> teams;
 
 
 }
