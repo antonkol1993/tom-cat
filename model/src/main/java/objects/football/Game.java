@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +16,15 @@ public class Game {
     private Integer id;
     private String name;
 
-//    @OneToMany(mappedBy = "match")
-//    private List<Team> teams;
+    @ManyToOne
+    private Team team;
+
+    @ManyToOne
+    private League league;
+
+
+//    @OneToMany(mappedBy = "league")
+//    private List<Game> games;
 
 
 }

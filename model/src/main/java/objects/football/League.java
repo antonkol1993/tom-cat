@@ -28,7 +28,6 @@ public class League {
     private String country;
 
     @OneToMany(mappedBy = "league")
-//    @JoinColumn(name = "league_has_teams")
-    private List<Team> teams = new ArrayList<>();
+    private List<Game> games = new ArrayList<>();
 
 }

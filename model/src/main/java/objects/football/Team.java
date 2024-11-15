@@ -25,12 +25,15 @@ public class Team {
 //    @Column(name = "t_name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private League league;
-//    @OneToMany(mappedBy = "team")
-//    private List<Player> players;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Game game;
+    @OneToMany(mappedBy = "team")
+    private List<Player> players;
+
+    @OneToMany(mappedBy = "team")
+    private List<Game> games;
 //    @ManyToOne
-//    private Game match;
+//    private League league;
 
 
 }
