@@ -16,15 +16,19 @@ public class Game {
     private Integer id;
     private String name;
 
-    @ManyToOne
-    private Team team;
+
 
     @ManyToOne
     private League league;
 
+//    @OneToOne(mappedBy = "game")
+//    private Team homeTeam;
+//
+//    @OneToOne(mappedBy = "game")
+//    private Team awayTeam;
 
-//    @OneToMany(mappedBy = "league")
-//    private List<Game> games;
+    @ManyToOne
+    private Team team;
 
 
 }

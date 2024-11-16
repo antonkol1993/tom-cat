@@ -30,4 +30,7 @@ public class League {
     @OneToMany(mappedBy = "league")
     private List<Game> games = new ArrayList<>();
 
+    @ManyToOne()
+    private Country countries;
+
 }

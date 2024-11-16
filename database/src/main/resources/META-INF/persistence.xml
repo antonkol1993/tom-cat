@@ -70,6 +70,7 @@
         <class>objects.football.League</class>
         <class>objects.football.Player</class>
         <class>objects.football.Game</class>
+        <class>objects.football.Country</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
