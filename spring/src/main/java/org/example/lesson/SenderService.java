@@ -18,6 +18,6 @@ public class SenderService {
         System.out.println("SenderService init");
     }
     public void start() {
-        System.out.println("start");
+        System.err.println("start");
     }
 }

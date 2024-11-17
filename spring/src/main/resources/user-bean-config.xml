@@ -6,14 +6,68 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd"
-default-init-method="init" default-destroy-method="destroy">
+       default-init-method="init" default-destroy-method="destroy">
 
     <bean id="consoleSender" class="org.example.lesson.ConsoleSender"/>
     <bean id="errorSender" class="org.example.lesson.ConsoleErrorSender"/>
 
-
     <bean id="senderService" class="org.example.lesson.SenderService" init-method="start">
         <constructor-arg name="sender" ref="errorSender"/>
-
     </bean>
+
+
+    <!--    Countries  -->
+
+    <bean id="england" class="org.example.football.Country">
+        <property name="name" value="England"/>
+                <property name="leagues" ref="englishLeague"/>
+        <property name="capitalCity" value="London"/>
+    </bean>
+
+    <bean id="spain" class="org.example.football.Country">
+        <property name="name" value="Spain"/>
+                <property name="leagues" ref="spanishLeague"/>
+        <property name="capitalCity" value="Madrid"/>
+    </bean>
+
+    <bean id="germany" class="org.example.football.Country">
+        <property name="name" value="Germany"/>
+                <property name="leagues" ref="germanLeague"/>
+        <property name="capitalCity" value="Berlin"/>
+    </bean>
+    <bean id="france" class="org.example.football.Country">
+        <property name="name" value="France"/>
+                <property name="leagues" ref="frenchLeague"/>
+        <property name="capitalCity" value="Paris"/>
+    </bean>
+    <bean id="italy" class="org.example.football.Country">
+        <property name="name" value="Italy"/>
+                <property name="leagues" ref="italianLeague"/>
+        <property name="capitalCity" value="Rome"/>
+    </bean>
+
+
+    <!--    Leagues  -->
+
+    <bean id="englishLeague" class="org.example.football.League">
+        <property name="name" value="English Football League"/>
+        <property name="country" ref="england"/>
+    </bean>
+    <bean id="spanishLeague" class="org.example.football.League">
+        <property name="name" value="LaLiga"/>
+        <property name="country" ref="spain"/>
+    </bean>
+    <bean id="germanLeague" class="org.example.football.League">
+        <property name="name" value="German Football Bundesliga"/>
+        <property name="country" ref="germany"/>
+    </bean>
+    <bean id="frenchLeague" class="org.example.football.League">
+        <property name="name" value="French Ligue 1"/>
+        <property name="country" ref="france"/>
+    </bean>
+    <bean id="italianLeague" class="org.example.football.League">
+        <property name="name" value="Italian league Serie A"/>
+        <property name="country" ref="italy"/>
+    </bean>
+
 </beans>
