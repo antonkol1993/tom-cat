@@ -20,34 +20,34 @@
 
     <bean id="england" class="org.example.football.Country">
         <property name="name" value="England"/>
-                <property name="leagues" ref="englishLeague"/>
+        <property name="leagues" ref="englishLeague"/>
         <property name="capitalCity" value="London"/>
     </bean>
 
     <bean id="spain" class="org.example.football.Country">
         <property name="name" value="Spain"/>
-                <property name="leagues" ref="spanishLeague"/>
+        <property name="leagues" ref="spanishLeague"/>
         <property name="capitalCity" value="Madrid"/>
     </bean>
 
     <bean id="germany" class="org.example.football.Country">
         <property name="name" value="Germany"/>
-                <property name="leagues" ref="germanLeague"/>
+        <property name="leagues" ref="germanLeague"/>
         <property name="capitalCity" value="Berlin"/>
     </bean>
     <bean id="france" class="org.example.football.Country">
         <property name="name" value="France"/>
-                <property name="leagues" ref="frenchLeague"/>
+        <property name="leagues" ref="frenchLeague"/>
         <property name="capitalCity" value="Paris"/>
     </bean>
     <bean id="italy" class="org.example.football.Country">
         <property name="name" value="Italy"/>
-                <property name="leagues" ref="italianLeague"/>
+        <property name="leagues" ref="italianLeague"/>
         <property name="capitalCity" value="Rome"/>
     </bean>
 
 
-    <!--    Leagues  -->
+    <!--    Leagues  WITHOUT PROPERTY GAMESs!!!!!!!!-->
 
     <bean id="englishLeague" class="org.example.football.League">
         <property name="name" value="English Football League"/>
@@ -68,6 +68,214 @@
     <bean id="italianLeague" class="org.example.football.League">
         <property name="name" value="Italian league Serie A"/>
         <property name="country" ref="italy"/>
+        <!--        <property name="games" ref="italy"/>-->
     </bean>
+
+    <!--    Games  -->
+
+
+    <bean id="game1E" class="org.example.football.Game">
+        <property name="name" value="ManchesterC-ManchesterU"/>
+        <property name="league" ref="englishLeague"/>
+    </bean>
+    <bean id="game2E" class="org.example.football.Game">
+        <property name="name" value="Arsenal-Chelsea"/>
+        <property name="league" ref="englishLeague"/>
+    </bean>
+    <bean id="game3E" class="org.example.football.Game">
+        <property name="name" value="Everton-Liverpool"/>
+        <property name="league" ref="englishLeague"/>
+    </bean>
+
+    <bean id="game1S" class="org.example.football.Game">
+        <property name="name" value="Barcelona-Real"/>
+        <property name="league" ref="spanishLeague"/>
+    </bean>
+    <bean id="game2S" class="org.example.football.Game">
+        <property name="name" value="AtleticoM-Valencia"/>
+        <property name="league" ref="spanishLeague"/>
+    </bean>
+    <bean id="game3S" class="org.example.football.Game">
+        <property name="name" value="Malaga-villarreal"/>
+        <property name="league" ref="spanishLeague"/>
+    </bean>
+
+    <bean id="game1G" class="org.example.football.Game">
+        <property name="name" value="BayernM-BorussiaD"/>
+        <property name="league" ref="germanLeague"/>
+    </bean>
+    <bean id="game2G" class="org.example.football.Game">
+        <property name="name" value="BayernL-Leipzig"/>
+        <property name="league" ref="germanLeague"/>
+    </bean>
+
+    <bean id="game3G" class="org.example.football.Game">
+        <property name="name" value="VerderB-UnionB"/>
+        <property name="league" ref="germanLeague"/>
+    </bean>
+    <bean id="game1F" class="org.example.football.Game">
+        <property name="name" value="PSG-Monaco"/>
+        <property name="league" ref="frenchLeague"/>
+    </bean>
+
+    <bean id="game2F" class="org.example.football.Game">
+        <property name="name" value="Marseille-Nice"/>
+        <property name="league" ref="frenchLeague"/>
+    </bean>
+    <bean id="game3F" class="org.example.football.Game">
+        <property name="name" value="Lyon-Lille"/>
+        <property name="league" ref="frenchLeague"/>
+    </bean>
+
+    <bean id="game1I" class="org.example.football.Game">
+    <property name="name" value="Napoli-Atalanta"/>
+    <property name="league" ref="italianLeague"/>
+</bean>
+    <bean id="game2I" class="org.example.football.Game">
+        <property name="name" value="Milan-Juventus"/>
+        <property name="league" ref="italianLeague"/>
+    </bean>
+    <bean id="game3I" class="org.example.football.Game">
+        <property name="name" value="Inter-Lazio"/>
+        <property name="league" ref="italianLeague"/>
+    </bean>
+
+             <!--    TEAMS-->
+
+<!--    england-->
+    <bean id="manchesterC" class="org.example.football.Team">
+        <property name="name" value="ManchesterC"/>
+    </bean>
+    <bean id="manchesterU" class="org.example.football.Team">
+        <property name="name" value="ManchesterU"/>
+    </bean>
+    <bean id="arsenal" class="org.example.football.Team">
+        <property name="name" value="Arsenal"/>
+    </bean>
+    <bean id="chelsea" class="org.example.football.Team">
+        <property name="name" value="Chelsea"/>
+    </bean>
+    <bean id="everton" class="org.example.football.Team">
+        <property name="name" value="Everton"/>
+    </bean>
+    <bean id="liverpool" class="org.example.football.Team">
+        <property name="name" value="Liverpool"/>
+    </bean>
+
+<!--    spain-->
+    <bean id="barcelona" class="org.example.football.Team">
+        <property name="name" value="Barcelona"/>
+    </bean>
+    <bean id="real" class="org.example.football.Team">
+        <property name="name" value="Real"/>
+    </bean>
+    <bean id="atleticoM" class="org.example.football.Team">
+        <property name="name" value="AtleticoM"/>
+    </bean>
+    <bean id="valencia" class="org.example.football.Team">
+        <property name="name" value="Valencia"/>
+    </bean>
+    <bean id="malaga" class="org.example.football.Team">
+        <property name="name" value="Malaga"/>
+    </bean>
+    <bean id="villarreal" class="org.example.football.Team">
+        <property name="name" value="Villarreal"/>
+    </bean>
+
+<!--    germany-->
+    <bean id="bayernM" class="org.example.football.Team">
+        <property name="name" value="BayernM"/>
+    </bean>
+    <bean id="borussiaD" class="org.example.football.Team">
+        <property name="name" value="BorussiaD"/>
+    </bean>
+    <bean id="bayernL" class="org.example.football.Team">
+        <property name="name" value="BayernL"/>
+    </bean>
+    <bean id="leipzig" class="org.example.football.Team">
+        <property name="name" value="Leipzig"/>
+    </bean>
+    <bean id="verderB" class="org.example.football.Team">
+        <property name="name" value="VerderB"/>
+    </bean>
+    <bean id="unionB" class="org.example.football.Team">
+        <property name="name" value="UnionB"/>
+    </bean>
+
+<!--    france-->
+    <bean id="psg" class="org.example.football.Team">
+        <property name="name" value="PSG"/>
+    </bean>
+    <bean id="monaco" class="org.example.football.Team">
+        <property name="name" value="Monaco"/>
+    </bean>
+    <bean id="marseille" class="org.example.football.Team">
+        <property name="name" value="Marseille"/>
+    </bean>
+    <bean id="nice" class="org.example.football.Team">
+        <property name="name" value="Nice"/>
+    </bean>
+    <bean id="lyon" class="org.example.football.Team">
+        <property name="name" value="Lyon"/>
+    </bean>
+    <bean id="lille" class="org.example.football.Team">
+        <property name="name" value="Lille"/>
+    </bean>
+
+    <!--    italy-->
+    <bean id="napoli" class="org.example.football.Team">
+        <property name="name" value="Napoli"/>
+    </bean>
+    <bean id="atalanta" class="org.example.football.Team">
+        <property name="name" value="Atalanta"/>
+    </bean>
+    <bean id="milan" class="org.example.football.Team">
+        <property name="name" value="Milan"/>
+    </bean>
+    <bean id="juventus" class="org.example.football.Team">
+        <property name="name" value="Juventus"/>
+    </bean>
+    <bean id="inter" class="org.example.football.Team">
+        <property name="name" value="Inter"/>
+    </bean>
+    <bean id="lazio" class="org.example.football.Team">
+        <property name="name" value="Lazio"/>
+    </bean>
+
+<!--    players-->
+
+    <bean id="player1Barcelona" class="org.example.football.Player">
+        <property name="name" value="Messi"/>
+        <property name="team" ref="barcelona"/>
+    </bean>
+
+    <bean id="player2Barcelona" class="org.example.football.Player">
+        <property name="name" value="Jamal"/>
+        <property name="team" ref="barcelona"/>
+    </bean>
+
+    <bean id="player3Barcelona" class="org.example.football.Player">
+        <property name="name" value="ter Stegen"/>
+        <property name="team" ref="barcelona"/>
+    </bean>
+
+    <bean id="player1Real" class="org.example.football.Player">
+        <property name="name" value="Ronaldo"/>
+        <property name="team" ref="real"/>
+    </bean>
+
+    <bean id="player2Real" class="org.example.football.Player">
+        <property name="name" value="Mbappe"/>
+        <property name="team" ref="real"/>
+    </bean>
+
+    <bean id="player3Real" class="org.example.football.Player">
+        <property name="name" value="Cortois"/>
+        <property name="team" ref="real"/>
+    </bean>
+
+
+
+
 
 </beans>

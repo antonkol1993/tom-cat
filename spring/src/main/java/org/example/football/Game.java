@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Game {
+public class Game implements Football{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -30,4 +30,18 @@ public class Game {
     private Team team;
 
 
+    @Override
+    public void extraInit() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", league=" + league.getName() +
+                ", team=" + team +
+                '}';
+    }
 }

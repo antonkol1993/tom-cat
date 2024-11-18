@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Player {
+public class Player implements Football{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -19,7 +19,22 @@ public class Player {
     @ManyToOne
     private Team team;
 
-//    private boolean isInSquad;
+    @Override
+    public void extraInit() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", team=" + team.getName() +
+                '}';
+    }
+
+    //    private boolean isInSquad;
 //    private Team team;
 //    private Game match;
 }
