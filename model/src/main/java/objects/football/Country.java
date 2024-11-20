@@ -19,7 +19,7 @@ public class Country {
 
     private String name;
 
-    @OneToMany(mappedBy = "countries")
+    @OneToMany(mappedBy = "country")
     private List<League> leagues;
 
 

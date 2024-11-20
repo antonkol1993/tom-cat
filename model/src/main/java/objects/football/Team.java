@@ -14,26 +14,22 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-//@Table(name = "team_new")
 public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "t_id")
     Integer id;
 
-//    @Column(name = "t_name")
     private String name;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private Game game;
     @OneToMany(mappedBy = "team")
     private List<Player> players;
 
-    @OneToMany(mappedBy = "team")
-    private List<Game> games;
-//    @ManyToOne
-//    private League league;
+    @OneToMany(mappedBy = "homeTeam")
+    private List<Game> homeGames;
+
+    @OneToMany(mappedBy = "awayTeam")
+    private List<Game> awayGames;
 
 
 }

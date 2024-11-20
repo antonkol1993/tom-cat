@@ -28,7 +28,11 @@ public class Game {
 //    private Team awayTeam;
 
     @ManyToOne
-    private Team team;
+    private Team homeTeam;
+
+    @ManyToOne
+    private Team awayTeam;
+
 
 
 }

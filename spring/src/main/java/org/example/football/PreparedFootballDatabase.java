@@ -6,8 +6,31 @@ import java.util.List;
 
 public class PreparedFootballDatabase {
 
+    static ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("user-bean-config.xml");
+
+    public static List<Country> getCountries(){
+        Country england = context.getBean("england", Country.class);
+        Country spain = context.getBean("spain", Country.class);
+        Country germany = context.getBean("germany", Country.class);
+        Country france = context.getBean("france", Country.class);
+        Country italy = context.getBean("italy", Country.class);
+
+        return List.of(england, spain, germany, france, italy);
+    }
+
+
+    public static List<League> getLeagues(){
+        League englishLeague = context.getBean("englishLeague", League.class);
+        League spanishLeague = context.getBean("spanishLeague", League.class);
+        League germanLeague = context.getBean("germanLeague", League.class);
+        League frenchLeague = context.getBean("frenchLeague", League.class);
+        League italianLeague = context.getBean("italianLeague", League.class);
+
+        return List.of(englishLeague, spanishLeague, germanLeague, frenchLeague, italianLeague);
+    }
+
     public static List< ? extends Football> getFootballObjects(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("user-bean-config.xml");
+
         Country england = context.getBean("england", Country.class);
         Country spain = context.getBean("spain", Country.class);
         Country germany = context.getBean("germany", Country.class);
@@ -46,6 +69,8 @@ public class PreparedFootballDatabase {
         Player player1Real = context.getBean("player1Real", Player.class);
         Player player2Real = context.getBean("player2Real", Player.class);
         Player player3Real = context.getBean("player3Real", Player.class);
+
+
 
         return List.of(
                 england,spain,germany,france,italy,

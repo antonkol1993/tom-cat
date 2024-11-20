@@ -22,7 +22,7 @@ public class Country implements Football {
     private String name;
     private String capitalCity;
 
-    @OneToMany(mappedBy = "countries")
+    @OneToMany(mappedBy = "country")
     private List<League> leagues = new ArrayList<>();
 
     @Override

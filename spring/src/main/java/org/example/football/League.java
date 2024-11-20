@@ -14,17 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-//@Table(name = "league_new")
 public class League implements Football{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "l_id")
-    Integer id;
+    private Integer id;
 
-    //    @Column(name = "l_name")
     private String name;
 
-    //    @Column(name = "l_country")
     @ManyToOne
     private Country country;
 

@@ -13,21 +13,17 @@ public class Game implements Football{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
-
-
 
     @ManyToOne
     private League league;
 
-//    @OneToOne(mappedBy = "game")
-//    private Team homeTeam;
-//
-//    @OneToOne(mappedBy = "game")
-//    private Team awayTeam;
+    @ManyToOne
+    private Team homeTeam;
 
     @ManyToOne
-    private Team team;
+    private Team awayTeam;
 
 
     @Override
@@ -41,7 +37,8 @@ public class Game implements Football{
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", league=" + league.getName() +
-                ", team=" + team +
+                ", homeTeam=" + homeTeam.getName() +
+                ", awayTeam=" + awayTeam.getName() +
                 '}';
     }
 }

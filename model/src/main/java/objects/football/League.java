@@ -14,23 +14,17 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-//@Table(name = "league_new")
 public class League {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "l_id")
-    Integer id;
+    private Integer id;
 
-    //    @Column(name = "l_name")
     private String name;
-
-    //    @Column(name = "l_country")
-    private String country;
 
     @OneToMany(mappedBy = "league")
     private List<Game> games = new ArrayList<>();
 
-    @ManyToOne()
-    private Country countries;
+    @ManyToOne
+    private Country country;
 
 }
