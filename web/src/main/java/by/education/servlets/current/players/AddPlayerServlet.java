@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AddPlayerServlet", urlPatterns = "/players/add")
 public class AddPlayerServlet extends HttpServlet {
+    //@Autowired
     PlayerService playerService = PlayerService.getInstance();
 
     @Override

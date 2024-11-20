@@ -1,17 +1,20 @@
 package org.example;
 
 import jakarta.persistence.EntityManager;
-import org.example.connector.HibernateUtils;
 import org.example.football.Football;
 import org.example.football.PreparedFootballDatabase;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.orm.jpa.JpaTransactionManager;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         List<? extends Football> footballObjects = PreparedFootballDatabase.getFootballObjects();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("hibernate-config.xml");
+        JpaTransactionManager transactionManager = context.getBean("txManager", JpaTransactionManager.class);
+        EntityManager testEntityManager = transactionManager.getEntityManagerFactory().createEntityManager();
 
-        EntityManager testEntityManager = HibernateUtils.getTestEntityManager();
         testEntityManager.getTransaction().begin();
 //        for (int i = 0; i < footballObjects.size(); i++) {
 //            testEntityManager.persist(footballObjects.get(i));
