@@ -1,16 +1,12 @@
 package org.example;
 
 import jakarta.persistence.EntityManager;
-import org.example.football.Football;
 import org.example.football.PreparedFootballDatabase;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.jpa.JpaTransactionManager;
 
-import java.util.List;
-
-public class Main {
+public class MainForDbSpring {
     public static void main(String[] args) {
-        List<? extends Football> footballObjects = PreparedFootballDatabase.getCountries();
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("hibernate-config.xml");
         JpaTransactionManager transactionManager = context.getBean("txManager", JpaTransactionManager.class);
         EntityManager testEntityManager = transactionManager.getEntityManagerFactory().createEntityManager();
@@ -21,6 +17,10 @@ public class Main {
 //        }
         PreparedFootballDatabase.getCountries().forEach(testEntityManager::persist);
         PreparedFootballDatabase.getLeagues().forEach(testEntityManager::persist);
+        PreparedFootballDatabase.getGames().forEach(testEntityManager::persist);
+        PreparedFootballDatabase.getTeams().forEach(testEntityManager::persist);
+        PreparedFootballDatabase.getPlayers().forEach(testEntityManager::persist);
+
         testEntityManager.getTransaction().commit();
     }
 }
