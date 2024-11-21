@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<? extends Football> footballObjects = PreparedFootballDatabase.getFootballObjects();
+        List<? extends Football> footballObjects = PreparedFootballDatabase.getCountries();
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("hibernate-config.xml");
         JpaTransactionManager transactionManager = context.getBean("txManager", JpaTransactionManager.class);
         EntityManager testEntityManager = transactionManager.getEntityManagerFactory().createEntityManager();
