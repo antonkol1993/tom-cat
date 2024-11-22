@@ -45,4 +45,11 @@
         <property name="entityManagerFactory" ref="entityManFactory"/>
     </bean>
 
+
+<!--    with hikaricp-->
+
+
+
+
 </beans>
+
