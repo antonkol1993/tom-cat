@@ -16,12 +16,20 @@
         <property name="maxTotal" value="20"/>
     </bean>
 
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_test?createDatabaseIfNotExist=true"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="maximumPoolSize" value="20"/>
+    </bean>
+
 <!--    <bean id="entityManager" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">-->
 <!--        <property name="persistenceUnitName" value="test"/>-->
 <!--    </bean>-->
 
     <bean id="entityManFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="hikariDataSource"/>
         <property name="persistenceUnitName" value="spring-test"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>

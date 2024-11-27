@@ -16,6 +16,7 @@
         <module>database</module>
         <module>test</module>
         <module>spring</module>
+        <module>spring-annotation</module>
     </modules>
 
     <properties>

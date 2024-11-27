@@ -12,8 +12,12 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/admin/persons")
+//@Controller
 public class adminListOfPersonsServlet extends HttpServlet {
     List<Person> personList = PersonService.getInstance().getPersonList();
+
+    //@Autowired
+    private PersonService personService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
