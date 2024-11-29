@@ -16,6 +16,9 @@ public class HibernateUtils {
     private static final EntityManagerFactory hibernateFactory =
             Persistence.createEntityManagerFactory("hibernate");
 
+    private static final EntityManagerFactory playerPersonEntity =
+            Persistence.createEntityManagerFactory("player-person");
+
     public static EntityManager getHibernateEntityManager() {
         return hibernateFactory.createEntityManager();
     }
@@ -26,6 +29,10 @@ public class HibernateUtils {
 
     public static EntityManager getTestEntityManager() {
         return testFactory.createEntityManager();
+    }
+
+    public static EntityManager getPlayerPersonEntityManager() {
+        return playerPersonEntity.createEntityManager();
     }
 
     public static void closeHibernateEntityManager() {
@@ -40,5 +47,7 @@ public class HibernateUtils {
         testFactory.close();
     }
 
-
+    public static void closePlayerPersonEntityManager() {
+        playerPersonEntity.close();
+    }
 }

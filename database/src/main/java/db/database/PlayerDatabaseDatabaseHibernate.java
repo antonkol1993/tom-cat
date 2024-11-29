@@ -22,7 +22,7 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
     }
 
     public void createPlayersFromLocal(List<Player> players) {
-        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getPlayerPersonEntityManager()) {
             entityManager.getTransaction().begin();
             for (Player player : players) {
                 entityManager.persist(player);
@@ -35,7 +35,7 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public List<Player> getPlayerList() {
-        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getPlayerPersonEntityManager()) {
             List<Player> players = entityManager.createQuery("from Player").getResultList();
             return players;
         } catch (HibernateException e) {
@@ -46,14 +46,14 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public Player getPlayerById(Integer id) {
-        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getPlayerPersonEntityManager()) {
             return entityManager.find(Player.class, id);
         }
     }
 
     @Override
     public void addPlayer(Player player) throws Exception {
-        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getPlayerPersonEntityManager()) {
             entityManager.getTransaction().begin();
             entityManager.persist(player);
             entityManager.getTransaction().commit();
@@ -64,7 +64,7 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public void removePlayer(int id) throws Exception {
-        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getPlayerPersonEntityManager()) {
             Player playerById = getPlayerById(id);
             Player playerFromDB = entityManager.find(Player.class, playerById.getId());
             entityManager.getTransaction().begin();
@@ -77,7 +77,7 @@ public class PlayerDatabaseDatabaseHibernate implements IPlayerDatabase {
 
     @Override
     public void editPlayer(int id, Player player) throws Exception {
-        try (EntityManager entityManager = HibernateUtils.getHibernateEntityManager()) {
+        try (EntityManager entityManager = HibernateUtils.getPlayerPersonEntityManager()) {
             Player playerById = getPlayerById(id);
             assert playerById !=null;
             playerById.setName(player.getName());

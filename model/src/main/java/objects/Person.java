@@ -28,12 +28,14 @@ public class Person {
     @Column(name = "role", nullable = false)
     private UsersRole userRole;
 
+
     @AttributeOverrides({
             @AttributeOverride(name = "street", column = @Column(name = "home_street")),
             @AttributeOverride(name = "city", column = @Column(name = "home_city"))
     })
     @Embedded
     private Address homeAddress;
+
 
     @AttributeOverrides({
             @AttributeOverride(name = "street", column = @Column(name = "work_street")),

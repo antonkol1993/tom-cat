@@ -85,4 +85,23 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="player-person">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>objects.Player</class>
+        <class>objects.Person</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/players_persons?createDatabaseIfNotExist=true" />
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.password" value="root" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="show_sql" value="true" />
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
+        </properties>
+    </persistence-unit>
+
 </persistence>
