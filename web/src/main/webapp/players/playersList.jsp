@@ -52,24 +52,24 @@
 
 <table>
     <tr>
+        <th>Id</th>
         <th>Player</th>
         <th>Age</th>
         <th>Country</th>
-        <th>Id</th>
         <th>Rating</th>
     </tr>
 
     <t:forEach items="${list}" var="person">
 
         <tr>
+            <td>${person.id}
+            </td>
             <td><a href="<t:url value="/player/${person.id}"/>">
                     ${person.name}</a>
             </td>
             <td>${person.age}
             </td>
             <td>${person.country}
-            </td>
-            <td>${person.id}
             </td>
             <td>${person.rating}
             </td>
