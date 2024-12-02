@@ -4,33 +4,25 @@ package service;
 import constants.UsersRole;
 import db.database.PersonDatabaseDatabaseHibernate;
 import db.IPersonDatabase;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import objects.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@Data
+@NoArgsConstructor
 public class PersonService {
-    private static PersonService instance;
-    private final IPersonDatabase personDatabase = PersonDatabaseDatabaseHibernate.getInstance();
-    private List<Person> personList;
 
-    private PersonService() {
-    }
-
-    public static PersonService getInstance() {
-        if (instance == null) {
-            instance = new PersonService();
-        }
-        return instance;
-    }
-
+    IPersonDatabase personDatabase = PersonDatabaseDatabaseHibernate.getInstance();
 
     public List<Person> getPersonList() {
-        personList = personDatabase.getPersonList();
-        return personList;
+        return personDatabase.getPersonList();
     }
 
     public Person getPersonById(int id) {
-        personList = getPersonList();
+        List <Person> personList = personDatabase.getPersonList();
         Person personById;
         for (int i = 0; i < getPersonList().size(); i++) {
             if (personList.get(i).getId() == id) {

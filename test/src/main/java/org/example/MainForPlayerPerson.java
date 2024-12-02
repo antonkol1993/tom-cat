@@ -14,17 +14,17 @@ public class MainForPlayerPerson {
         EntityManager playerPersonEntityManager = HibernateUtils.getPlayerPersonEntityManager();
         playerPersonEntityManager.getTransaction().begin();
 
-        //todo create persons // DB players_persons
+//        todo create persons // DB players_persons
 //        for (int i = 0; i < CreatedObjects.getLocalePersons().size(); i++) {
 //            playerPersonEntityManager.persist(CreatedObjects.getLocalePersons().get(i));
 //        }
 //        playerPersonEntityManager.getTransaction().commit();
 
-        //todo create players // DB players_persons
-//        for (int i = 0; i < CreatedObjects.getLocalePlayers().size(); i++) {
-//            playerPersonEntityManager.persist(CreatedObjects.getLocalePlayers().get(i));
-//        }
-//        playerPersonEntityManager.getTransaction().commit();
+//        todo create players // DB players_persons
+        for (int i = 0; i < CreatedObjects.getLocalePlayers().size(); i++) {
+            playerPersonEntityManager.persist(CreatedObjects.getLocalePlayers().get(i));
+        }
+        playerPersonEntityManager.getTransaction().commit();
 
 
     }

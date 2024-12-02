@@ -1,5 +1,6 @@
 import objects.Person;
 import objects.Player;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.PersonService;
 import service.PlayerService;
 
@@ -9,11 +10,14 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
 
-        PersonService personService = PersonService.getInstance();
-        PlayerService playerService = PlayerService.getInstance();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(PersonService.class);
+        context.refresh();
+        PersonService personService = context.getBean(PersonService.class);
         List<Person> personList = personService.getPersonList();
-        personList.forEach(System.out::println);
-        List<Player> playerList = playerService.getPlayerList();
-        playerList.forEach(System.out::println);
+        for (Person person : personList) {
+            System.out.println(person);
+        }
+
     }
 }
