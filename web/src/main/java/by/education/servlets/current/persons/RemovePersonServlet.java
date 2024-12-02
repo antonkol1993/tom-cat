@@ -1,5 +1,7 @@
 package by.education.servlets.current.persons;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.PersonService;
 
 import javax.servlet.ServletException;
@@ -12,7 +14,8 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/persons/remove/*")
 public class RemovePersonServlet extends HttpServlet {
 
-    private final PersonService personService = PersonService.getInstance();
+    @Autowired
+    private PersonService personService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

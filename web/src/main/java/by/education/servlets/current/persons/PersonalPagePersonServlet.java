@@ -2,6 +2,8 @@ package by.education.servlets.current.persons;
 
 import constants.UsersRole;
 import objects.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.PersonService;
 
 import javax.servlet.ServletException;
@@ -14,7 +16,8 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/person/*")
 public class PersonalPagePersonServlet extends HttpServlet {
-    PersonService personService = PersonService.getInstance();
+    @Autowired
+    private PersonService personService;
 
 
     @Override
