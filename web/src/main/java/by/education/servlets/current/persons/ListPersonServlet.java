@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@Service
 @WebServlet(name = "ListPersonServlet", urlPatterns = "/persons")
 public class ListPersonServlet extends HttpServlet {
 

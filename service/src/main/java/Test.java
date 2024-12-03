@@ -1,6 +1,7 @@
 import objects.Person;
 import objects.Player;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.PersonService;
 import service.PlayerService;
 
@@ -10,11 +11,9 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(PersonService.class);
-        context.refresh();
-        PersonService personService = context.getBean(PersonService.class);
-        List<Person> personList = personService.getPersonList();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("app-context.xml");
+        PersonService personServiceBean = context.getBean("personServ", PersonService.class);
+        List<Person> personList = personServiceBean.getPersonList();
         for (Person person : personList) {
             System.out.println(person);
         }
