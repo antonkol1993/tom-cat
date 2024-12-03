@@ -1,6 +1,11 @@
 package by.education.servlets.current.persons;
 
 import objects.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 import service.PersonService;
 
 import javax.servlet.ServletException;
@@ -11,10 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@Service
 @WebServlet(name = "ListPersonServlet", urlPatterns = "/persons")
 public class ListPersonServlet extends HttpServlet {
 
-    private final PersonService personService = PersonService.getInstance();
+    @Autowired
+    private PersonService personService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

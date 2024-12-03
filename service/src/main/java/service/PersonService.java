@@ -10,10 +10,18 @@ import objects.Person;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
-@Data
-@NoArgsConstructor
+@Service(value = "personServ")
+
 public class PersonService {
+
+    private static PersonService instance;
+    private PersonService (){}
+    public static PersonService getInstance() {
+        if (instance == null) {
+            instance = new PersonService();
+        }
+        return instance;
+    }
 
     IPersonDatabase personDatabase = PersonDatabaseDatabaseHibernate.getInstance();
 
