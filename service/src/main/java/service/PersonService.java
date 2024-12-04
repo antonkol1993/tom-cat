@@ -10,12 +10,15 @@ import objects.Person;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service(value = "personServ")
 
+@Service(value = "personServ")
 public class PersonService {
 
     private static PersonService instance;
-    private PersonService (){}
+
+    private PersonService() {
+    }
+
     public static PersonService getInstance() {
         if (instance == null) {
             instance = new PersonService();
@@ -30,7 +33,7 @@ public class PersonService {
     }
 
     public Person getPersonById(int id) {
-        List <Person> personList = personDatabase.getPersonList();
+        List<Person> personList = personDatabase.getPersonList();
         Person personById;
         for (int i = 0; i < getPersonList().size(); i++) {
             if (personList.get(i).getId() == id) {
@@ -44,10 +47,7 @@ public class PersonService {
 
     public void addPerson(String userName, String password) {
         if (isUniqueUser(userName)) {
-            personDatabase.addPerson(new Person()
-                    .withUserName(userName)
-                    .withPassword(password)
-                    .withUserRole(UsersRole.USER));
+            personDatabase.addPerson(new Person().withUserName(userName).withPassword(password).withUserRole(UsersRole.USER));
         }
     }
 

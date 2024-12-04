@@ -80,7 +80,7 @@ public class PlayerService {
             playerById.setCountry(country);
             playerById.setPosition(position);
             playerById.setRating(rating);
-            playerListDatabase.editPlayer(id,playerById);
+            playerListDatabase.editPlayer(id, playerById);
         } else {
             throw new NullPointerException("Player's data are null");
         }
